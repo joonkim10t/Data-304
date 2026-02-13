@@ -14,4 +14,4 @@ embed-resources: true
 Here is the chart I chose:  
 [Candlestick Chart (Vega-Lite example)](https://vega.github.io/vega-lite/examples/layer_candlestick.html)
 
-![](images/candlestick.png){width=80%}
+![](candlestick.png){width=80%}
