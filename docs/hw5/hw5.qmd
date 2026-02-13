@@ -9,9 +9,35 @@ embed-resources: true
 ## Homework 5
 ## Exercise 2 — Visualization Gallery Analysis
 
-### (a) Graphic + link
-
+a) Include a copy of the graphic and a link to the webpage where it lives.
 Here is the chart I chose:  
 [Candlestick Chart (Vega-Lite example)](https://vega.github.io/vega-lite/examples/layer_candlestick.html)
 
 ![](candlestick.png){width=80%}
+
+b) What marks are being used? What variables are mapped to which properties?
+Rectangles (bars) to show the opening and closing prices for each day
+Lines to show the highest and lowest prices for each day
+
+x-axis = dat/time
+y-axis = price
+height of the rectangle = difference between open and close price
+line length = range between high and low price
+color = weather the price went up and down - green means price increased and red means price decreased
+
+c) What is the main story of this graphic?
+main story for the graphic is how the price changes over time and shows the price is moving up and down. 
+
+d) What makes it a good graphic?
+shows alot of information in a compact way
+color is easy to read with informations - green=increased, red=decreased
+Maybe this kind of graph is perfect for finanacial data
+
+e)What features do you think you would know how to implement in Vega-Lite?
+basic bar and line marks, mapping date to the xaxis and price to the yaxis, using color to represent up and down, and labels and titles
+
+f)Are there any features of the graphic that you would not know how to do in Vega-Lite? If so, list them.
+layering multiple marks precisely to form candlesticks, creating conditional coloring based on open vs close price.
+
+
+
