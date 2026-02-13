@@ -8,4 +8,10 @@ embed-resources: true
 
 ## Homework 5
 
-If you can see this, my Quarto page is working.
+## Exercise 2 — Visualization Gallery Analysis
+
+### (a) Graphic + link
+
+Here is the chart I chose: [Chart title] ![Elephant](elephant.png)
+
+![](images/chart.png){width=80%}
