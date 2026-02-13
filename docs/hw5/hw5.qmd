@@ -7,4 +7,11 @@ embed-resources: true
 ---
 
 ## Homework 5
+## Exercise 2 — Visualization Gallery Analysis
 
+### (a) Graphic + link
+
+Here is the chart I chose:  
+[Candlestick Chart (Vega-Lite example)](https://vega.github.io/vega-lite/examples/layer_candlestick.html)
+
+![](images/candlestick.png){width=80%}
