@@ -38,11 +38,16 @@ Tufte uses this graphic to show how visuals can encourage comparison and reveal 
 
 Another key takeaway is to focus on the "So What?" instead of showing all the data. I should be able to degisn visuals around the main message
 
-##Exercise 3
+
 ## Exercise 3
 
-```{vega-lite}
-{
+```{r}
+#| message: false
+#| echo: false
+library(vegawidget)
+
+spec_ex3 <- '{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
     "values": [
       {"Date":"Q1-2017","Completion Rate":0.91,"Response Rate":0.023},
@@ -56,29 +61,32 @@ Another key takeaway is to focus on the "So What?" instead of showing all the da
       {"Date":"Q1-2019","Completion Rate":0.83,"Response Rate":0.028}
     ]
   },
+
   "layer": [
     {
+      "transform": [{"calculate": "datum[\\\"Completion Rate\\\"]", "as": "Rate"}],
       "mark": {"type": "line", "point": true},
       "encoding": {
-        "x": {"field": "Date", "type": "ordinal"},
-        "y": {
-          "field": "Completion Rate",
-          "type": "quantitative",
-          "axis": {"format": "%"}
-        },
+        "x": {"field": "Date", "type": "ordinal", "title": "Quarter"},
+        "y": {"field": "Rate", "type": "quantitative", "axis": {"format": "%"}, "title": "Rate"},
         "color": {"value": "#1f77b4"}
       }
     },
     {
+      "transform": [{"calculate": "datum[\\\"Response Rate\\\"]", "as": "Rate"}],
       "mark": {"type": "line", "point": true},
       "encoding": {
         "x": {"field": "Date", "type": "ordinal"},
-        "y": {"field": "Response Rate", "type": "quantitative"},
+        "y": {"field": "Rate", "type": "quantitative"},
         "color": {"value": "#ff7f0e"}
       }
     }
-  ]
-}
+  ],
+
+  "title": "Completion Rate vs. Response Rate Over Time"
+}'
+
+spec_ex3 |> as_vegaspec()
 ```
 
 b) After reading Knaflic, I focused on simplifying the visual and removing unecessary elements. Instead of using dual axes, I used a shared percent scale to avoid misleading comparison. I also used clean lines with points to make the trends over time easier to see.
