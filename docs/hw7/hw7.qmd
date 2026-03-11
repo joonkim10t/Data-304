@@ -1,6 +1,5 @@
 HW 7 
 
-EXERCISE 1
 ### Exercise 1
 
 ### a. List some guidelines/advice Wilke gives about creating bar charts.
