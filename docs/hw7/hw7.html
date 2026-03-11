@@ -1,0 +1,4419 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>hw7</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="hw7_files/libs/clipboard/clipboard.min.js"></script>
+<script src="hw7_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="hw7_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="hw7_files/libs/quarto-html/popper.min.js"></script>
+<script src="hw7_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="hw7_files/libs/quarto-html/anchor.min.js"></script>
+<link href="hw7_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="hw7_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="hw7_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="hw7_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="hw7_files/libs/bootstrap/bootstrap-0b5895800423680069a27c59630db155.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="hw7_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="hw7_files/libs/vega-5.24.0/vega@5.24.0.min.js"></script>
+<script src="hw7_files/libs/vega-lite-5.16.3/vega-lite@5.16.3.min.js"></script>
+<link href="hw7_files/libs/vega-embed-6.22.2/vega-embed.css" rel="stylesheet">
+<script src="hw7_files/libs/vega-embed-6.22.2/vega-embed@6.22.2.min.js"></script>
+<script src="hw7_files/libs/vegawidget-vl5-binding-0.5.0/vegawidget-vl5.js"></script>
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<p>HW 7</p>
+<p>EXERCISE 1 ### Exercise 1</p>
+<section id="a.-list-some-guidelinesadvice-wilke-gives-about-creating-bar-charts." class="level3">
+<h3 class="anchored" data-anchor-id="a.-list-some-guidelinesadvice-wilke-gives-about-creating-bar-charts.">a. List some guidelines/advice Wilke gives about creating bar charts.</h3>
+<p>Wilke explains that bar charts are useful when comapring amounts across different categories. One advice that was important was bars should start at zero becuase it can mislead and give the viewers wrong information. If the bar is long, horizontal bar is better than verticle. Lastly he shared that bars should arranged by value or it is easier to read.</p>
+</section>
+<section id="b.-when-is-it-not-advised-to-use-a-bar-chart-why" class="level3">
+<h3 class="anchored" data-anchor-id="b.-when-is-it-not-advised-to-use-a-bar-chart-why">b. When is it not advised to use a bar chart? Why?</h3>
+<p>Bar charts are not ideal when the valures are being compared very similar and very long. Wilke mentions as a example that life expectancy where bars make the differeces harder to notice, is one example that we shouldnt use bar graph. Dot plot can be better for this example.</p>
+</section>
+<section id="c.-what-alternatives-to-bars-are-mentioned-in-this-chapter" class="level3">
+<h3 class="anchored" data-anchor-id="c.-what-alternatives-to-bars-are-mentioned-in-this-chapter">c.&nbsp;What alternatives to bars are mentioned in this chapter?</h3>
+<p>The chapter mentions dop plots and hearmaps as alternatives to bar charts.</p>
+</section>
+<section id="d.-what-guidance-does-wilke-give-about-whether-or-not-to-stack-bars-vs.-dodge-them-using-an-offset-in-vega-lite" class="level3">
+<h3 class="anchored" data-anchor-id="d.-what-guidance-does-wilke-give-about-whether-or-not-to-stack-bars-vs.-dodge-them-using-an-offset-in-vega-lite">d.&nbsp;What guidance does Wilke give about whether or not to stack bars vs.&nbsp;dodge them (using an offset in Vega-Lite)?</h3>
+<p>Wilke explains that grouped (dodged) bars are useful when comparing categories across another variable because each bar shares the same baseline, making comparisons easier. Stacked bars are better when the total of the values is meaningful, since the combined bar represents the sum. However, stacked bars make it harder to compare individual segments because they do not share a common baseline.</p>
+</section>
+<section id="e.-recreate-figure-6.3-in-vega-lite" class="level3">
+<h3 class="anchored" data-anchor-id="e.-recreate-figure-6.3-in-vega-lite">e. Recreate Figure 6.3 in Vega-Lite</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>movies <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"cow-movies.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">vega_schema</span>(),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> movies),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mark =</span> <span class="st">"bar"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">500</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">300</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"amount"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"weekend gross (million USD)"</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"title_short"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">sort =</span> <span class="st">"-x"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">""</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(spec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-afc70ea6012806e1d9a6" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-afc70ea6012806e1d9a6">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {
+          "rank": 1,
+          "title": "Star Wars: The Last Jedi",
+          "title_short": "Star Wars",
+          "amount": 71565498,
+          "amount_text": "$71,565,498"
+        },
+        {
+          "rank": 2,
+          "title": "Jumanji: Welcome to the Jungle",
+          "title_short": "Jumanji",
+          "amount": 36169328,
+          "amount_text": "$36,169,328"
+        },
+        {
+          "rank": 3,
+          "title": "Pitch Perfect 3",
+          "title_short": "Pitch Perfect 3",
+          "amount": 19928525,
+          "amount_text": "$19,928,525"
+        },
+        {
+          "rank": 4,
+          "title": "The Greatest Showman",
+          "title_short": "Greatest Showman",
+          "amount": 8805843,
+          "amount_text": "$8,805,843"
+        },
+        {
+          "rank": 5,
+          "title": "Ferdinand",
+          "title_short": "Ferdinand",
+          "amount": 7316746,
+          "amount_text": "$7,316,746"
+        }
+      ]
+    },
+    "mark": "bar",
+    "width": 500,
+    "height": 300,
+    "encoding": {
+      "x": {
+        "field": "amount",
+        "type": "quantitative",
+        "axis": {
+          "title": "weekend gross (million USD)"
+        }
+      },
+      "y": {
+        "field": "title_short",
+        "type": "nominal",
+        "sort": "-x",
+        "axis": {
+          "title": ""
+        }
+      }
+    }
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="f.-recreate-figures-6.8-and-6.9-in-vega-lite" class="level3">
+<h3 class="anchored" data-anchor-id="f.-recreate-figures-6.8-and-6.9-in-vega-lite">F. Recreate Figures 6.8 and 6.9 in Vega-Lite</h3>
+<p>Recreate Figures 6.8</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>income <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"cow-income.csv"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>income_filtered <span class="ot">&lt;-</span> income[income<span class="sc">$</span>race <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"asian"</span>, <span class="st">"white"</span>, <span class="st">"hispanic"</span>, <span class="st">"black"</span>), ]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Capitalize race labels</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>income_filtered<span class="sc">$</span>race <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">toTitleCase</span>(income_filtered<span class="sc">$</span>race)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>spec_68 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">vega_schema</span>(),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> income_filtered),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">mark =</span> <span class="st">"bar"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">500</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">300</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"race"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="cn">NULL</span>, <span class="at">labelAngle =</span> <span class="dv">0</span>),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">sort =</span> <span class="fu">c</span>(<span class="st">"Asian"</span>, <span class="st">"White"</span>, <span class="st">"Hispanic"</span>, <span class="st">"Black"</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"median_income"</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"median income (USD)"</span>, <span class="at">format =</span> <span class="st">"$,.0f"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">xOffset =</span> <span class="fu">list</span>(</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"age"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"nominal"</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="fu">list</span>(</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"age"</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"age (yrs)"</span>,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">scheme =</span> <span class="st">"blues"</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="fu">vegawidget</span>(<span class="fu">as_vegaspec</span>(spec_68))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-1498d0721bc589db3f9c" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1498d0721bc589db3f9c">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {
+          "age": "15 to 24",
+          "year": 2016,
+          "median_income": 44588,
+          "race": "White"
+        },
+        {
+          "age": "25 to 34",
+          "year": 2016,
+          "median_income": 65389,
+          "race": "White"
+        },
+        {
+          "age": "35 to 44",
+          "year": 2016,
+          "median_income": 78093,
+          "race": "White"
+        },
+        {
+          "age": "45 to 54",
+          "year": 2016,
+          "median_income": 82289,
+          "race": "White"
+        },
+        {
+          "age": "55 to 64",
+          "year": 2016,
+          "median_income": 69387,
+          "race": "White"
+        },
+        {
+          "age": "65 to 74",
+          "year": 2016,
+          "median_income": 52219,
+          "race": "White"
+        },
+        {
+          "age": "> 74",
+          "year": 2016,
+          "median_income": 32203,
+          "race": "White"
+        },
+        {
+          "age": "15 to 24",
+          "year": 2016,
+          "median_income": 45809,
+          "race": "Asian"
+        },
+        {
+          "age": "25 to 34",
+          "year": 2016,
+          "median_income": 80098,
+          "race": "Asian"
+        },
+        {
+          "age": "35 to 44",
+          "year": 2016,
+          "median_income": 100443,
+          "race": "Asian"
+        },
+        {
+          "age": "45 to 54",
+          "year": 2016,
+          "median_income": 98925,
+          "race": "Asian"
+        },
+        {
+          "age": "55 to 64",
+          "year": 2016,
+          "median_income": 91193,
+          "race": "Asian"
+        },
+        {
+          "age": "65 to 74",
+          "year": 2016,
+          "median_income": 56646,
+          "race": "Asian"
+        },
+        {
+          "age": "> 74",
+          "year": 2016,
+          "median_income": 26487,
+          "race": "Asian"
+        },
+        {
+          "age": "15 to 24",
+          "year": 2016,
+          "median_income": 30267,
+          "race": "Black"
+        },
+        {
+          "age": "25 to 34",
+          "year": 2016,
+          "median_income": 39176,
+          "race": "Black"
+        },
+        {
+          "age": "35 to 44",
+          "year": 2016,
+          "median_income": 49336,
+          "race": "Black"
+        },
+        {
+          "age": "45 to 54",
+          "year": 2016,
+          "median_income": 50103,
+          "race": "Black"
+        },
+        {
+          "age": "55 to 64",
+          "year": 2016,
+          "median_income": 40363,
+          "race": "Black"
+        },
+        {
+          "age": "65 to 74",
+          "year": 2016,
+          "median_income": 28697,
+          "race": "Black"
+        },
+        {
+          "age": "> 74",
+          "year": 2016,
+          "median_income": 22302,
+          "race": "Black"
+        },
+        {
+          "age": "15 to 24",
+          "year": 2016,
+          "median_income": 45080,
+          "race": "Hispanic"
+        },
+        {
+          "age": "25 to 34",
+          "year": 2016,
+          "median_income": 45876,
+          "race": "Hispanic"
+        },
+        {
+          "age": "35 to 44",
+          "year": 2016,
+          "median_income": 50245,
+          "race": "Hispanic"
+        },
+        {
+          "age": "45 to 54",
+          "year": 2016,
+          "median_income": 58103,
+          "race": "Hispanic"
+        },
+        {
+          "age": "55 to 64",
+          "year": 2016,
+          "median_income": 51996,
+          "race": "Hispanic"
+        },
+        {
+          "age": "65 to 74",
+          "year": 2016,
+          "median_income": 36704,
+          "race": "Hispanic"
+        },
+        {
+          "age": "> 74",
+          "year": 2016,
+          "median_income": 23797,
+          "race": "Hispanic"
+        }
+      ]
+    },
+    "mark": "bar",
+    "width": 500,
+    "height": 300,
+    "encoding": {
+      "x": {
+        "field": "race",
+        "type": "nominal",
+        "axis": {
+          "title": null,
+          "labelAngle": 0
+        },
+        "sort": ["Asian", "White", "Hispanic", "Black"]
+      },
+      "y": {
+        "field": "median_income",
+        "type": "quantitative",
+        "axis": {
+          "title": "median income (USD)",
+          "format": "$,.0f"
+        }
+      },
+      "xOffset": {
+        "field": "age",
+        "type": "nominal"
+      },
+      "color": {
+        "field": "age",
+        "type": "nominal",
+        "title": "age (yrs)",
+        "scale": {
+          "scheme": "blues"
+        }
+      }
+    }
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Recreate Figures 6.9</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>income <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"cow-income.csv"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>income_filtered <span class="ot">&lt;-</span> income[income<span class="sc">$</span>race <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"asian"</span>, <span class="st">"white"</span>, <span class="st">"hispanic"</span>, <span class="st">"black"</span>), ]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>spec_69 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">vega_schema</span>(),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> income_filtered),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">spec =</span> <span class="fu">list</span>(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mark =</span> <span class="st">"bar"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">350</span>,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">250</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">field =</span> <span class="st">"age"</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis =</span> <span class="fu">list</span>(</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"age (years)"</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">labelAngle =</span> <span class="sc">-</span><span class="dv">45</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">labelPadding =</span> <span class="dv">5</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">field =</span> <span class="st">"median_income"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"median income (USD)"</span>, <span class="at">format =</span> <span class="st">"$,.0f"</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="fu">list</span>(<span class="at">value =</span> <span class="st">"#6baed6"</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">facet =</span> <span class="fu">list</span>(</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">field =</span> <span class="st">"race"</span>,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="dv">2</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolve =</span> <span class="fu">list</span>(<span class="at">scale =</span> <span class="fu">list</span>(<span class="at">y =</span> <span class="st">"shared"</span>))</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">vegawidget</span>(<span class="fu">as_vegaspec</span>(spec_69), <span class="at">width =</span> <span class="dv">900</span>, <span class="at">height =</span> <span class="dv">700</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-d618bfa384b2dc9ad2bc" style="width:900px;height:700px;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d618bfa384b2dc9ad2bc">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {
+          "age": "15 to 24",
+          "year": 2016,
+          "median_income": 44588,
+          "race": "white"
+        },
+        {
+          "age": "25 to 34",
+          "year": 2016,
+          "median_income": 65389,
+          "race": "white"
+        },
+        {
+          "age": "35 to 44",
+          "year": 2016,
+          "median_income": 78093,
+          "race": "white"
+        },
+        {
+          "age": "45 to 54",
+          "year": 2016,
+          "median_income": 82289,
+          "race": "white"
+        },
+        {
+          "age": "55 to 64",
+          "year": 2016,
+          "median_income": 69387,
+          "race": "white"
+        },
+        {
+          "age": "65 to 74",
+          "year": 2016,
+          "median_income": 52219,
+          "race": "white"
+        },
+        {
+          "age": "> 74",
+          "year": 2016,
+          "median_income": 32203,
+          "race": "white"
+        },
+        {
+          "age": "15 to 24",
+          "year": 2016,
+          "median_income": 45809,
+          "race": "asian"
+        },
+        {
+          "age": "25 to 34",
+          "year": 2016,
+          "median_income": 80098,
+          "race": "asian"
+        },
+        {
+          "age": "35 to 44",
+          "year": 2016,
+          "median_income": 100443,
+          "race": "asian"
+        },
+        {
+          "age": "45 to 54",
+          "year": 2016,
+          "median_income": 98925,
+          "race": "asian"
+        },
+        {
+          "age": "55 to 64",
+          "year": 2016,
+          "median_income": 91193,
+          "race": "asian"
+        },
+        {
+          "age": "65 to 74",
+          "year": 2016,
+          "median_income": 56646,
+          "race": "asian"
+        },
+        {
+          "age": "> 74",
+          "year": 2016,
+          "median_income": 26487,
+          "race": "asian"
+        },
+        {
+          "age": "15 to 24",
+          "year": 2016,
+          "median_income": 30267,
+          "race": "black"
+        },
+        {
+          "age": "25 to 34",
+          "year": 2016,
+          "median_income": 39176,
+          "race": "black"
+        },
+        {
+          "age": "35 to 44",
+          "year": 2016,
+          "median_income": 49336,
+          "race": "black"
+        },
+        {
+          "age": "45 to 54",
+          "year": 2016,
+          "median_income": 50103,
+          "race": "black"
+        },
+        {
+          "age": "55 to 64",
+          "year": 2016,
+          "median_income": 40363,
+          "race": "black"
+        },
+        {
+          "age": "65 to 74",
+          "year": 2016,
+          "median_income": 28697,
+          "race": "black"
+        },
+        {
+          "age": "> 74",
+          "year": 2016,
+          "median_income": 22302,
+          "race": "black"
+        },
+        {
+          "age": "15 to 24",
+          "year": 2016,
+          "median_income": 45080,
+          "race": "hispanic"
+        },
+        {
+          "age": "25 to 34",
+          "year": 2016,
+          "median_income": 45876,
+          "race": "hispanic"
+        },
+        {
+          "age": "35 to 44",
+          "year": 2016,
+          "median_income": 50245,
+          "race": "hispanic"
+        },
+        {
+          "age": "45 to 54",
+          "year": 2016,
+          "median_income": 58103,
+          "race": "hispanic"
+        },
+        {
+          "age": "55 to 64",
+          "year": 2016,
+          "median_income": 51996,
+          "race": "hispanic"
+        },
+        {
+          "age": "65 to 74",
+          "year": 2016,
+          "median_income": 36704,
+          "race": "hispanic"
+        },
+        {
+          "age": "> 74",
+          "year": 2016,
+          "median_income": 23797,
+          "race": "hispanic"
+        }
+      ]
+    },
+    "spec": {
+      "mark": "bar",
+      "width": 350,
+      "height": 250,
+      "encoding": {
+        "x": {
+          "field": "age",
+          "type": "nominal",
+          "axis": {
+            "title": "age (years)",
+            "labelAngle": -45,
+            "labelPadding": 5
+          }
+        },
+        "y": {
+          "field": "median_income",
+          "type": "quantitative",
+          "axis": {
+            "title": "median income (USD)",
+            "format": "$,.0f"
+          }
+        },
+        "color": {
+          "value": "#6baed6"
+        }
+      }
+    },
+    "facet": {
+      "field": "race",
+      "type": "nominal",
+      "columns": 2
+    },
+    "resolve": {
+      "scale": {
+        "y": "shared"
+      }
+    },
+    "width": 900,
+    "height": 700,
+    "config": {
+      "autosize": {
+        "type": "fit",
+        "contains": "padding"
+      },
+      "view": {
+        "width": 900,
+        "height": 700
+      }
+    }
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="g.-recreate-figure-6.11-and-explain-why-figures-6.12-and-6.13-are-labeled-bad." class="level3">
+<h3 class="anchored" data-anchor-id="g.-recreate-figure-6.11-and-explain-why-figures-6.12-and-6.13-are-labeled-bad.">g. Recreate Figure 6.11 and explain why Figures 6.12 and 6.13 are labeled “bad”.</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"cow-gapminder.csv"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>americas_2007 <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>continent <span class="sc">==</span> <span class="st">"Americas"</span> <span class="sc">&amp;</span> gapminder<span class="sc">$</span>year <span class="sc">==</span> <span class="dv">2007</span>, ]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>spec_611 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">vega_schema</span>(),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> americas_2007),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"point"</span>, <span class="at">filled =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#3a7dbf"</span>, <span class="at">size =</span> <span class="dv">80</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">500</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">400</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"lifeExp"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">zero =</span> <span class="cn">FALSE</span>),</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="st">"life expectancy (years)"</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"country"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">sort =</span> <span class="st">"-x"</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="cn">NULL</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="fu">vegawidget</span>(<span class="fu">as_vegaspec</span>(spec_611))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-bb6aacb6f805f96cd4d1" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bb6aacb6f805f96cd4d1">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {
+          "country": "Argentina",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 75.32,
+          "pop": 40301927,
+          "gdpPercap": 12779.37964
+        },
+        {
+          "country": "Bolivia",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 65.554,
+          "pop": 9119152,
+          "gdpPercap": 3822.137084
+        },
+        {
+          "country": "Brazil",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 72.39,
+          "pop": 190010647,
+          "gdpPercap": 9065.800825
+        },
+        {
+          "country": "Canada",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 80.653,
+          "pop": 33390141,
+          "gdpPercap": 36319.23501
+        },
+        {
+          "country": "Chile",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 78.553,
+          "pop": 16284741,
+          "gdpPercap": 13171.63885
+        },
+        {
+          "country": "Colombia",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 72.889,
+          "pop": 44227550,
+          "gdpPercap": 7006.580419
+        },
+        {
+          "country": "Costa Rica",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 78.782,
+          "pop": 4133884,
+          "gdpPercap": 9645.06142
+        },
+        {
+          "country": "Cuba",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 78.273,
+          "pop": 11416987,
+          "gdpPercap": 8948.102923
+        },
+        {
+          "country": "Dominican Republic",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 72.235,
+          "pop": 9319622,
+          "gdpPercap": 6025.374752
+        },
+        {
+          "country": "Ecuador",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 74.994,
+          "pop": 13755680,
+          "gdpPercap": 6873.262326
+        },
+        {
+          "country": "El Salvador",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 71.878,
+          "pop": 6939688,
+          "gdpPercap": 5728.353514
+        },
+        {
+          "country": "Guatemala",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 70.259,
+          "pop": 12572928,
+          "gdpPercap": 5186.050003
+        },
+        {
+          "country": "Haiti",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 60.916,
+          "pop": 8502814,
+          "gdpPercap": 1201.637154
+        },
+        {
+          "country": "Honduras",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 70.198,
+          "pop": 7483763,
+          "gdpPercap": 3548.330846
+        },
+        {
+          "country": "Jamaica",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 72.567,
+          "pop": 2780132,
+          "gdpPercap": 7320.880262
+        },
+        {
+          "country": "Mexico",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 76.195,
+          "pop": 108700891,
+          "gdpPercap": 11977.57496
+        },
+        {
+          "country": "Nicaragua",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 72.899,
+          "pop": 5675356,
+          "gdpPercap": 2749.320965
+        },
+        {
+          "country": "Panama",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 75.537,
+          "pop": 3242173,
+          "gdpPercap": 9809.185636
+        },
+        {
+          "country": "Paraguay",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 71.752,
+          "pop": 6667147,
+          "gdpPercap": 4172.838464
+        },
+        {
+          "country": "Peru",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 71.421,
+          "pop": 28674757,
+          "gdpPercap": 7408.905561
+        },
+        {
+          "country": "Puerto Rico",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 78.746,
+          "pop": 3942491,
+          "gdpPercap": 19328.70901
+        },
+        {
+          "country": "Trinidad and Tobago",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 69.819,
+          "pop": 1056608,
+          "gdpPercap": 18008.50924
+        },
+        {
+          "country": "United States",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 78.242,
+          "pop": 301139947,
+          "gdpPercap": 42951.65309
+        },
+        {
+          "country": "Uruguay",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 76.384,
+          "pop": 3447496,
+          "gdpPercap": 10611.46299
+        },
+        {
+          "country": "Venezuela",
+          "continent": "Americas",
+          "year": 2007,
+          "lifeExp": 73.747,
+          "pop": 26084662,
+          "gdpPercap": 11415.80569
+        }
+      ]
+    },
+    "mark": {
+      "type": "point",
+      "filled": true,
+      "color": "#3a7dbf",
+      "size": 80
+    },
+    "width": 500,
+    "height": 400,
+    "encoding": {
+      "x": {
+        "field": "lifeExp",
+        "type": "quantitative",
+        "scale": {
+          "zero": false
+        },
+        "axis": {
+          "title": "life expectancy (years)"
+        }
+      },
+      "y": {
+        "field": "country",
+        "type": "nominal",
+        "sort": "-x",
+        "axis": {
+          "title": null
+        }
+      }
+    }
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="g.-explain-why-figures-6.12-and-6.13-are-labeled-bad." class="level3">
+<h3 class="anchored" data-anchor-id="g.-explain-why-figures-6.12-and-6.13-are-labeled-bad.">g. Explain why Figures 6.12 and 6.13 are labeled “bad”.</h3>
+<p>Figures 6.12 and 6.13 are labeled “bad” for different reasons. Figure 6.12 uses bars to show life expectancy, which is a problem because bars imply the values start from zero. Since all countries have life expectancy between 60–82, the bars are extremely long and nearly the same length, making the differences between countries very hard to see. The dot plot in 6.11 is much better because it doesn’t need to start at zero and lets you focus on the actual differences.</p>
+<p>Figure 6.13 is bad because the countries are sorted alphabetically instead of by value. This turns the dots into a scattered, disordered cloud with no clear pattern, making it much harder to compare countries or spot which ones have higher or lower life expectancy.</p>
+<p>###EXERCISE 2 B) There are three main reasons that things go bad. 1. Graphs are bad taste (badly designed and aesthetically offensive) 2. Showing bad data 3. Perceptually bad</p>
+<ol start="3" type="A">
+<li>Yes there were two figures. (pg 41 and US map- how it uses color to present high and low)</li>
+</ol>
+<p>###EXERCISE 3 a)In Vega-Lite, a heat map uses the rect mark with two categorical variables on the x and y axes, and a quantitative variable mapped to color to show values through color intensity.</p>
+<ol start="2" type="a">
+<li>I chose 6.15</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>internet <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"cow-internet2.csv"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>country_order <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Iceland"</span>, <span class="st">"Norway"</span>, <span class="st">"United States"</span>, <span class="st">"Canada"</span>, <span class="st">"New Zealand"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"United Kingdom"</span>, <span class="st">"Japan"</span>, <span class="st">"Germany"</span>, <span class="st">"Israel"</span>, <span class="st">"Italy"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"France"</span>, <span class="st">"Chile"</span>, <span class="st">"Brazil"</span>, <span class="st">"Argentina"</span>, <span class="st">"Mexico"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"China"</span>, <span class="st">"South Africa"</span>, <span class="st">"Algeria"</span>, <span class="st">"India"</span>, <span class="st">"Kenya"</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>internet_filtered <span class="ot">&lt;-</span> internet[internet<span class="sc">$</span>country <span class="sc">%in%</span> country_order, ]</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>spec_615 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">vega_schema</span>(),</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> internet_filtered),</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">mark =</span> <span class="st">"rect"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">700</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">400</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"year"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"ordinal"</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="cn">NULL</span>, <span class="at">labelAngle =</span> <span class="sc">-</span><span class="dv">45</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"country"</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">sort =</span> country_order,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">title =</span> <span class="cn">NULL</span>)</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="fu">list</span>(</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"users"</span>,</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"internet users / 100 people"</span>,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">scheme =</span> <span class="st">"inferno"</span>, <span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">0</span>, <span class="dv">100</span>))</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="fu">vegawidget</span>(<span class="fu">as_vegaspec</span>(spec_615))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-8514b5d97ee43fe47127" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8514b5d97ee43fe47127">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "values": [
+        {
+          "country": "Argentina",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "Brazil",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "Canada",
+          "year": 1990,
+          "users": 0.360999701
+        },
+        {
+          "country": "Chile",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "China",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "Germany",
+          "year": 1990,
+          "users": 0.125892223
+        },
+        {
+          "country": "Algeria",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "France",
+          "year": 1990,
+          "users": 0.052777862
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1990,
+          "users": 0.087355319
+        },
+        {
+          "country": "India",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "Iceland",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "Israel",
+          "year": 1990,
+          "users": 0.110773866
+        },
+        {
+          "country": "Italy",
+          "year": 1990,
+          "users": 0.017544562
+        },
+        {
+          "country": "Japan",
+          "year": 1990,
+          "users": 0.020293683
+        },
+        {
+          "country": "Kenya",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "Mexico",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "Norway",
+          "year": 1990,
+          "users": 0.707299448
+        },
+        {
+          "country": "New Zealand",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "United States",
+          "year": 1990,
+          "users": 0.784728502
+        },
+        {
+          "country": "South Africa",
+          "year": 1990,
+          "users": 0
+        },
+        {
+          "country": "Argentina",
+          "year": 1991,
+          "users": null
+        },
+        {
+          "country": "Brazil",
+          "year": 1991,
+          "users": 0.003288171
+        },
+        {
+          "country": "Canada",
+          "year": 1991,
+          "users": 0.570385926
+        },
+        {
+          "country": "Chile",
+          "year": 1991,
+          "users": null
+        },
+        {
+          "country": "China",
+          "year": 1991,
+          "users": null
+        },
+        {
+          "country": "Germany",
+          "year": 1991,
+          "users": 0.250274153
+        },
+        {
+          "country": "Algeria",
+          "year": 1991,
+          "users": null
+        },
+        {
+          "country": "France",
+          "year": 1991,
+          "users": 0.140113895
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1991,
+          "users": 0.174230922
+        },
+        {
+          "country": "India",
+          "year": 1991,
+          "users": null
+        },
+        {
+          "country": "Iceland",
+          "year": 1991,
+          "users": 0.505129002
+        },
+        {
+          "country": "Israel",
+          "year": 1991,
+          "users": 0.2146241
+        },
+        {
+          "country": "Italy",
+          "year": 1991,
+          "users": 0.035063256
+        },
+        {
+          "country": "Japan",
+          "year": 1991,
+          "users": 0.040438041
+        },
+        {
+          "country": "Kenya",
+          "year": 1991,
+          "users": null
+        },
+        {
+          "country": "Mexico",
+          "year": 1991,
+          "users": 0.005880695
+        },
+        {
+          "country": "Norway",
+          "year": 1991,
+          "users": 1.407395158
+        },
+        {
+          "country": "New Zealand",
+          "year": 1991,
+          "users": null
+        },
+        {
+          "country": "United States",
+          "year": 1991,
+          "users": 1.163193726
+        },
+        {
+          "country": "South Africa",
+          "year": 1991,
+          "users": 0.013283591
+        },
+        {
+          "country": "Argentina",
+          "year": 1992,
+          "users": 0.002992874
+        },
+        {
+          "country": "Brazil",
+          "year": 1992,
+          "users": 0.012946262
+        },
+        {
+          "country": "Canada",
+          "year": 1992,
+          "users": 0.91598104
+        },
+        {
+          "country": "Chile",
+          "year": 1992,
+          "users": 0.036548938
+        },
+        {
+          "country": "China",
+          "year": 1992,
+          "users": null
+        },
+        {
+          "country": "Germany",
+          "year": 1992,
+          "users": 0.43528529
+        },
+        {
+          "country": "Algeria",
+          "year": 1992,
+          "users": null
+        },
+        {
+          "country": "France",
+          "year": 1992,
+          "users": 0.279049463
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1992,
+          "users": 0.260615159
+        },
+        {
+          "country": "India",
+          "year": 1992,
+          "users": 0.000111308
+        },
+        {
+          "country": "Iceland",
+          "year": 1992,
+          "users": 1.53916008
+        },
+        {
+          "country": "Israel",
+          "year": 1992,
+          "users": 0.310579197
+        },
+        {
+          "country": "Italy",
+          "year": 1992,
+          "users": 0.070053433
+        },
+        {
+          "country": "Japan",
+          "year": 1992,
+          "users": 0.096678025
+        },
+        {
+          "country": "Kenya",
+          "year": 1992,
+          "users": null
+        },
+        {
+          "country": "Mexico",
+          "year": 1992,
+          "users": 0.01730781
+        },
+        {
+          "country": "Norway",
+          "year": 1992,
+          "users": 2.216365832
+        },
+        {
+          "country": "New Zealand",
+          "year": 1992,
+          "users": 0.285941241
+        },
+        {
+          "country": "United States",
+          "year": 1992,
+          "users": 1.724202539
+        },
+        {
+          "country": "South Africa",
+          "year": 1992,
+          "users": 0.038869106
+        },
+        {
+          "country": "Argentina",
+          "year": 1993,
+          "users": 0.029527065
+        },
+        {
+          "country": "Brazil",
+          "year": 1993,
+          "users": 0.025498253
+        },
+        {
+          "country": "Canada",
+          "year": 1993,
+          "users": 1.184557509
+        },
+        {
+          "country": "Chile",
+          "year": 1993,
+          "users": 0.071783144
+        },
+        {
+          "country": "China",
+          "year": 1993,
+          "users": 0.00016868
+        },
+        {
+          "country": "Germany",
+          "year": 1993,
+          "users": 0.463635096
+        },
+        {
+          "country": "Algeria",
+          "year": 1993,
+          "users": null
+        },
+        {
+          "country": "France",
+          "year": 1993,
+          "users": 0.590619383
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1993,
+          "users": 0.519762001
+        },
+        {
+          "country": "India",
+          "year": 1993,
+          "users": 0.000218176
+        },
+        {
+          "country": "Iceland",
+          "year": 1993,
+          "users": 2.667825265
+        },
+        {
+          "country": "Israel",
+          "year": 1993,
+          "users": 0.398833333
+        },
+        {
+          "country": "Italy",
+          "year": 1993,
+          "users": 0.122462053
+        },
+        {
+          "country": "Japan",
+          "year": 1993,
+          "users": 0.401277526
+        },
+        {
+          "country": "Kenya",
+          "year": 1993,
+          "users": null
+        },
+        {
+          "country": "Mexico",
+          "year": 1993,
+          "users": 0.028305042
+        },
+        {
+          "country": "Norway",
+          "year": 1993,
+          "users": 2.783990846
+        },
+        {
+          "country": "New Zealand",
+          "year": 1993,
+          "users": 0.631215367
+        },
+        {
+          "country": "United States",
+          "year": 1993,
+          "users": 2.271673294
+        },
+        {
+          "country": "South Africa",
+          "year": 1993,
+          "users": 0.113747184
+        },
+        {
+          "country": "Argentina",
+          "year": 1994,
+          "users": 0.043705951
+        },
+        {
+          "country": "Brazil",
+          "year": 1994,
+          "users": 0.037672709
+        },
+        {
+          "country": "Canada",
+          "year": 1994,
+          "users": 2.378693853
+        },
+        {
+          "country": "Chile",
+          "year": 1994,
+          "users": 0.141084507
+        },
+        {
+          "country": "China",
+          "year": 1994,
+          "users": 0.001168115
+        },
+        {
+          "country": "Germany",
+          "year": 1994,
+          "users": 0.922541043
+        },
+        {
+          "country": "Algeria",
+          "year": 1994,
+          "users": 0.000360674
+        },
+        {
+          "country": "France",
+          "year": 1994,
+          "users": 0.899867425
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1994,
+          "users": 1.036609166
+        },
+        {
+          "country": "India",
+          "year": 1994,
+          "users": 0.001069562
+        },
+        {
+          "country": "Iceland",
+          "year": 1994,
+          "users": 6.794811784
+        },
+        {
+          "country": "Israel",
+          "year": 1994,
+          "users": 0.57696646
+        },
+        {
+          "country": "Italy",
+          "year": 1994,
+          "users": 0.192304619
+        },
+        {
+          "country": "Japan",
+          "year": 1994,
+          "users": 0.799684291
+        },
+        {
+          "country": "Kenya",
+          "year": 1994,
+          "users": null
+        },
+        {
+          "country": "Mexico",
+          "year": 1994,
+          "users": 0.043339167
+        },
+        {
+          "country": "Norway",
+          "year": 1994,
+          "users": 4.152450292
+        },
+        {
+          "country": "New Zealand",
+          "year": 1994,
+          "users": 3.168718848
+        },
+        {
+          "country": "United States",
+          "year": 1994,
+          "users": 4.862780635
+        },
+        {
+          "country": "South Africa",
+          "year": 1994,
+          "users": 0.246905533
+        },
+        {
+          "country": "Argentina",
+          "year": 1995,
+          "users": 0.086277081
+        },
+        {
+          "country": "Brazil",
+          "year": 1995,
+          "users": 0.105138168
+        },
+        {
+          "country": "Canada",
+          "year": 1995,
+          "users": 4.163525253
+        },
+        {
+          "country": "Chile",
+          "year": 1995,
+          "users": 0.346980781
+        },
+        {
+          "country": "China",
+          "year": 1995,
+          "users": 0.00495471
+        },
+        {
+          "country": "Germany",
+          "year": 1995,
+          "users": 1.837737754
+        },
+        {
+          "country": "Algeria",
+          "year": 1995,
+          "users": 0.001768954
+        },
+        {
+          "country": "France",
+          "year": 1995,
+          "users": 1.637947245
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1995,
+          "users": 1.895168284
+        },
+        {
+          "country": "India",
+          "year": 1995,
+          "users": 0.026228879
+        },
+        {
+          "country": "Iceland",
+          "year": 1995,
+          "users": 11.2158757
+        },
+        {
+          "country": "Israel",
+          "year": 1995,
+          "users": 0.93042297
+        },
+        {
+          "country": "Italy",
+          "year": 1995,
+          "users": 0.524412787
+        },
+        {
+          "country": "Japan",
+          "year": 1995,
+          "users": 1.594363148
+        },
+        {
+          "country": "Kenya",
+          "year": 1995,
+          "users": 0.000727482
+        },
+        {
+          "country": "Mexico",
+          "year": 1995,
+          "users": 0.10256419
+        },
+        {
+          "country": "Norway",
+          "year": 1995,
+          "users": 6.423220493
+        },
+        {
+          "country": "New Zealand",
+          "year": 1995,
+          "users": 4.88424078
+        },
+        {
+          "country": "United States",
+          "year": 1995,
+          "users": 9.237088297
+        },
+        {
+          "country": "South Africa",
+          "year": 1995,
+          "users": 0.676740104
+        },
+        {
+          "country": "Argentina",
+          "year": 1996,
+          "users": 0.141954704
+        },
+        {
+          "country": "Brazil",
+          "year": 1996,
+          "users": 0.450789179
+        },
+        {
+          "country": "Canada",
+          "year": 1996,
+          "users": 6.76023965
+        },
+        {
+          "country": "Chile",
+          "year": 1996,
+          "users": 0.68347561
+        },
+        {
+          "country": "China",
+          "year": 1996,
+          "users": 0.013081692
+        },
+        {
+          "country": "Germany",
+          "year": 1996,
+          "users": 3.054805234
+        },
+        {
+          "country": "Algeria",
+          "year": 1996,
+          "users": 0.001738533
+        },
+        {
+          "country": "France",
+          "year": 1996,
+          "users": 2.584033979
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1996,
+          "users": 4.123650336
+        },
+        {
+          "country": "India",
+          "year": 1996,
+          "users": 0.046333977
+        },
+        {
+          "country": "Iceland",
+          "year": 1996,
+          "users": 14.80647932
+        },
+        {
+          "country": "Israel",
+          "year": 1996,
+          "users": 2.1683676
+        },
+        {
+          "country": "Italy",
+          "year": 1996,
+          "users": 1.023289903
+        },
+        {
+          "country": "Japan",
+          "year": 1996,
+          "users": 4.372981968
+        },
+        {
+          "country": "Kenya",
+          "year": 1996,
+          "users": 0.008839115
+        },
+        {
+          "country": "Mexico",
+          "year": 1996,
+          "users": 0.20040628
+        },
+        {
+          "country": "Norway",
+          "year": 1996,
+          "users": 18.25031077
+        },
+        {
+          "country": "New Zealand",
+          "year": 1996,
+          "users": 8.041899368
+        },
+        {
+          "country": "United States",
+          "year": 1996,
+          "users": 16.41935296
+        },
+        {
+          "country": "South Africa",
+          "year": 1996,
+          "users": 0.841882931
+        },
+        {
+          "country": "Argentina",
+          "year": 1997,
+          "users": 0.280339882
+        },
+        {
+          "country": "Brazil",
+          "year": 1997,
+          "users": 0.786079155
+        },
+        {
+          "country": "Canada",
+          "year": 1997,
+          "users": 15.07235736
+        },
+        {
+          "country": "Chile",
+          "year": 1997,
+          "users": 1.057092496
+        },
+        {
+          "country": "China",
+          "year": 1997,
+          "users": 0.032394861
+        },
+        {
+          "country": "Germany",
+          "year": 1997,
+          "users": 6.711087477
+        },
+        {
+          "country": "Algeria",
+          "year": 1997,
+          "users": 0.010268463
+        },
+        {
+          "country": "France",
+          "year": 1997,
+          "users": 4.255003872
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1997,
+          "users": 7.385398957
+        },
+        {
+          "country": "India",
+          "year": 1997,
+          "users": 0.070767849
+        },
+        {
+          "country": "Iceland",
+          "year": 1997,
+          "users": 27.47886875
+        },
+        {
+          "country": "Israel",
+          "year": 1997,
+          "users": 4.399405482
+        },
+        {
+          "country": "Italy",
+          "year": 1997,
+          "users": 2.276737834
+        },
+        {
+          "country": "Japan",
+          "year": 1997,
+          "users": 9.16307714
+        },
+        {
+          "country": "Kenya",
+          "year": 1997,
+          "users": 0.034406051
+        },
+        {
+          "country": "Mexico",
+          "year": 1997,
+          "users": 0.62731154
+        },
+        {
+          "country": "Norway",
+          "year": 1997,
+          "users": 20.41788144
+        },
+        {
+          "country": "New Zealand",
+          "year": 1997,
+          "users": 14.6015244
+        },
+        {
+          "country": "United States",
+          "year": 1997,
+          "users": 21.61640097
+        },
+        {
+          "country": "South Africa",
+          "year": 1997,
+          "users": 1.632093791
+        },
+        {
+          "country": "Argentina",
+          "year": 1998,
+          "users": 0.83076668
+        },
+        {
+          "country": "Brazil",
+          "year": 1998,
+          "users": 1.477874959
+        },
+        {
+          "country": "Canada",
+          "year": 1998,
+          "users": 24.8974003
+        },
+        {
+          "country": "Chile",
+          "year": 1998,
+          "users": 1.662322022
+        },
+        {
+          "country": "China",
+          "year": 1998,
+          "users": 0.168540297
+        },
+        {
+          "country": "Germany",
+          "year": 1998,
+          "users": 9.877852428
+        },
+        {
+          "country": "Algeria",
+          "year": 1998,
+          "users": 0.020238555
+        },
+        {
+          "country": "France",
+          "year": 1998,
+          "users": 6.319778722
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1998,
+          "users": 13.6699831
+        },
+        {
+          "country": "India",
+          "year": 1998,
+          "users": 0.139027329
+        },
+        {
+          "country": "Iceland",
+          "year": 1998,
+          "users": 36.2642065
+        },
+        {
+          "country": "Israel",
+          "year": 1998,
+          "users": 10.30706995
+        },
+        {
+          "country": "Italy",
+          "year": 1998,
+          "users": 4.558519565
+        },
+        {
+          "country": "Japan",
+          "year": 1998,
+          "users": 13.41404088
+        },
+        {
+          "country": "Kenya",
+          "year": 1998,
+          "users": 0.050261388
+        },
+        {
+          "country": "Mexico",
+          "year": 1998,
+          "users": 1.265783278
+        },
+        {
+          "country": "Norway",
+          "year": 1998,
+          "users": 22.56011255
+        },
+        {
+          "country": "New Zealand",
+          "year": 1998,
+          "users": 31.63626081
+        },
+        {
+          "country": "United States",
+          "year": 1998,
+          "users": 30.09319659
+        },
+        {
+          "country": "South Africa",
+          "year": 1998,
+          "users": 2.906220867
+        },
+        {
+          "country": "Argentina",
+          "year": 1999,
+          "users": 3.284481956
+        },
+        {
+          "country": "Brazil",
+          "year": 1999,
+          "users": 2.038732184
+        },
+        {
+          "country": "Canada",
+          "year": 1999,
+          "users": 36.18644004
+        },
+        {
+          "country": "Chile",
+          "year": 1999,
+          "users": 4.103419297
+        },
+        {
+          "country": "China",
+          "year": 1999,
+          "users": 0.708187957
+        },
+        {
+          "country": "Germany",
+          "year": 1999,
+          "users": 20.84598264
+        },
+        {
+          "country": "Algeria",
+          "year": 1999,
+          "users": 0.199523843
+        },
+        {
+          "country": "France",
+          "year": 1999,
+          "users": 9.125317889
+        },
+        {
+          "country": "United Kingdom",
+          "year": 1999,
+          "users": 21.29363827
+        },
+        {
+          "country": "India",
+          "year": 1999,
+          "users": 0.273224277
+        },
+        {
+          "country": "Iceland",
+          "year": 1999,
+          "users": 41.29456671
+        },
+        {
+          "country": "Israel",
+          "year": 1999,
+          "users": 13.43612191
+        },
+        {
+          "country": "Italy",
+          "year": 1999,
+          "users": 14.37841019
+        },
+        {
+          "country": "Japan",
+          "year": 1999,
+          "users": 21.39129031
+        },
+        {
+          "country": "Kenya",
+          "year": 1999,
+          "users": 0.114256028
+        },
+        {
+          "country": "Mexico",
+          "year": 1999,
+          "users": 1.857436221
+        },
+        {
+          "country": "Norway",
+          "year": 1999,
+          "users": 40
+        },
+        {
+          "country": "New Zealand",
+          "year": 1999,
+          "users": 41.49448266
+        },
+        {
+          "country": "United States",
+          "year": 1999,
+          "users": 35.84872446
+        },
+        {
+          "country": "South Africa",
+          "year": 1999,
+          "users": 4.116249583
+        },
+        {
+          "country": "Argentina",
+          "year": 2000,
+          "users": 7.038683086
+        },
+        {
+          "country": "Brazil",
+          "year": 2000,
+          "users": 2.870685159
+        },
+        {
+          "country": "Canada",
+          "year": 2000,
+          "users": 51.3
+        },
+        {
+          "country": "Chile",
+          "year": 2000,
+          "users": 16.6
+        },
+        {
+          "country": "China",
+          "year": 2000,
+          "users": 1.775913207
+        },
+        {
+          "country": "Germany",
+          "year": 2000,
+          "users": 30.2163466
+        },
+        {
+          "country": "Algeria",
+          "year": 2000,
+          "users": 0.491705679
+        },
+        {
+          "country": "France",
+          "year": 2000,
+          "users": 14.30792394
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2000,
+          "users": 26.82175435
+        },
+        {
+          "country": "India",
+          "year": 2000,
+          "users": 0.52753245
+        },
+        {
+          "country": "Iceland",
+          "year": 2000,
+          "users": 44.47053382
+        },
+        {
+          "country": "Israel",
+          "year": 2000,
+          "users": 20.87379
+        },
+        {
+          "country": "Italy",
+          "year": 2000,
+          "users": 23.11087424
+        },
+        {
+          "country": "Japan",
+          "year": 2000,
+          "users": 29.99074036
+        },
+        {
+          "country": "Kenya",
+          "year": 2000,
+          "users": 0.318059714
+        },
+        {
+          "country": "Mexico",
+          "year": 2000,
+          "users": 5.081384153
+        },
+        {
+          "country": "Norway",
+          "year": 2000,
+          "users": 52
+        },
+        {
+          "country": "New Zealand",
+          "year": 2000,
+          "users": 47.37955654
+        },
+        {
+          "country": "United States",
+          "year": 2000,
+          "users": 43.07916264
+        },
+        {
+          "country": "South Africa",
+          "year": 2000,
+          "users": 5.348559732
+        },
+        {
+          "country": "Argentina",
+          "year": 2001,
+          "users": 9.780807285
+        },
+        {
+          "country": "Brazil",
+          "year": 2001,
+          "users": 4.528494869
+        },
+        {
+          "country": "Canada",
+          "year": 2001,
+          "users": 60.2
+        },
+        {
+          "country": "Chile",
+          "year": 2001,
+          "users": 19.1
+        },
+        {
+          "country": "China",
+          "year": 2001,
+          "users": 2.639650215
+        },
+        {
+          "country": "Germany",
+          "year": 2001,
+          "users": 31.65093942
+        },
+        {
+          "country": "Algeria",
+          "year": 2001,
+          "users": 0.646114017
+        },
+        {
+          "country": "France",
+          "year": 2001,
+          "users": 26.32590355
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2001,
+          "users": 33.48109487
+        },
+        {
+          "country": "India",
+          "year": 2001,
+          "users": 0.660146377
+        },
+        {
+          "country": "Iceland",
+          "year": 2001,
+          "users": 49.39299537
+        },
+        {
+          "country": "Israel",
+          "year": 2001,
+          "users": 17.37862386
+        },
+        {
+          "country": "Italy",
+          "year": 2001,
+          "users": 27.22211698
+        },
+        {
+          "country": "Japan",
+          "year": 2001,
+          "users": 38.53206086
+        },
+        {
+          "country": "Kenya",
+          "year": 2001,
+          "users": 0.619782266
+        },
+        {
+          "country": "Mexico",
+          "year": 2001,
+          "users": 7.038023117
+        },
+        {
+          "country": "Norway",
+          "year": 2001,
+          "users": 64
+        },
+        {
+          "country": "New Zealand",
+          "year": 2001,
+          "users": 53.24101529
+        },
+        {
+          "country": "United States",
+          "year": 2001,
+          "users": 49.08083159
+        },
+        {
+          "country": "South Africa",
+          "year": 2001,
+          "users": 6.346619318
+        },
+        {
+          "country": "Argentina",
+          "year": 2002,
+          "users": 10.88212438
+        },
+        {
+          "country": "Brazil",
+          "year": 2002,
+          "users": 9.149425086
+        },
+        {
+          "country": "Canada",
+          "year": 2002,
+          "users": 61.59329927
+        },
+        {
+          "country": "Chile",
+          "year": 2002,
+          "users": 22.1
+        },
+        {
+          "country": "China",
+          "year": 2002,
+          "users": 4.595704331
+        },
+        {
+          "country": "Germany",
+          "year": 2002,
+          "users": 48.82
+        },
+        {
+          "country": "Algeria",
+          "year": 2002,
+          "users": 1.59164126
+        },
+        {
+          "country": "France",
+          "year": 2002,
+          "users": 30.18
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2002,
+          "users": 56.48
+        },
+        {
+          "country": "India",
+          "year": 2002,
+          "users": 1.537875582
+        },
+        {
+          "country": "Iceland",
+          "year": 2002,
+          "users": 79.12
+        },
+        {
+          "country": "Israel",
+          "year": 2002,
+          "users": 17.76459906
+        },
+        {
+          "country": "Italy",
+          "year": 2002,
+          "users": 28.04
+        },
+        {
+          "country": "Japan",
+          "year": 2002,
+          "users": 46.59420112
+        },
+        {
+          "country": "Kenya",
+          "year": 2002,
+          "users": 1.207773885
+        },
+        {
+          "country": "Mexico",
+          "year": 2002,
+          "users": 11.9
+        },
+        {
+          "country": "Norway",
+          "year": 2002,
+          "users": 72.84
+        },
+        {
+          "country": "New Zealand",
+          "year": 2002,
+          "users": 59.08075328
+        },
+        {
+          "country": "United States",
+          "year": 2002,
+          "users": 58.78540388
+        },
+        {
+          "country": "South Africa",
+          "year": 2002,
+          "users": 6.710322437
+        },
+        {
+          "country": "Argentina",
+          "year": 2003,
+          "users": 11.91369655
+        },
+        {
+          "country": "Brazil",
+          "year": 2003,
+          "users": 13.2075861
+        },
+        {
+          "country": "Canada",
+          "year": 2003,
+          "users": 64.2
+        },
+        {
+          "country": "Chile",
+          "year": 2003,
+          "users": 25.47377889
+        },
+        {
+          "country": "China",
+          "year": 2003,
+          "users": 6.2
+        },
+        {
+          "country": "Germany",
+          "year": 2003,
+          "users": 55.9
+        },
+        {
+          "country": "Algeria",
+          "year": 2003,
+          "users": 2.195359731
+        },
+        {
+          "country": "France",
+          "year": 2003,
+          "users": 36.14
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2003,
+          "users": 64.82
+        },
+        {
+          "country": "India",
+          "year": 2003,
+          "users": 1.686489971
+        },
+        {
+          "country": "Iceland",
+          "year": 2003,
+          "users": 83.14
+        },
+        {
+          "country": "Israel",
+          "year": 2003,
+          "users": 19.59339366
+        },
+        {
+          "country": "Italy",
+          "year": 2003,
+          "users": 29.04
+        },
+        {
+          "country": "Japan",
+          "year": 2003,
+          "users": 48.43526589
+        },
+        {
+          "country": "Kenya",
+          "year": 2003,
+          "users": 2.941902861
+        },
+        {
+          "country": "Mexico",
+          "year": 2003,
+          "users": 12.9
+        },
+        {
+          "country": "Norway",
+          "year": 2003,
+          "users": 78.13
+        },
+        {
+          "country": "New Zealand",
+          "year": 2003,
+          "users": 60.96253987
+        },
+        {
+          "country": "United States",
+          "year": 2003,
+          "users": 61.69711712
+        },
+        {
+          "country": "South Africa",
+          "year": 2003,
+          "users": 7.007691726
+        },
+        {
+          "country": "Argentina",
+          "year": 2004,
+          "users": 16.03668411
+        },
+        {
+          "country": "Brazil",
+          "year": 2004,
+          "users": 19.07367227
+        },
+        {
+          "country": "Canada",
+          "year": 2004,
+          "users": 65.95596346
+        },
+        {
+          "country": "Chile",
+          "year": 2004,
+          "users": 28.17791012
+        },
+        {
+          "country": "China",
+          "year": 2004,
+          "users": 7.3
+        },
+        {
+          "country": "Germany",
+          "year": 2004,
+          "users": 64.73
+        },
+        {
+          "country": "Algeria",
+          "year": 2004,
+          "users": 4.634475088
+        },
+        {
+          "country": "France",
+          "year": 2004,
+          "users": 39.15
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2004,
+          "users": 65.61
+        },
+        {
+          "country": "India",
+          "year": 2004,
+          "users": 1.976136492
+        },
+        {
+          "country": "Iceland",
+          "year": 2004,
+          "users": 83.88
+        },
+        {
+          "country": "Israel",
+          "year": 2004,
+          "users": 22.77048553
+        },
+        {
+          "country": "Italy",
+          "year": 2004,
+          "users": 33.24
+        },
+        {
+          "country": "Japan",
+          "year": 2004,
+          "users": 62.39392963
+        },
+        {
+          "country": "Kenya",
+          "year": 2004,
+          "users": 3.023528042
+        },
+        {
+          "country": "Mexico",
+          "year": 2004,
+          "users": 14.1
+        },
+        {
+          "country": "Norway",
+          "year": 2004,
+          "users": 77.69
+        },
+        {
+          "country": "New Zealand",
+          "year": 2004,
+          "users": 61.84762781
+        },
+        {
+          "country": "United States",
+          "year": 2004,
+          "users": 64.75825648
+        },
+        {
+          "country": "South Africa",
+          "year": 2004,
+          "users": 8.425118683
+        },
+        {
+          "country": "Argentina",
+          "year": 2005,
+          "users": 17.72058337
+        },
+        {
+          "country": "Brazil",
+          "year": 2005,
+          "users": 21.02274725
+        },
+        {
+          "country": "Canada",
+          "year": 2005,
+          "users": 71.66
+        },
+        {
+          "country": "Chile",
+          "year": 2005,
+          "users": 31.17534703
+        },
+        {
+          "country": "China",
+          "year": 2005,
+          "users": 8.523257003
+        },
+        {
+          "country": "Germany",
+          "year": 2005,
+          "users": 68.71
+        },
+        {
+          "country": "Algeria",
+          "year": 2005,
+          "users": 5.843942092
+        },
+        {
+          "country": "France",
+          "year": 2005,
+          "users": 42.87
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2005,
+          "users": 70
+        },
+        {
+          "country": "India",
+          "year": 2005,
+          "users": 2.388075
+        },
+        {
+          "country": "Iceland",
+          "year": 2005,
+          "users": 87
+        },
+        {
+          "country": "Israel",
+          "year": 2005,
+          "users": 25.19404242
+        },
+        {
+          "country": "Italy",
+          "year": 2005,
+          "users": 35
+        },
+        {
+          "country": "Japan",
+          "year": 2005,
+          "users": 66.9210661
+        },
+        {
+          "country": "Kenya",
+          "year": 2005,
+          "users": 3.101897702
+        },
+        {
+          "country": "Mexico",
+          "year": 2005,
+          "users": 17.21
+        },
+        {
+          "country": "Norway",
+          "year": 2005,
+          "users": 81.99
+        },
+        {
+          "country": "New Zealand",
+          "year": 2005,
+          "users": 62.72021237
+        },
+        {
+          "country": "United States",
+          "year": 2005,
+          "users": 67.96805292
+        },
+        {
+          "country": "South Africa",
+          "year": 2005,
+          "users": 7.48854253
+        },
+        {
+          "country": "Argentina",
+          "year": 2006,
+          "users": 20.9272021
+        },
+        {
+          "country": "Brazil",
+          "year": 2006,
+          "users": 28.17838018
+        },
+        {
+          "country": "Canada",
+          "year": 2006,
+          "users": 72.4
+        },
+        {
+          "country": "Chile",
+          "year": 2006,
+          "users": 34.49775117
+        },
+        {
+          "country": "China",
+          "year": 2006,
+          "users": 10.52315262
+        },
+        {
+          "country": "Germany",
+          "year": 2006,
+          "users": 72.16
+        },
+        {
+          "country": "Algeria",
+          "year": 2006,
+          "users": 7.375984956
+        },
+        {
+          "country": "France",
+          "year": 2006,
+          "users": 46.87
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2006,
+          "users": 68.82
+        },
+        {
+          "country": "India",
+          "year": 2006,
+          "users": 2.805499865
+        },
+        {
+          "country": "Iceland",
+          "year": 2006,
+          "users": 89.51
+        },
+        {
+          "country": "Israel",
+          "year": 2006,
+          "users": 27.88107446
+        },
+        {
+          "country": "Italy",
+          "year": 2006,
+          "users": 37.99
+        },
+        {
+          "country": "Japan",
+          "year": 2006,
+          "users": 68.68527032
+        },
+        {
+          "country": "Kenya",
+          "year": 2006,
+          "users": 3.6
+        },
+        {
+          "country": "Mexico",
+          "year": 2006,
+          "users": 19.52
+        },
+        {
+          "country": "Norway",
+          "year": 2006,
+          "users": 82.55
+        },
+        {
+          "country": "New Zealand",
+          "year": 2006,
+          "users": 69
+        },
+        {
+          "country": "United States",
+          "year": 2006,
+          "users": 68.93119327
+        },
+        {
+          "country": "South Africa",
+          "year": 2006,
+          "users": 7.607139675
+        },
+        {
+          "country": "Argentina",
+          "year": 2007,
+          "users": 25.94663294
+        },
+        {
+          "country": "Brazil",
+          "year": 2007,
+          "users": 30.88
+        },
+        {
+          "country": "Canada",
+          "year": 2007,
+          "users": 73.2
+        },
+        {
+          "country": "Chile",
+          "year": 2007,
+          "users": 35.9
+        },
+        {
+          "country": "China",
+          "year": 2007,
+          "users": 16
+        },
+        {
+          "country": "Germany",
+          "year": 2007,
+          "users": 75.16
+        },
+        {
+          "country": "Algeria",
+          "year": 2007,
+          "users": 9.451190626
+        },
+        {
+          "country": "France",
+          "year": 2007,
+          "users": 66.09
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2007,
+          "users": 75.09
+        },
+        {
+          "country": "India",
+          "year": 2007,
+          "users": 3.95
+        },
+        {
+          "country": "Iceland",
+          "year": 2007,
+          "users": 90.6
+        },
+        {
+          "country": "Israel",
+          "year": 2007,
+          "users": 48.12806219
+        },
+        {
+          "country": "Italy",
+          "year": 2007,
+          "users": 40.79
+        },
+        {
+          "country": "Japan",
+          "year": 2007,
+          "users": 74.3
+        },
+        {
+          "country": "Kenya",
+          "year": 2007,
+          "users": 4.4
+        },
+        {
+          "country": "Mexico",
+          "year": 2007,
+          "users": 20.81
+        },
+        {
+          "country": "Norway",
+          "year": 2007,
+          "users": 86.93
+        },
+        {
+          "country": "New Zealand",
+          "year": 2007,
+          "users": 69.76
+        },
+        {
+          "country": "United States",
+          "year": 2007,
+          "users": 75
+        },
+        {
+          "country": "South Africa",
+          "year": 2007,
+          "users": 8.065375174
+        },
+        {
+          "country": "Argentina",
+          "year": 2008,
+          "users": 28.11262348
+        },
+        {
+          "country": "Brazil",
+          "year": 2008,
+          "users": 33.83
+        },
+        {
+          "country": "Canada",
+          "year": 2008,
+          "users": 76.7
+        },
+        {
+          "country": "Chile",
+          "year": 2008,
+          "users": 37.3
+        },
+        {
+          "country": "China",
+          "year": 2008,
+          "users": 22.6
+        },
+        {
+          "country": "Germany",
+          "year": 2008,
+          "users": 78
+        },
+        {
+          "country": "Algeria",
+          "year": 2008,
+          "users": 10.18
+        },
+        {
+          "country": "France",
+          "year": 2008,
+          "users": 70.68
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2008,
+          "users": 78.39
+        },
+        {
+          "country": "India",
+          "year": 2008,
+          "users": 4.38
+        },
+        {
+          "country": "Iceland",
+          "year": 2008,
+          "users": 91
+        },
+        {
+          "country": "Israel",
+          "year": 2008,
+          "users": 59.39
+        },
+        {
+          "country": "Italy",
+          "year": 2008,
+          "users": 44.53
+        },
+        {
+          "country": "Japan",
+          "year": 2008,
+          "users": 75.4
+        },
+        {
+          "country": "Kenya",
+          "year": 2008,
+          "users": 5.2
+        },
+        {
+          "country": "Mexico",
+          "year": 2008,
+          "users": 21.71
+        },
+        {
+          "country": "Norway",
+          "year": 2008,
+          "users": 90.57
+        },
+        {
+          "country": "New Zealand",
+          "year": 2008,
+          "users": 72.03
+        },
+        {
+          "country": "United States",
+          "year": 2008,
+          "users": 74
+        },
+        {
+          "country": "South Africa",
+          "year": 2008,
+          "users": 8.43
+        },
+        {
+          "country": "Argentina",
+          "year": 2009,
+          "users": 34
+        },
+        {
+          "country": "Brazil",
+          "year": 2009,
+          "users": 39.22
+        },
+        {
+          "country": "Canada",
+          "year": 2009,
+          "users": 80.3
+        },
+        {
+          "country": "Chile",
+          "year": 2009,
+          "users": 41.56
+        },
+        {
+          "country": "China",
+          "year": 2009,
+          "users": 28.9
+        },
+        {
+          "country": "Germany",
+          "year": 2009,
+          "users": 79
+        },
+        {
+          "country": "Algeria",
+          "year": 2009,
+          "users": 11.23
+        },
+        {
+          "country": "France",
+          "year": 2009,
+          "users": 71.58
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2009,
+          "users": 83.56
+        },
+        {
+          "country": "India",
+          "year": 2009,
+          "users": 5.12
+        },
+        {
+          "country": "Iceland",
+          "year": 2009,
+          "users": 93
+        },
+        {
+          "country": "Israel",
+          "year": 2009,
+          "users": 63.12
+        },
+        {
+          "country": "Italy",
+          "year": 2009,
+          "users": 48.83
+        },
+        {
+          "country": "Japan",
+          "year": 2009,
+          "users": 78
+        },
+        {
+          "country": "Kenya",
+          "year": 2009,
+          "users": 6.1
+        },
+        {
+          "country": "Mexico",
+          "year": 2009,
+          "users": 26.34
+        },
+        {
+          "country": "Norway",
+          "year": 2009,
+          "users": 92.08
+        },
+        {
+          "country": "New Zealand",
+          "year": 2009,
+          "users": 79.7
+        },
+        {
+          "country": "United States",
+          "year": 2009,
+          "users": 71
+        },
+        {
+          "country": "South Africa",
+          "year": 2009,
+          "users": 10
+        },
+        {
+          "country": "Argentina",
+          "year": 2010,
+          "users": 45
+        },
+        {
+          "country": "Brazil",
+          "year": 2010,
+          "users": 40.65
+        },
+        {
+          "country": "Canada",
+          "year": 2010,
+          "users": 80.3
+        },
+        {
+          "country": "Chile",
+          "year": 2010,
+          "users": 45
+        },
+        {
+          "country": "China",
+          "year": 2010,
+          "users": 34.3
+        },
+        {
+          "country": "Germany",
+          "year": 2010,
+          "users": 82
+        },
+        {
+          "country": "Algeria",
+          "year": 2010,
+          "users": 12.5
+        },
+        {
+          "country": "France",
+          "year": 2010,
+          "users": 77.28
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2010,
+          "users": 85
+        },
+        {
+          "country": "India",
+          "year": 2010,
+          "users": 7.5
+        },
+        {
+          "country": "Iceland",
+          "year": 2010,
+          "users": 93.39
+        },
+        {
+          "country": "Israel",
+          "year": 2010,
+          "users": 67.5
+        },
+        {
+          "country": "Italy",
+          "year": 2010,
+          "users": 53.68
+        },
+        {
+          "country": "Japan",
+          "year": 2010,
+          "users": 78.21
+        },
+        {
+          "country": "Kenya",
+          "year": 2010,
+          "users": 7.2
+        },
+        {
+          "country": "Mexico",
+          "year": 2010,
+          "users": 31.05
+        },
+        {
+          "country": "Norway",
+          "year": 2010,
+          "users": 93.39
+        },
+        {
+          "country": "New Zealand",
+          "year": 2010,
+          "users": 80.46
+        },
+        {
+          "country": "United States",
+          "year": 2010,
+          "users": 71.69
+        },
+        {
+          "country": "South Africa",
+          "year": 2010,
+          "users": 24
+        },
+        {
+          "country": "Argentina",
+          "year": 2011,
+          "users": 51
+        },
+        {
+          "country": "Brazil",
+          "year": 2011,
+          "users": 45.69
+        },
+        {
+          "country": "Canada",
+          "year": 2011,
+          "users": 83
+        },
+        {
+          "country": "Chile",
+          "year": 2011,
+          "users": 52.24960729
+        },
+        {
+          "country": "China",
+          "year": 2011,
+          "users": 38.3
+        },
+        {
+          "country": "Germany",
+          "year": 2011,
+          "users": 81.26999954
+        },
+        {
+          "country": "Algeria",
+          "year": 2011,
+          "users": 14.9
+        },
+        {
+          "country": "France",
+          "year": 2011,
+          "users": 77.81999899
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2011,
+          "users": 85.37999855
+        },
+        {
+          "country": "India",
+          "year": 2011,
+          "users": 10.07
+        },
+        {
+          "country": "Iceland",
+          "year": 2011,
+          "users": 94.8196868
+        },
+        {
+          "country": "Israel",
+          "year": 2011,
+          "users": 68.87387799
+        },
+        {
+          "country": "Italy",
+          "year": 2011,
+          "users": 54.3899983
+        },
+        {
+          "country": "Japan",
+          "year": 2011,
+          "users": 79.05411352
+        },
+        {
+          "country": "Kenya",
+          "year": 2011,
+          "users": 8.8
+        },
+        {
+          "country": "Mexico",
+          "year": 2011,
+          "users": 37.17629541
+        },
+        {
+          "country": "Norway",
+          "year": 2011,
+          "users": 93.48998265
+        },
+        {
+          "country": "New Zealand",
+          "year": 2011,
+          "users": 81.23
+        },
+        {
+          "country": "United States",
+          "year": 2011,
+          "users": 69.72946076
+        },
+        {
+          "country": "South Africa",
+          "year": 2011,
+          "users": 33.97
+        },
+        {
+          "country": "Argentina",
+          "year": 2012,
+          "users": 55.8
+        },
+        {
+          "country": "Brazil",
+          "year": 2012,
+          "users": 48.56
+        },
+        {
+          "country": "Canada",
+          "year": 2012,
+          "users": 83
+        },
+        {
+          "country": "Chile",
+          "year": 2012,
+          "users": 55.05
+        },
+        {
+          "country": "China",
+          "year": 2012,
+          "users": 42.30011749
+        },
+        {
+          "country": "Germany",
+          "year": 2012,
+          "users": 82.34999847
+        },
+        {
+          "country": "Algeria",
+          "year": 2012,
+          "users": 18.2
+        },
+        {
+          "country": "France",
+          "year": 2012,
+          "users": 81.44
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2012,
+          "users": 87.47999842
+        },
+        {
+          "country": "India",
+          "year": 2012,
+          "users": 12.58006091
+        },
+        {
+          "country": "Iceland",
+          "year": 2012,
+          "users": 96.20979955
+        },
+        {
+          "country": "Israel",
+          "year": 2012,
+          "users": 70.8
+        },
+        {
+          "country": "Italy",
+          "year": 2012,
+          "users": 55.82999799
+        },
+        {
+          "country": "Japan",
+          "year": 2012,
+          "users": 79.4964
+        },
+        {
+          "country": "Kenya",
+          "year": 2012,
+          "users": 10.5
+        },
+        {
+          "country": "Mexico",
+          "year": 2012,
+          "users": 39.75
+        },
+        {
+          "country": "Norway",
+          "year": 2012,
+          "users": 94.64997805
+        },
+        {
+          "country": "New Zealand",
+          "year": 2012,
+          "users": 81.64447018
+        },
+        {
+          "country": "United States",
+          "year": 2012,
+          "users": 74.7
+        },
+        {
+          "country": "South Africa",
+          "year": 2012,
+          "users": 41
+        },
+        {
+          "country": "Argentina",
+          "year": 2013,
+          "users": 59.9
+        },
+        {
+          "country": "Brazil",
+          "year": 2013,
+          "users": 51.04
+        },
+        {
+          "country": "Canada",
+          "year": 2013,
+          "users": 85.8
+        },
+        {
+          "country": "Chile",
+          "year": 2013,
+          "users": 58
+        },
+        {
+          "country": "China",
+          "year": 2013,
+          "users": 45.8
+        },
+        {
+          "country": "Germany",
+          "year": 2013,
+          "users": 84.17
+        },
+        {
+          "country": "Algeria",
+          "year": 2013,
+          "users": 22.5
+        },
+        {
+          "country": "France",
+          "year": 2013,
+          "users": 81.9198
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2013,
+          "users": 89.8441
+        },
+        {
+          "country": "India",
+          "year": 2013,
+          "users": 15.1
+        },
+        {
+          "country": "Iceland",
+          "year": 2013,
+          "users": 96.5468
+        },
+        {
+          "country": "Israel",
+          "year": 2013,
+          "users": 70.25031195
+        },
+        {
+          "country": "Italy",
+          "year": 2013,
+          "users": 58.4593
+        },
+        {
+          "country": "Japan",
+          "year": 2013,
+          "users": 88.21942891
+        },
+        {
+          "country": "Kenya",
+          "year": 2013,
+          "users": 13
+        },
+        {
+          "country": "Mexico",
+          "year": 2013,
+          "users": 43.46
+        },
+        {
+          "country": "Norway",
+          "year": 2013,
+          "users": 95.0534
+        },
+        {
+          "country": "New Zealand",
+          "year": 2013,
+          "users": 82.78
+        },
+        {
+          "country": "United States",
+          "year": 2013,
+          "users": 71.4
+        },
+        {
+          "country": "South Africa",
+          "year": 2013,
+          "users": 46.5
+        },
+        {
+          "country": "Argentina",
+          "year": 2014,
+          "users": 64.7
+        },
+        {
+          "country": "Brazil",
+          "year": 2014,
+          "users": 54.55100188
+        },
+        {
+          "country": "Canada",
+          "year": 2014,
+          "users": 87.12
+        },
+        {
+          "country": "Chile",
+          "year": 2014,
+          "users": 61.11
+        },
+        {
+          "country": "China",
+          "year": 2014,
+          "users": 47.9
+        },
+        {
+          "country": "Germany",
+          "year": 2014,
+          "users": 86.19
+        },
+        {
+          "country": "Algeria",
+          "year": 2014,
+          "users": 29.5
+        },
+        {
+          "country": "France",
+          "year": 2014,
+          "users": 83.75
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2014,
+          "users": 91.61
+        },
+        {
+          "country": "India",
+          "year": 2014,
+          "users": 21
+        },
+        {
+          "country": "Iceland",
+          "year": 2014,
+          "users": 98.16
+        },
+        {
+          "country": "Israel",
+          "year": 2014,
+          "users": 75.01775316
+        },
+        {
+          "country": "Italy",
+          "year": 2014,
+          "users": 55.63846022
+        },
+        {
+          "country": "Japan",
+          "year": 2014,
+          "users": 89.10683302
+        },
+        {
+          "country": "Kenya",
+          "year": 2014,
+          "users": 16.5
+        },
+        {
+          "country": "Mexico",
+          "year": 2014,
+          "users": 44.39
+        },
+        {
+          "country": "Norway",
+          "year": 2014,
+          "users": 96.3
+        },
+        {
+          "country": "New Zealand",
+          "year": 2014,
+          "users": 85.5
+        },
+        {
+          "country": "United States",
+          "year": 2014,
+          "users": 73
+        },
+        {
+          "country": "South Africa",
+          "year": 2014,
+          "users": 49
+        },
+        {
+          "country": "Argentina",
+          "year": 2015,
+          "users": 68.04306411
+        },
+        {
+          "country": "Brazil",
+          "year": 2015,
+          "users": 58.32795173
+        },
+        {
+          "country": "Canada",
+          "year": 2015,
+          "users": 88.47
+        },
+        {
+          "country": "Chile",
+          "year": 2015,
+          "users": 64.289
+        },
+        {
+          "country": "China",
+          "year": 2015,
+          "users": 50.3
+        },
+        {
+          "country": "Germany",
+          "year": 2015,
+          "users": 87.5898
+        },
+        {
+          "country": "Algeria",
+          "year": 2015,
+          "users": 38.2
+        },
+        {
+          "country": "France",
+          "year": 2015,
+          "users": 84.6945
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2015,
+          "users": 92.0003
+        },
+        {
+          "country": "India",
+          "year": 2015,
+          "users": 26
+        },
+        {
+          "country": "Iceland",
+          "year": 2015,
+          "users": 98.2
+        },
+        {
+          "country": "Israel",
+          "year": 2015,
+          "users": 77.35208966
+        },
+        {
+          "country": "Italy",
+          "year": 2015,
+          "users": 58.14173496
+        },
+        {
+          "country": "Japan",
+          "year": 2015,
+          "users": 91.05802839
+        },
+        {
+          "country": "Kenya",
+          "year": 2015,
+          "users": 21
+        },
+        {
+          "country": "Mexico",
+          "year": 2015,
+          "users": 57.43104299
+        },
+        {
+          "country": "Norway",
+          "year": 2015,
+          "users": 96.8103
+        },
+        {
+          "country": "New Zealand",
+          "year": 2015,
+          "users": 88.22288882
+        },
+        {
+          "country": "United States",
+          "year": 2015,
+          "users": 74.55420245
+        },
+        {
+          "country": "South Africa",
+          "year": 2015,
+          "users": 51.91911572
+        },
+        {
+          "country": "Argentina",
+          "year": 2016,
+          "users": 70.15076431
+        },
+        {
+          "country": "Brazil",
+          "year": 2016,
+          "users": 59.68274736
+        },
+        {
+          "country": "Canada",
+          "year": 2016,
+          "users": 89.84
+        },
+        {
+          "country": "Chile",
+          "year": 2016,
+          "users": 66.01
+        },
+        {
+          "country": "China",
+          "year": 2016,
+          "users": 53.2
+        },
+        {
+          "country": "Germany",
+          "year": 2016,
+          "users": 89.64710059
+        },
+        {
+          "country": "Algeria",
+          "year": 2016,
+          "users": 42.94552688
+        },
+        {
+          "country": "France",
+          "year": 2016,
+          "users": 85.62219995
+        },
+        {
+          "country": "United Kingdom",
+          "year": 2016,
+          "users": 94.77580063
+        },
+        {
+          "country": "India",
+          "year": 2016,
+          "users": 29.54716289
+        },
+        {
+          "country": "Iceland",
+          "year": 2016,
+          "users": 98.2400163
+        },
+        {
+          "country": "Israel",
+          "year": 2016,
+          "users": 79.77879126
+        },
+        {
+          "country": "Italy",
+          "year": 2016,
+          "users": 61.32425277
+        },
+        {
+          "country": "Japan",
+          "year": 2016,
+          "users": 92
+        },
+        {
+          "country": "Kenya",
+          "year": 2016,
+          "users": 26
+        },
+        {
+          "country": "Mexico",
+          "year": 2016,
+          "users": 59.540446
+        },
+        {
+          "country": "Norway",
+          "year": 2016,
+          "users": 97.29820367
+        },
+        {
+          "country": "New Zealand",
+          "year": 2016,
+          "users": 88.47018635
+        },
+        {
+          "country": "United States",
+          "year": 2016,
+          "users": 76.17673698
+        },
+        {
+          "country": "South Africa",
+          "year": 2016,
+          "users": 54
+        }
+      ]
+    },
+    "mark": "rect",
+    "width": 700,
+    "height": 400,
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "ordinal",
+        "axis": {
+          "title": null,
+          "labelAngle": -45
+        }
+      },
+      "y": {
+        "field": "country",
+        "type": "nominal",
+        "sort": ["Iceland", "Norway", "United States", "Canada", "New Zealand", "United Kingdom", "Japan", "Germany", "Israel", "Italy", "France", "Chile", "Brazil", "Argentina", "Mexico", "China", "South Africa", "Algeria", "India", "Kenya"],
+        "axis": {
+          "title": null
+        }
+      },
+      "color": {
+        "field": "users",
+        "type": "quantitative",
+        "title": "internet users / 100 people",
+        "scale": {
+          "scheme": "inferno",
+          "domain": [
+            0,
+            100
+          ]
+        }
+      }
+    }
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<ol start="3" type="a">
+<li><p>you need to focus on original question. First graph shows the percentage of people saying yes to “how much it is important to live in a democracy”. But the original question was a scale of 1 to 10 how important to you to live in a democracy. Need to focus on the original question</p></li>
+<li><p>It is because for b we are trying to see the trend and general idea. But if you want specific number or data, this will be a problem.</p></li>
+</ol>
+</section>
+<section id="exercise-4" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
+<ol type="A">
+<li><p>database people don’t like pie chart because angles are hard to intrepret to see right off the bet what is the highest and lowest.</p></li>
+<li><p>Healy is more critical of pie charts, saying angles are hard to read and bars are usually better. Wilke is more neutral — he thinks pie charts can actually be the best choice when the dataset is small and you want to show parts of a whole, like the Bundestag example where the pie makes the majority immediately obvious. Both agree pie charts aren’t always wrong, but Healy is quicker to avoid them.</p></li>
+<li><p>Wilke presents stacked bars and side-by-side bars as alternatives. He favors stacked bars when the total matters and you’re comparing proportions over time. He favors side-by-side bars when you want to directly compare individual values. Pie charts work best for small datasets where you just want to show simple fractions of a whole.</p></li>
+<li></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>bundestag <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">party =</span> <span class="fu">c</span>(<span class="st">"CDU/CSU"</span>, <span class="st">"SPD"</span>, <span class="st">"FDP"</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats =</span> <span class="fu">c</span>(<span class="dv">243</span>, <span class="dv">214</span>, <span class="dv">39</span>),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>spec_101 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">vega_schema</span>(),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">list</span>(</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"arc"</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">theta =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"seats"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">sort =</span> <span class="st">"order"</span>),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">order =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"order"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>),</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="fu">list</span>(</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">field =</span> <span class="st">"party"</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">scale =</span> <span class="fu">list</span>(</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>            <span class="at">domain =</span> <span class="fu">list</span>(<span class="st">"CDU/CSU"</span>, <span class="st">"SPD"</span>, <span class="st">"FDP"</span>),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>            <span class="at">range =</span> <span class="fu">list</span>(<span class="st">"#4d4d4d"</span>, <span class="st">"#b03a2e"</span>, <span class="st">"#d4ac0d"</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>          ),</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend =</span> <span class="cn">NULL</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"text"</span>, <span class="at">radius =</span> <span class="dv">120</span>, <span class="at">fontSize =</span> <span class="dv">13</span>),</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">theta =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"seats"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">stack =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">order =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"order"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>),</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">text =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"party"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"text"</span>, <span class="at">radius =</span> <span class="dv">75</span>, <span class="at">fontSize =</span> <span class="dv">13</span>, <span class="at">color =</span> <span class="st">"white"</span>),</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">theta =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"seats"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">stack =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">order =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"order"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>),</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">text =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"seats"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> bundestag),</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">350</span>,</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">350</span>,</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">view =</span> <span class="fu">list</span>(<span class="at">stroke =</span> <span class="cn">NULL</span>)</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="fu">vegawidget</span>(<span class="fu">as_vegaspec</span>(spec_101))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-d9f7e6a747faa94a3843" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d9f7e6a747faa94a3843">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "layer": [
+      {
+        "mark": {
+          "type": "arc"
+        },
+        "encoding": {
+          "theta": {
+            "field": "seats",
+            "type": "quantitative",
+            "sort": "order"
+          },
+          "order": {
+            "field": "order",
+            "type": "quantitative"
+          },
+          "color": {
+            "field": "party",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "CDU/CSU",
+                "SPD",
+                "FDP"
+              ],
+              "range": [
+                "#4d4d4d",
+                "#b03a2e",
+                "#d4ac0d"
+              ]
+            },
+            "legend": null
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "radius": 120,
+          "fontSize": 13
+        },
+        "encoding": {
+          "theta": {
+            "field": "seats",
+            "type": "quantitative",
+            "stack": true
+          },
+          "order": {
+            "field": "order",
+            "type": "quantitative"
+          },
+          "text": {
+            "field": "party",
+            "type": "nominal"
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "radius": 75,
+          "fontSize": 13,
+          "color": "white"
+        },
+        "encoding": {
+          "theta": {
+            "field": "seats",
+            "type": "quantitative",
+            "stack": true
+          },
+          "order": {
+            "field": "order",
+            "type": "quantitative"
+          },
+          "text": {
+            "field": "seats",
+            "type": "quantitative"
+          }
+        }
+      }
+    ],
+    "data": {
+      "values": [
+        {
+          "party": "CDU/CSU",
+          "seats": 243,
+          "order": 1
+        },
+        {
+          "party": "SPD",
+          "seats": 214,
+          "order": 2
+        },
+        {
+          "party": "FDP",
+          "seats": 39,
+          "order": 3
+        }
+      ]
+    },
+    "width": 350,
+    "height": 350,
+    "view": {
+      "stroke": null
+    }
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

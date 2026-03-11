@@ -1,1 +1,329 @@
+HW 7 
 
+EXERCISE 1
+### Exercise 1
+
+### a. List some guidelines/advice Wilke gives about creating bar charts.
+
+Wilke explains that bar charts are useful when comapring amounts across different categories. One advice that was important was bars should start at zero becuase it can mislead and give the viewers wrong information. If the bar is long, horizontal bar is better than verticle. Lastly he shared that bars should arranged by value or it is easier to read.
+
+### b. When is it not advised to use a bar chart? Why?
+
+Bar charts are not ideal when the valures are being compared very similar and very long. Wilke mentions as a example that life expectancy where bars make the differeces harder to notice, is one example that we shouldnt use bar graph. Dot plot can be better for this example.
+
+
+### c. What alternatives to bars are mentioned in this chapter?
+
+The chapter mentions dop plots and hearmaps as alternatives to bar charts. 
+
+### d. What guidance does Wilke give about whether or not to stack bars vs. dodge them (using an offset in Vega-Lite)?
+
+Wilke explains that grouped (dodged) bars are useful when comparing categories across another variable because each bar shares the same baseline, making comparisons easier. Stacked bars are better when the total of the values is meaningful, since the combined bar represents the sum. However, stacked bars make it harder to compare individual segments because they do not share a common baseline.
+
+### e. Recreate Figure 6.3 in Vega-Lite
+
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+
+movies <- read.csv("cow-movies.csv")
+
+spec <- list(
+  `$schema` = vega_schema(),
+  data = list(values = movies),
+  mark = "bar",
+  width = 500,
+  height = 300,
+  encoding = list(
+    x = list(
+      field = "amount",
+      type = "quantitative",
+      axis = list(title = "weekend gross (million USD)")
+    ),
+    y = list(
+      field = "title_short",
+      type = "nominal",
+      sort = "-x",
+      axis = list(title = "")
+    )
+  )
+)
+
+as_vegaspec(spec)
+```
+
+### F. Recreate Figures 6.8 and 6.9 in Vega-Lite
+Recreate Figures 6.8
+
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+
+income <- read.csv("cow-income.csv")
+income_filtered <- income[income$race %in% c("asian", "white", "hispanic", "black"), ]
+
+# Capitalize race labels
+income_filtered$race <- tools::toTitleCase(income_filtered$race)
+
+spec_68 <- list(
+  `$schema` = vega_schema(),
+  data = list(values = income_filtered),
+  mark = "bar",
+  width = 500,
+  height = 300,
+  encoding = list(
+    x = list(
+      field = "race",
+      type = "nominal",
+      axis = list(title = NULL, labelAngle = 0),
+      sort = c("Asian", "White", "Hispanic", "Black")
+    ),
+    y = list(
+      field = "median_income",
+      type = "quantitative",
+      axis = list(title = "median income (USD)", format = "$,.0f")
+    ),
+    xOffset = list(
+      field = "age",
+      type = "nominal"
+    ),
+    color = list(
+      field = "age",
+      type = "nominal",
+      title = "age (yrs)",
+      scale = list(scheme = "blues")
+    )
+  )
+)
+
+vegawidget(as_vegaspec(spec_68))
+```
+
+
+Recreate Figures 6.9
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+
+income <- read.csv("cow-income.csv")
+income_filtered <- income[income$race %in% c("asian", "white", "hispanic", "black"), ]
+
+spec_69 <- list(
+  `$schema` = vega_schema(),
+  data = list(values = income_filtered),
+  spec = list(
+    mark = "bar",
+    width = 350,
+    height = 250,
+    encoding = list(
+      x = list(
+        field = "age",
+        type = "nominal",
+        axis = list(
+          title = "age (years)",
+          labelAngle = -45,
+          labelPadding = 5
+        )
+      ),
+      y = list(
+        field = "median_income",
+        type = "quantitative",
+        axis = list(title = "median income (USD)", format = "$,.0f")
+      ),
+      color = list(value = "#6baed6")
+    )
+  ),
+  facet = list(
+    field = "race",
+    type = "nominal",
+    columns = 2
+  ),
+  resolve = list(scale = list(y = "shared"))
+)
+
+vegawidget(as_vegaspec(spec_69), width = 900, height = 700)
+```
+
+### g. Recreate Figure 6.11 and explain why Figures 6.12 and 6.13 are labeled “bad”.
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+
+gapminder <- read.csv("cow-gapminder.csv")
+americas_2007 <- gapminder[gapminder$continent == "Americas" & gapminder$year == 2007, ]
+
+spec_611 <- list(
+  `$schema` = vega_schema(),
+  data = list(values = americas_2007),
+  mark = list(type = "point", filled = TRUE, color = "#3a7dbf", size = 80),
+  width = 500,
+  height = 400,
+  encoding = list(
+    x = list(
+      field = "lifeExp",
+      type = "quantitative",
+      scale = list(zero = FALSE),
+      axis = list(title = "life expectancy (years)")
+    ),
+    y = list(
+      field = "country",
+      type = "nominal",
+      sort = "-x",
+      axis = list(title = NULL)
+    )
+  )
+)
+
+vegawidget(as_vegaspec(spec_611))
+```
+
+### g. Explain why Figures 6.12 and 6.13 are labeled “bad”.
+Figures 6.12 and 6.13 are labeled "bad" for different reasons. Figure 6.12 uses bars to show life 
+expectancy, which is a problem because bars imply the values start from zero. Since all countries 
+have life expectancy between 60–82, the bars are extremely long and nearly the same length, 
+making the differences between countries very hard to see. The dot plot in 6.11 is much better 
+because it doesn't need to start at zero and lets you focus on the actual differences.
+
+Figure 6.13 is bad because the countries are sorted alphabetically instead of by value. This turns 
+the dots into a scattered, disordered cloud with no clear pattern, making it much harder to compare 
+countries or spot which ones have higher or lower life expectancy.
+
+
+###EXERCISE 2
+B) There are three main reasons that things go bad. 
+1. Graphs are bad taste (badly designed and aesthetically offensive)
+2. Showing bad data
+3. Perceptually bad
+
+C) Yes there were two figures. (pg 41 and US map- how it uses color to present high and low)
+
+
+
+###EXERCISE 3
+a)In Vega-Lite, a heat map uses the rect mark with two categorical variables on the x and y axes, and a quantitative variable mapped to color to show values through color intensity.
+
+b) I chose 6.15
+
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+
+internet <- read.csv("cow-internet2.csv")
+
+country_order <- c("Iceland", "Norway", "United States", "Canada", "New Zealand",
+                   "United Kingdom", "Japan", "Germany", "Israel", "Italy",
+                   "France", "Chile", "Brazil", "Argentina", "Mexico",
+                   "China", "South Africa", "Algeria", "India", "Kenya")
+
+internet_filtered <- internet[internet$country %in% country_order, ]
+
+spec_615 <- list(
+  `$schema` = vega_schema(),
+  data = list(values = internet_filtered),
+  mark = "rect",
+  width = 700,
+  height = 400,
+  encoding = list(
+    x = list(
+      field = "year",
+      type = "ordinal",
+      axis = list(title = NULL, labelAngle = -45)
+    ),
+    y = list(
+      field = "country",
+      type = "nominal",
+      sort = country_order,
+      axis = list(title = NULL)
+    ),
+    color = list(
+      field = "users",
+      type = "quantitative",
+      title = "internet users / 100 people",
+      scale = list(scheme = "inferno", domain = list(0, 100))
+    )
+  )
+)
+
+vegawidget(as_vegaspec(spec_615))
+```
+
+c) you need to focus on original question. First graph shows the percentage of people saying yes to "how much it is important to live in a democracy". But the original question was a scale of 1 to 10 how important to you to live in a democracy. Need to focus on the original question
+
+d) It is because for b we are trying to see the trend and general idea. But if you want specific number or data, this will be a problem.
+
+### Exercise 4
+
+A) database people don't like pie chart because angles are hard to intrepret to see right off the bet what is the highest and lowest. 
+
+B) Healy is more critical of pie charts, saying angles are hard to read and bars are usually better. Wilke is more neutral — he thinks pie charts can actually be the best choice when the dataset is small and you want to show parts of a whole, like the Bundestag example where the pie makes the majority immediately obvious. Both agree pie charts aren't always wrong, but Healy is quicker to avoid them.
+
+C) Wilke presents stacked bars and side-by-side bars as alternatives. He favors stacked bars when the total matters and you're comparing proportions over time. He favors side-by-side bars when you want to directly compare individual values. Pie charts work best for small datasets where you just want to show simple fractions of a whole.
+
+D) 
+
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+
+bundestag <- data.frame(
+  party = c("CDU/CSU", "SPD", "FDP"),
+  seats = c(243, 214, 39),
+  order = c(1, 2, 3)
+)
+
+spec_101 <- list(
+  `$schema` = vega_schema(),
+  layer = list(
+    list(
+      mark = list(type = "arc"),
+      encoding = list(
+        theta = list(field = "seats", type = "quantitative", sort = "order"),
+        order = list(field = "order", type = "quantitative"),
+        color = list(
+          field = "party",
+          type = "nominal",
+          scale = list(
+            domain = list("CDU/CSU", "SPD", "FDP"),
+            range = list("#4d4d4d", "#b03a2e", "#d4ac0d")
+          ),
+          legend = NULL
+        )
+      )
+    ),
+    list(
+      mark = list(type = "text", radius = 120, fontSize = 13),
+      encoding = list(
+        theta = list(field = "seats", type = "quantitative", stack = TRUE),
+        order = list(field = "order", type = "quantitative"),
+        text = list(field = "party", type = "nominal")
+      )
+    ),
+    list(
+      mark = list(type = "text", radius = 75, fontSize = 13, color = "white"),
+      encoding = list(
+        theta = list(field = "seats", type = "quantitative", stack = TRUE),
+        order = list(field = "order", type = "quantitative"),
+        text = list(field = "seats", type = "quantitative")
+      )
+    )
+  ),
+  data = list(values = bundestag),
+  width = 350,
+  height = 350,
+  view = list(stroke = NULL)
+)
+
+vegawidget(as_vegaspec(spec_101))
+```
