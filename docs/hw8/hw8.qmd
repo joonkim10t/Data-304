@@ -1,1 +1,523 @@
+HW 8 
+
+###Exercise 1
+
+1) 
+
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+
+supply_demand <- read.csv("swd-lets-practice-ex-2-3.csv")
+
+supply_demand$capacity <- as.numeric(gsub(",", "", supply_demand$capacity))
+supply_demand$demand <- as.numeric(gsub(",", "", supply_demand$demand))
+
+long_data <- data.frame(
+  date = rep(supply_demand$date, 2),
+  type = c(rep("CAPACITY", nrow(supply_demand)), rep("DEMAND", nrow(supply_demand))),
+  value = c(supply_demand$capacity, supply_demand$demand)
+)
+
+spec_1a <- list(
+  `$schema` = vega_schema(),
+  data = list(values = long_data),
+  mark = "bar",
+  width = 500,
+  height = 300,
+  encoding = list(
+    x = list(
+      field = "date",
+      type = "nominal",
+      axis = list(title = NULL, labelAngle = -45)
+    ),
+    y = list(
+      field = "value",
+      type = "quantitative",
+      axis = list(title = NULL)
+    ),
+    xOffset = list(
+      field = "type",
+      type = "nominal"
+    ),
+    color = list(
+      field = "type",
+      type = "nominal",
+      scale = list(
+        domain = list("DEMAND", "CAPACITY"),
+        range = list("#6baed6", "#bdd7e7")
+      ),
+      legend = list(title = NULL, orient = "top-right")
+    )
+  )
+)
+
+vegawidget(as_vegaspec(spec_1a))
+```
+
+2)
+```{r}
+#| warning: false
+#| message: false
+
+spec_1b <- list(
+  `$schema` = vega_schema(),
+  data = list(values = long_data),
+  mark = list(type = "line"),
+  width = 500,
+  height = 300,
+  encoding = list(
+    x = list(
+      field = "date",
+      type = "nominal",
+      axis = list(title = NULL, labelAngle = -45)
+    ),
+    y = list(
+      field = "value",
+      type = "quantitative",
+      axis = list(title = NULL)
+    ),
+    color = list(
+      field = "type",
+      type = "nominal",
+      scale = list(
+        domain = list("DEMAND", "CAPACITY"),
+        range = list("#6baed6", "#bdd7e7")
+      ),
+      legend = list(title = NULL, orient = "top-right")
+    )
+  )
+)
+
+vegawidget(as_vegaspec(spec_1b))
+```
+
+3)
+```{r}
+#| warning: false
+#| message: false
+
+spec_1c <- list(
+  `$schema` = vega_schema(),
+  data = list(values = long_data),
+  mark = list(type = "bar", opacity = 0.7),
+  width = 500,
+  height = 300,
+  encoding = list(
+    x = list(
+      field = "date",
+      type = "nominal",
+      axis = list(title = NULL, labelAngle = -45)
+    ),
+    y = list(
+      field = "value",
+      type = "quantitative",
+      axis = list(title = NULL)
+    ),
+    color = list(
+      field = "type",
+      type = "nominal",
+      scale = list(
+        domain = list("DEMAND", "CAPACITY"),
+        range = list("#6baed6", "#bdd7e7")
+      ),
+      legend = list(title = NULL, orient = "top-right")
+    )
+  )
+)
+
+vegawidget(as_vegaspec(spec_1c))
+```
+
+4)
+```{r}
+#| warning: false
+#| message: false
+
+supply_demand$unmet <- supply_demand$demand - supply_demand$capacity
+
+unmet_data <- data.frame(
+  date = rep(supply_demand$date, 2),
+  type = c(rep("CAPACITY", nrow(supply_demand)), rep("UNMET DEMAND", nrow(supply_demand))),
+  value = c(supply_demand$capacity, supply_demand$unmet)
+)
+
+spec_1d <- list(
+  `$schema` = vega_schema(),
+  data = list(values = unmet_data),
+  mark = list(type = "bar"),
+  width = 500,
+  height = 300,
+  encoding = list(
+    x = list(
+      field = "date",
+      type = "nominal",
+      axis = list(title = NULL, labelAngle = -45)
+    ),
+    y = list(
+      field = "value",
+      type = "quantitative",
+      stack = TRUE,
+      axis = list(title = NULL)
+    ),
+    color = list(
+      field = "type",
+      type = "nominal",
+      scale = list(
+        domain = list("CAPACITY", "UNMET DEMAND"),
+        range = list("#6baed6", "#bdd7e7")
+      ),
+      legend = list(title = NULL, orient = "top-right")
+    )
+  )
+)
+
+vegawidget(as_vegaspec(spec_1d))
+```
+
+5)
+```{r}
+#| warning: false
+#| message: false
+
+spec_1e <- list(
+  `$schema` = vega_schema(),
+  data = list(values = long_data),
+  layer = list(
+    list(
+      mark = list(type = "line", color = "#aec7d8"),
+      encoding = list(
+        x = list(
+          field = "date",
+          type = "nominal",
+          axis = list(title = NULL, labelAngle = -45)
+        ),
+        y = list(
+          field = "value",
+          type = "quantitative",
+          axis = list(title = NULL)
+        ),
+        detail = list(field = "date", type = "nominal")
+      )
+    ),
+    list(
+      mark = list(type = "point", size = 80),
+      encoding = list(
+        x = list(
+          field = "date",
+          type = "nominal"
+        ),
+        y = list(
+          field = "value",
+          type = "quantitative"
+        ),
+        fill = list(
+          field = "type",
+          type = "nominal",
+          scale = list(
+            domain = list("DEMAND", "CAPACITY"),
+            range = list("white", "#6baed6")
+          ),
+          legend = list(title = NULL, orient = "top-right")
+        ),
+        stroke = list(value = "#6baed6")
+      )
+    )
+  ),
+  width = 500,
+  height = 300
+)
+
+vegawidget(as_vegaspec(spec_1e))
+```
+
+6)
+```{r}
+#| warning: false
+#| message: false
+
+unmet_line_data <- data.frame(
+  date = supply_demand$date,
+  unmet = supply_demand$demand - supply_demand$capacity
+)
+
+spec_1f <- list(
+  `$schema` = vega_schema(),
+  data = list(values = unmet_line_data),
+  layer = list(
+    list(
+      mark = list(type = "line", color = "#6baed6"),
+      encoding = list(
+        x = list(
+          field = "date",
+          type = "nominal",
+          axis = list(title = NULL, labelAngle = -45)
+        ),
+        y = list(
+          field = "unmet",
+          type = "quantitative",
+          axis = list(title = NULL)
+        )
+      )
+    ),
+    list(
+      mark = list(type = "point", size = 80, filled = TRUE, color = "#6baed6"),
+      encoding = list(
+        x = list(
+          field = "date",
+          type = "nominal"
+        ),
+        y = list(
+          field = "unmet",
+          type = "quantitative"
+        )
+      )
+    )
+  ),
+  width = 500,
+  height = 300
+)
+
+vegawidget(as_vegaspec(spec_1f))
+```
+
+### Exercise 2
+
+a) 
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+library(jsonlite)
+
+jobs_url <- "https://cdn.jsdelivr.net/npm/vega-datasets@2.8.0/data/jobs.json"
+jobs <- fromJSON(jobs_url)
+
+sum_perc <- aggregate(perc ~ year + sex, data = jobs, FUN = sum)
+
+spec_2a <- list(
+  `$schema` = vega_schema(),
+  data = list(values = sum_perc),
+  mark = list(type = "line", point = TRUE),
+  width = 500,
+  height = 300,
+  encoding = list(
+    x = list(
+      field = "year",
+      type = "quantitative",
+      axis = list(title = "year", format = "d")
+    ),
+    y = list(
+      field = "perc",
+      type = "quantitative",
+      axis = list(title = "sum of perc", format = ".0%")
+    ),
+    color = list(
+      field = "sex",
+      type = "nominal",
+      legend = list(title = "sex")
+    )
+  )
+)
+
+vegawidget(as_vegaspec(spec_2a))
+```
+
+The sum of `perc` stays close to 1 (100%) for both men and women across every year. 
+This means `perc` represents the share of workers of that sex in a given job — 
+so all job percentages for men add up to 100%, and same for women separately.
+
+
+b)
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+library(jsonlite)
+
+jobs_url <- "https://cdn.jsdelivr.net/npm/vega-datasets@2.8.0/data/jobs.json"
+jobs <- fromJSON(jobs_url)
+
+years_chosen <- c(1850, 1900, 1950, 2000)
+jobs_filtered <- jobs[jobs$year %in% years_chosen, ]
+
+spec_2b <- list(
+  `$schema` = vega_schema(),
+  data = list(values = jobs_filtered),
+  spec = list(
+    mark = list(type = "point"),
+    width = 250,
+    height = 250,
+    transform = list(
+      list(pivot = "sex", value = "perc", groupby = list("job", "year"))
+    ),
+    encoding = list(
+      x = list(
+        field = "men",
+        type = "quantitative",
+        axis = list(title = "men", format = ".0%")
+      ),
+      y = list(
+        field = "women",
+        type = "quantitative",
+        axis = list(title = "women", format = ".0%")
+      ),
+      tooltip = list(
+        list(field = "job"),
+        list(field = "men", format = ".0%"),
+        list(field = "women", format = ".0%")
+      )
+    )
+  ),
+  facet = list(
+    field = "year",
+    type = "ordinal",
+    columns = 2
+  )
+)
+
+vegawidget(as_vegaspec(spec_2b))
+```
+
+c)
+```{r}
+#| warning: false
+#| message: false
+
+library(dplyr)
+
+jobs_url <- "https://cdn.jsdelivr.net/npm/vega-datasets@2.8.0/data/jobs.json"
+jobs <- fromJSON(jobs_url)
+
+years_chosen <- c(1850, 1900, 1950, 2000)
+jobs_filtered <- jobs[jobs$year %in% years_chosen, ]
+
+jobs_wide <- jobs_filtered %>%
+  select(job, year, sex, count) %>%
+  tidyr::pivot_wider(names_from = sex, values_from = count) %>%
+  mutate(
+    total = men + women,
+    perc_men = men / total,
+    perc_women = women / total
+  )
+
+spec_2c <- list(
+  `$schema` = vega_schema(),
+  data = list(values = jobs_wide),
+  spec = list(
+    mark = list(type = "point"),
+    width = 250,
+    height = 250,
+    encoding = list(
+      x = list(
+        field = "perc_men",
+        type = "quantitative",
+        axis = list(title = "% men in job", format = ".0%")
+      ),
+      y = list(
+        field = "perc_women",
+        type = "quantitative",
+        axis = list(title = "% women in job", format = ".0%")
+      ),
+      tooltip = list(
+        list(field = "job"),
+        list(field = "perc_men", format = ".0%"),
+        list(field = "perc_women", format = ".0%")
+      )
+    )
+  ),
+  facet = list(
+    field = "year",
+    type = "ordinal",
+    columns = 2
+  )
+)
+
+vegawidget(as_vegaspec(spec_2c))
+```
+
+###Exercise 3
+
+```{r}
+#| warning: false
+#| message: false
+
+library(vegawidget)
+library(tidyr)
+library(dplyr)
+
+gas <- read.csv("pump_price_for_gasoline_us_per_liter.csv", check.names = FALSE)
+gas[, -1] <- lapply(gas[, -1], function(x) as.numeric(as.character(x)))
+
+countries_url <- "https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/master/all/all.csv"
+regions <- read.csv(countries_url, check.names = FALSE)
+colnames(regions) <- make.names(colnames(regions))
+
+gas_long <- gas %>%
+  pivot_longer(-country, names_to = "year", values_to = "price_per_liter") %>%
+  filter(!is.na(price_per_liter)) %>%
+  mutate(
+    year = as.numeric(year),
+    price_per_gallon = price_per_liter * 3.785
+  )
+
+regions_clean <- regions %>%
+  select(name, alpha.3, region) %>%
+  rename(country = name, code = alpha.3)
+
+gas_merged <- gas_long %>%
+  left_join(regions_clean, by = "country")
+
+unmatched <- gas_merged %>%
+  filter(is.na(code)) %>%
+  distinct(country)
+
+gas_merged <- gas_merged %>% filter(!is.na(region), region != "")
+
+spec_3 <- list(
+  `$schema` = vega_schema(),
+  data = list(values = gas_merged),
+  mark = list(type = "line", opacity = 0.4),
+  width = 500,
+  height = 350,
+  encoding = list(
+    x = list(
+      field = "year",
+      type = "quantitative",
+      axis = list(title = "year", format = "d")
+    ),
+    y = list(
+      field = "price_per_gallon",
+      type = "quantitative",
+      axis = list(title = "price (USD per gallon)")
+    ),
+    color = list(
+      field = "region",
+      type = "nominal",
+      legend = list(title = "region")
+    ),
+    detail = list(field = "country", type = "nominal")
+  )
+)
+
+vegawidget(as_vegaspec(spec_3))
+```
+
+Yes, some countries in the gas price data failed to match with the regions dataset. 
+This is because country names are spelled differently between the two datasets — 
+for example "Russia" vs "Russian Federation", or "South Korea" vs "Korea, Republic of".
+
+
+
+
+
+
+
+
+
+
 
