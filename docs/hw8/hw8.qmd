@@ -505,6 +505,8 @@ spec_3 <- list(
 )
 
 vegawidget(as_vegaspec(spec_3))
+
+print(unmatched)
 ```
 
 Yes, some countries in the gas price data failed to match with the regions dataset. 
