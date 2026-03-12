@@ -1,0 +1,3323 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>finalportfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="finalportfolio_files/libs/clipboard/clipboard.min.js"></script>
+<script src="finalportfolio_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="finalportfolio_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="finalportfolio_files/libs/quarto-html/popper.min.js"></script>
+<script src="finalportfolio_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="finalportfolio_files/libs/quarto-html/anchor.min.js"></script>
+<link href="finalportfolio_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="finalportfolio_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="finalportfolio_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="finalportfolio_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="finalportfolio_files/libs/bootstrap/bootstrap-06934f95bbdce270c85ec53dfd566004.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="finalportfolio_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="finalportfolio_files/libs/vega-5.24.0/vega@5.24.0.min.js"></script>
+<script src="finalportfolio_files/libs/vega-lite-5.16.3/vega-lite@5.16.3.min.js"></script>
+<link href="finalportfolio_files/libs/vega-embed-6.22.2/vega-embed.css" rel="stylesheet">
+<script src="finalportfolio_files/libs/vega-embed-6.22.2/vega-embed@6.22.2.min.js"></script>
+<script src="finalportfolio_files/libs/vegawidget-vl5-binding-0.5.0/vegawidget-vl5.js"></script>
+
+
+</head>
+
+<body class="fullcontent quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<p>###Final Portfolio</p>
+<p>##Exercise 1 #Part a – A plot from the HW 4 Gallery I liked Based on the data we were working with, I’d expect one of the better plots in the gallery to be a dot plot comparing genetic share estimates across the three kits for each ancestry region. That kind of plot would make it really easy to scan across and see where the kits agree and where they don’t — you get one dot per kit on the same horizontal line, so the comparison feels natural without any extra mental work. It’s clean, it doesn’t overload you with information, and it actually lets the data speak for itself. That’s the kind of plot I would have been drawn to.</p>
+<p>#Part b – A plot from the HW 4 Gallery I didn’t like On the flip side, I’d guess some plots in the gallery went with a stacked bar chart to show the full ancestry breakdown per twin. I can see why that’s tempting — it looks like it tells the whole story at once — but stacked bars are really hard to read for anything except the bottom segment, since everything above it doesn’t share a common baseline. Trying to compare Central Africa between Twin A and Twin B in a stacked bar is just guesswork. A grouped or faceted layout would have been a lot more useful for this particular data.</p>
+<section id="part-c-graphic-1-comparing-the-three-kits" class="level1">
+<h1>Part c – Graphic 1: Comparing the Three Kits</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>twins_long <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"twins-genetics-long.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pair_label =</span> <span class="fu">paste</span>(<span class="st">"Pair"</span>, pair))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>spec1 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"https://vega.github.io/schema/vega-lite/v5.json"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="fu">list</span>(</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="st">"Same DNA, Different Answers"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"How three genetic kits disagree on ancestry estimates across six twin pairs"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontSize =</span> <span class="dv">16</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">anchor =</span> <span class="st">"start"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> twins_long),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">facet =</span> <span class="fu">list</span>(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">field =</span> <span class="st">"pair_label"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="dv">2</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">sort =</span> <span class="fu">list</span>(<span class="st">"Pair 1"</span>, <span class="st">"Pair 2"</span>, <span class="st">"Pair 3"</span>, <span class="st">"Pair 4"</span>, <span class="st">"Pair 5"</span>, <span class="st">"Pair 6"</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">spec =</span> <span class="fu">list</span>(</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">mark =</span> <span class="fu">list</span>(</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"point"</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">100</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">filled =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">opacity =</span> <span class="fl">0.9</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="at">field =</span> <span class="st">"region"</span>,</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">labelLimit =</span> <span class="dv">120</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">field =</span> <span class="st">"genetic share"</span>,</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Genetic Share"</span>,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">format =</span> <span class="st">".0%"</span>),</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="fu">list</span>(</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">field =</span> <span class="st">"kit"</span>,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Kit"</span>,</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">scale =</span> <span class="fu">list</span>(</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">domain =</span> <span class="fu">list</span>(<span class="st">"Ancestry"</span>, <span class="st">"23andMe"</span>, <span class="st">"MyHeritage"</span>),</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>          <span class="at">range =</span> <span class="fu">list</span>(<span class="st">"#e15759"</span>, <span class="st">"#4e79a7"</span>, <span class="st">"#59a14f"</span>)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">list</span>(<span class="at">orient =</span> <span class="st">"right"</span>)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>      <span class="at">shape =</span> <span class="fu">list</span>(</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        <span class="at">field =</span> <span class="st">"kit"</span>,</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        <span class="at">title =</span> <span class="st">"Kit"</span>,</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        <span class="at">scale =</span> <span class="fu">list</span>(</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>          <span class="at">domain =</span> <span class="fu">list</span>(<span class="st">"Ancestry"</span>, <span class="st">"23andMe"</span>, <span class="st">"MyHeritage"</span>),</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>          <span class="at">range =</span> <span class="fu">list</span>(<span class="st">"circle"</span>, <span class="st">"square"</span>, <span class="st">"triangle-up"</span>)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="fu">list</span>(<span class="at">orient =</span> <span class="st">"right"</span>)</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>      <span class="at">yOffset =</span> <span class="fu">list</span>(</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        <span class="at">field =</span> <span class="st">"id"</span>,</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"nominal"</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>      <span class="at">tooltip =</span> <span class="fu">list</span>(</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"twin"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>, <span class="at">title =</span> <span class="st">"Twin"</span>),</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"region"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>),</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"kit"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>),</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"genetic share"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">format =</span> <span class="st">".1%"</span>)</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">300</span>,</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">160</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolve =</span> <span class="fu">list</span>(</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">"shared"</span>)</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec1, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="htmlwidget-86ef32a76d198200d48f" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-86ef32a76d198200d48f">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Same DNA, Different Answers",
+      "subtitle": "How three genetic kits disagree on ancestry estimates across six twin pairs",
+      "fontSize": 16,
+      "anchor": "start"
+    },
+    "data": {
+      "values": [
+        {
+          "twin": "1A",
+          "pair": 1,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.9,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1A",
+          "pair": 1,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.676,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1A",
+          "pair": 1,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.647,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1A",
+          "pair": 1,
+          "id": "A",
+          "region": "SE Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.1,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1A",
+          "pair": 1,
+          "id": "A",
+          "region": "SE Europe",
+          "kit": "23andMe",
+          "genetic share": 0.32,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1A",
+          "pair": 1,
+          "id": "A",
+          "region": "SE Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.333,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1B",
+          "pair": 1,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.9,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1B",
+          "pair": 1,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.691,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1B",
+          "pair": 1,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.687,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1B",
+          "pair": 1,
+          "id": "B",
+          "region": "SE Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.1,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1B",
+          "pair": 1,
+          "id": "B",
+          "region": "SE Europe",
+          "kit": "23andMe",
+          "genetic share": 0.305,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "1B",
+          "pair": 1,
+          "id": "B",
+          "region": "SE Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.239,
+          "pair_label": "Pair 1"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.65,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "23andMe",
+          "genetic share": 0.762,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.696,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "Central Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.22,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "Central Africa",
+          "kit": "23andMe",
+          "genetic share": 0.076,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "Central Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.12,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.12,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.139,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.104,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "SE Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.01,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "SE Europe",
+          "kit": "23andMe",
+          "genetic share": 0.006,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2A",
+          "pair": 2,
+          "id": "A",
+          "region": "SE Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.64,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "23andMe",
+          "genetic share": 0.76,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.688,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "Central Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.23,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "Central Africa",
+          "kit": "23andMe",
+          "genetic share": 0.078,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "Central Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.112,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.12,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.131,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.106,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "SE Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.01,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "SE Europe",
+          "kit": "23andMe",
+          "genetic share": 0.006,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "2B",
+          "pair": 2,
+          "id": "B",
+          "region": "SE Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0,
+          "pair_label": "Pair 2"
+        },
+        {
+          "twin": "3A",
+          "pair": 3,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.99,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3A",
+          "pair": 3,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.987,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3A",
+          "pair": 3,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.992,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3A",
+          "pair": 3,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.01,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3A",
+          "pair": 3,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "23andMe",
+          "genetic share": 0.07,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3A",
+          "pair": 3,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3B",
+          "pair": 3,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.99,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3B",
+          "pair": 3,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.987,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3B",
+          "pair": 3,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.981,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3B",
+          "pair": 3,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.01,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3B",
+          "pair": 3,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "23andMe",
+          "genetic share": 0.01,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "3B",
+          "pair": 3,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0,
+          "pair_label": "Pair 3"
+        },
+        {
+          "twin": "4A",
+          "pair": 4,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.6,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4A",
+          "pair": 4,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "23andMe",
+          "genetic share": 0.772,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4A",
+          "pair": 4,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.692,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4A",
+          "pair": 4,
+          "id": "A",
+          "region": "Central Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.27,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4A",
+          "pair": 4,
+          "id": "A",
+          "region": "Central Africa",
+          "kit": "23andMe",
+          "genetic share": 0.076,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4A",
+          "pair": 4,
+          "id": "A",
+          "region": "Central Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.076,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4A",
+          "pair": 4,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.12,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4A",
+          "pair": 4,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.125,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4A",
+          "pair": 4,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.092,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.6,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "23andMe",
+          "genetic share": 0.768,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.707,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "Central Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.27,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "Central Africa",
+          "kit": "23andMe",
+          "genetic share": 0.08,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "Central Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.068,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.12,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.115,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.088,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "East Asia",
+          "kit": "Ancestry",
+          "genetic share": 0.01,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "East Asia",
+          "kit": "23andMe",
+          "genetic share": 0.017,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "East Asia",
+          "kit": "MyHeritage",
+          "genetic share": 0,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "SE Europe",
+          "kit": "Ancestry",
+          "genetic share": 0,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "SE Europe",
+          "kit": "23andMe",
+          "genetic share": 0.009,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "4B",
+          "pair": 4,
+          "id": "B",
+          "region": "SE Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.094,
+          "pair_label": "Pair 4"
+        },
+        {
+          "twin": "5A",
+          "pair": 5,
+          "id": "A",
+          "region": "East Asia",
+          "kit": "Ancestry",
+          "genetic share": 1,
+          "pair_label": "Pair 5"
+        },
+        {
+          "twin": "5A",
+          "pair": 5,
+          "id": "A",
+          "region": "East Asia",
+          "kit": "23andMe",
+          "genetic share": 1,
+          "pair_label": "Pair 5"
+        },
+        {
+          "twin": "5A",
+          "pair": 5,
+          "id": "A",
+          "region": "East Asia",
+          "kit": "MyHeritage",
+          "genetic share": 0.978,
+          "pair_label": "Pair 5"
+        },
+        {
+          "twin": "5B",
+          "pair": 5,
+          "id": "B",
+          "region": "East Asia",
+          "kit": "Ancestry",
+          "genetic share": 1,
+          "pair_label": "Pair 5"
+        },
+        {
+          "twin": "5B",
+          "pair": 5,
+          "id": "B",
+          "region": "East Asia",
+          "kit": "23andMe",
+          "genetic share": 1,
+          "pair_label": "Pair 5"
+        },
+        {
+          "twin": "5B",
+          "pair": 5,
+          "id": "B",
+          "region": "East Asia",
+          "kit": "MyHeritage",
+          "genetic share": 0.973,
+          "pair_label": "Pair 5"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.62,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "23andMe",
+          "genetic share": 0.636,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.61,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.23,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.245,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.251,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "Central Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.12,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "Central Africa",
+          "kit": "23andMe",
+          "genetic share": 0.1,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "Central Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.11,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "East Asia",
+          "kit": "Ancestry",
+          "genetic share": 0.01,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "East Asia",
+          "kit": "23andMe",
+          "genetic share": 0.006,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6A",
+          "pair": 6,
+          "id": "A",
+          "region": "East Asia",
+          "kit": "MyHeritage",
+          "genetic share": 0,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.62,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "23andMe",
+          "genetic share": 0.634,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.624,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "genetic share": 0.23,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "genetic share": 0.247,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "genetic share": 0.25,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "Central Africa",
+          "kit": "Ancestry",
+          "genetic share": 0.13,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "Central Africa",
+          "kit": "23andMe",
+          "genetic share": 0.1,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "Central Africa",
+          "kit": "MyHeritage",
+          "genetic share": 0.089,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "East Asia",
+          "kit": "Ancestry",
+          "genetic share": 0.01,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "East Asia",
+          "kit": "23andMe",
+          "genetic share": 0.006,
+          "pair_label": "Pair 6"
+        },
+        {
+          "twin": "6B",
+          "pair": 6,
+          "id": "B",
+          "region": "East Asia",
+          "kit": "MyHeritage",
+          "genetic share": 0,
+          "pair_label": "Pair 6"
+        }
+      ]
+    },
+    "facet": {
+      "field": "pair_label",
+      "type": "nominal",
+      "title": {},
+      "columns": 2,
+      "sort": [
+        "Pair 1",
+        "Pair 2",
+        "Pair 3",
+        "Pair 4",
+        "Pair 5",
+        "Pair 6"
+      ]
+    },
+    "spec": {
+      "mark": {
+        "type": "point",
+        "size": 100,
+        "filled": true,
+        "opacity": 0.9
+      },
+      "encoding": {
+        "y": {
+          "field": "region",
+          "type": "nominal",
+          "title": {},
+          "axis": {
+            "labelLimit": 120
+          }
+        },
+        "x": {
+          "field": "genetic share",
+          "type": "quantitative",
+          "title": "Genetic Share",
+          "axis": {
+            "format": ".0%"
+          },
+          "scale": {
+            "domain": [
+              0,
+              1
+            ]
+          }
+        },
+        "color": {
+          "field": "kit",
+          "type": "nominal",
+          "title": "Kit",
+          "scale": {
+            "domain": [
+              "Ancestry",
+              "23andMe",
+              "MyHeritage"
+            ],
+            "range": [
+              "#e15759",
+              "#4e79a7",
+              "#59a14f"
+            ]
+          },
+          "legend": {
+            "orient": "right"
+          }
+        },
+        "shape": {
+          "field": "kit",
+          "type": "nominal",
+          "title": "Kit",
+          "scale": {
+            "domain": [
+              "Ancestry",
+              "23andMe",
+              "MyHeritage"
+            ],
+            "range": [
+              "circle",
+              "square",
+              "triangle-up"
+            ]
+          },
+          "legend": {
+            "orient": "right"
+          }
+        },
+        "yOffset": {
+          "field": "id",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "twin",
+            "type": "nominal",
+            "title": "Twin"
+          },
+          {
+            "field": "region",
+            "type": "nominal"
+          },
+          {
+            "field": "kit",
+            "type": "nominal"
+          },
+          {
+            "field": "genetic share",
+            "type": "quantitative",
+            "format": ".1%"
+          }
+        ]
+      },
+      "width": 300,
+      "height": 160
+    },
+    "resolve": {
+      "scale": {
+        "x": "shared"
+      }
+    }
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>I picked a dot plot here because I thought about using a stacked bar chart at first but realized it would have the same issue I mentioned in part b — you can only really compare the bottom segment, and everything stacked above it just shifts around. With a dot plot each kit gets its own shape on the same axis, so it’s easy to see where they agree and where they don’t.</p>
+<p>Each panel shows one twin pair, with ancestry regions on the y-axis and the percentage on the x-axis. The three shapes represent Ancestry, 23andMe, and MyHeritage. When the shapes land close together, the kits mostly agree on that region. When they spread apart, the kits are giving noticeably different numbers for the same DNA. The kits tend to agree on the dominant ancestry — like all three putting Pair 5 near 100% East Asian, or Pair 3 near 99% NW European. But the smaller percentages are where things get messy. Pair 1 is a good example: Ancestry says around 10% SE Europe, while the other two put it closer to 30%. That’s a big gap for the same spit sample, and it comes down to each company using different reference populations and algorithms to interpret the raw data.</p>
+</section>
+<section id="part-c-graphic-2-comparing-twins" class="level1">
+<h1>Part c – Graphic 2: Comparing Twins</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>twins_long <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"twins-genetics-long.csv"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>twin_a <span class="ot">&lt;-</span> twins_long <span class="sc">|&gt;</span> <span class="fu">filter</span>(id <span class="sc">==</span> <span class="st">"A"</span>) <span class="sc">|&gt;</span> <span class="fu">select</span>(pair, region, kit, <span class="at">share_A =</span> <span class="st">`</span><span class="at">genetic share</span><span class="st">`</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>twin_b <span class="ot">&lt;-</span> twins_long <span class="sc">|&gt;</span> <span class="fu">filter</span>(id <span class="sc">==</span> <span class="st">"B"</span>) <span class="sc">|&gt;</span> <span class="fu">select</span>(pair, region, kit, <span class="at">share_B =</span> <span class="st">`</span><span class="at">genetic share</span><span class="st">`</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>twin_compare <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(twin_a, twin_b, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"pair"</span>, <span class="st">"region"</span>, <span class="st">"kit"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pair_label =</span> <span class="fu">paste</span>(<span class="st">"Pair"</span>, pair))</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>spec2 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"https://vega.github.io/schema/vega-lite/v5.json"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="fu">list</span>(</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="st">"Identical DNA, Not Quite Identical Results"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Comparing Twin A and Twin B ancestry estimates across three kits"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontSize =</span> <span class="dv">16</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">anchor =</span> <span class="st">"start"</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> twin_compare),</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">facet =</span> <span class="fu">list</span>(</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">field =</span> <span class="st">"kit"</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="cn">NULL</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="dv">3</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">sort =</span> <span class="fu">list</span>(<span class="st">"Ancestry"</span>, <span class="st">"23andMe"</span>, <span class="st">"MyHeritage"</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">spec =</span> <span class="fu">list</span>(</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">layer =</span> <span class="fu">list</span>(</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> <span class="fu">list</span>(</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>),</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">1</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>        )),</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"line"</span>, <span class="at">strokeDash =</span> <span class="fu">list</span>(<span class="dv">6</span>, <span class="dv">4</span>), <span class="at">color =</span> <span class="st">"gray"</span>, <span class="at">strokeWidth =</span> <span class="dv">1</span>),</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"x"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>),</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"y"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>)</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">mark =</span> <span class="fu">list</span>(</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"point"</span>,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="dv">70</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>          <span class="at">filled =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>          <span class="at">opacity =</span> <span class="fl">0.7</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>            <span class="at">field =</span> <span class="st">"share_A"</span>,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">"Twin A Genetic Share"</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>            <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">0</span>, <span class="dv">1</span>)),</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">format =</span> <span class="st">".0%"</span>)</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>          ),</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>            <span class="at">field =</span> <span class="st">"share_B"</span>,</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">"Twin B Genetic Share"</span>,</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>            <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">0</span>, <span class="dv">1</span>)),</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>            <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">format =</span> <span class="st">".0%"</span>)</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>          ),</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>          <span class="at">color =</span> <span class="fu">list</span>(</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>            <span class="at">field =</span> <span class="st">"pair_label"</span>,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>            <span class="at">title =</span> <span class="st">"Twin Pair"</span>,</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>            <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">scheme =</span> <span class="st">"tableau10"</span>),</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend =</span> <span class="fu">list</span>(<span class="at">orient =</span> <span class="st">"right"</span>)</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>          ),</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>          <span class="at">tooltip =</span> <span class="fu">list</span>(</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>            <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"pair_label"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>, <span class="at">title =</span> <span class="st">"Pair"</span>),</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>            <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"region"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>),</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>            <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"share_A"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Twin A"</span>, <span class="at">format =</span> <span class="st">".1%"</span>),</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>            <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"share_B"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Twin B"</span>, <span class="at">format =</span> <span class="st">".1%"</span>)</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>          )</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">200</span>,</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">height =</span> <span class="dv">200</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolve =</span> <span class="fu">list</span>(</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">x =</span> <span class="st">"shared"</span>, <span class="at">y =</span> <span class="st">"shared"</span>)</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec2, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="htmlwidget-6784af3a9556d8469798" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6784af3a9556d8469798">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Identical DNA, Not Quite Identical Results",
+      "subtitle": "Comparing Twin A and Twin B ancestry estimates across three kits",
+      "fontSize": 16,
+      "anchor": "start"
+    },
+    "data": {
+      "values": [
+        {
+          "pair": 1,
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "share_A": 0.9,
+          "share_B": 0.9,
+          "pair_label": "Pair 1"
+        },
+        {
+          "pair": 1,
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "share_A": 0.676,
+          "share_B": 0.691,
+          "pair_label": "Pair 1"
+        },
+        {
+          "pair": 1,
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "share_A": 0.647,
+          "share_B": 0.687,
+          "pair_label": "Pair 1"
+        },
+        {
+          "pair": 1,
+          "region": "SE Europe",
+          "kit": "Ancestry",
+          "share_A": 0.1,
+          "share_B": 0.1,
+          "pair_label": "Pair 1"
+        },
+        {
+          "pair": 1,
+          "region": "SE Europe",
+          "kit": "23andMe",
+          "share_A": 0.32,
+          "share_B": 0.305,
+          "pair_label": "Pair 1"
+        },
+        {
+          "pair": 1,
+          "region": "SE Europe",
+          "kit": "MyHeritage",
+          "share_A": 0.333,
+          "share_B": 0.239,
+          "pair_label": "Pair 1"
+        },
+        {
+          "pair": 2,
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "share_A": 0.65,
+          "share_B": 0.64,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "West Africa",
+          "kit": "23andMe",
+          "share_A": 0.762,
+          "share_B": 0.76,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "share_A": 0.696,
+          "share_B": 0.688,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "Central Africa",
+          "kit": "Ancestry",
+          "share_A": 0.22,
+          "share_B": 0.23,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "Central Africa",
+          "kit": "23andMe",
+          "share_A": 0.076,
+          "share_B": 0.078,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "Central Africa",
+          "kit": "MyHeritage",
+          "share_A": 0.12,
+          "share_B": 0.112,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "share_A": 0.12,
+          "share_B": 0.12,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "share_A": 0.139,
+          "share_B": 0.131,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "share_A": 0.104,
+          "share_B": 0.106,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "SE Europe",
+          "kit": "Ancestry",
+          "share_A": 0.01,
+          "share_B": 0.01,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "SE Europe",
+          "kit": "23andMe",
+          "share_A": 0.006,
+          "share_B": 0.006,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 2,
+          "region": "SE Europe",
+          "kit": "MyHeritage",
+          "share_A": 0,
+          "share_B": 0,
+          "pair_label": "Pair 2"
+        },
+        {
+          "pair": 3,
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "share_A": 0.99,
+          "share_B": 0.99,
+          "pair_label": "Pair 3"
+        },
+        {
+          "pair": 3,
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "share_A": 0.987,
+          "share_B": 0.987,
+          "pair_label": "Pair 3"
+        },
+        {
+          "pair": 3,
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "share_A": 0.992,
+          "share_B": 0.981,
+          "pair_label": "Pair 3"
+        },
+        {
+          "pair": 3,
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "share_A": 0.01,
+          "share_B": 0.01,
+          "pair_label": "Pair 3"
+        },
+        {
+          "pair": 3,
+          "region": "West Africa",
+          "kit": "23andMe",
+          "share_A": 0.07,
+          "share_B": 0.01,
+          "pair_label": "Pair 3"
+        },
+        {
+          "pair": 3,
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "share_A": 0,
+          "share_B": 0,
+          "pair_label": "Pair 3"
+        },
+        {
+          "pair": 4,
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "share_A": 0.6,
+          "share_B": 0.6,
+          "pair_label": "Pair 4"
+        },
+        {
+          "pair": 4,
+          "region": "West Africa",
+          "kit": "23andMe",
+          "share_A": 0.772,
+          "share_B": 0.768,
+          "pair_label": "Pair 4"
+        },
+        {
+          "pair": 4,
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "share_A": 0.692,
+          "share_B": 0.707,
+          "pair_label": "Pair 4"
+        },
+        {
+          "pair": 4,
+          "region": "Central Africa",
+          "kit": "Ancestry",
+          "share_A": 0.27,
+          "share_B": 0.27,
+          "pair_label": "Pair 4"
+        },
+        {
+          "pair": 4,
+          "region": "Central Africa",
+          "kit": "23andMe",
+          "share_A": 0.076,
+          "share_B": 0.08,
+          "pair_label": "Pair 4"
+        },
+        {
+          "pair": 4,
+          "region": "Central Africa",
+          "kit": "MyHeritage",
+          "share_A": 0.076,
+          "share_B": 0.068,
+          "pair_label": "Pair 4"
+        },
+        {
+          "pair": 4,
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "share_A": 0.12,
+          "share_B": 0.12,
+          "pair_label": "Pair 4"
+        },
+        {
+          "pair": 4,
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "share_A": 0.125,
+          "share_B": 0.115,
+          "pair_label": "Pair 4"
+        },
+        {
+          "pair": 4,
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "share_A": 0.092,
+          "share_B": 0.088,
+          "pair_label": "Pair 4"
+        },
+        {
+          "pair": 5,
+          "region": "East Asia",
+          "kit": "Ancestry",
+          "share_A": 1,
+          "share_B": 1,
+          "pair_label": "Pair 5"
+        },
+        {
+          "pair": 5,
+          "region": "East Asia",
+          "kit": "23andMe",
+          "share_A": 1,
+          "share_B": 1,
+          "pair_label": "Pair 5"
+        },
+        {
+          "pair": 5,
+          "region": "East Asia",
+          "kit": "MyHeritage",
+          "share_A": 0.978,
+          "share_B": 0.973,
+          "pair_label": "Pair 5"
+        },
+        {
+          "pair": 6,
+          "region": "West Africa",
+          "kit": "Ancestry",
+          "share_A": 0.62,
+          "share_B": 0.62,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "West Africa",
+          "kit": "23andMe",
+          "share_A": 0.636,
+          "share_B": 0.634,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "West Africa",
+          "kit": "MyHeritage",
+          "share_A": 0.61,
+          "share_B": 0.624,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "NW Europe",
+          "kit": "Ancestry",
+          "share_A": 0.23,
+          "share_B": 0.23,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "NW Europe",
+          "kit": "23andMe",
+          "share_A": 0.245,
+          "share_B": 0.247,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "NW Europe",
+          "kit": "MyHeritage",
+          "share_A": 0.251,
+          "share_B": 0.25,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "Central Africa",
+          "kit": "Ancestry",
+          "share_A": 0.12,
+          "share_B": 0.13,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "Central Africa",
+          "kit": "23andMe",
+          "share_A": 0.1,
+          "share_B": 0.1,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "Central Africa",
+          "kit": "MyHeritage",
+          "share_A": 0.11,
+          "share_B": 0.089,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "East Asia",
+          "kit": "Ancestry",
+          "share_A": 0.01,
+          "share_B": 0.01,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "East Asia",
+          "kit": "23andMe",
+          "share_A": 0.006,
+          "share_B": 0.006,
+          "pair_label": "Pair 6"
+        },
+        {
+          "pair": 6,
+          "region": "East Asia",
+          "kit": "MyHeritage",
+          "share_A": 0,
+          "share_B": 0,
+          "pair_label": "Pair 6"
+        }
+      ]
+    },
+    "facet": {
+      "field": "kit",
+      "type": "nominal",
+      "title": {},
+      "columns": 3,
+      "sort": [
+        "Ancestry",
+        "23andMe",
+        "MyHeritage"
+      ]
+    },
+    "spec": {
+      "layer": [
+        {
+          "data": {
+            "values": [
+              {
+                "x": 0,
+                "y": 0
+              },
+              {
+                "x": 1,
+                "y": 1
+              }
+            ]
+          },
+          "mark": {
+            "type": "line",
+            "strokeDash": [
+              6,
+              4
+            ],
+            "color": "gray",
+            "strokeWidth": 1
+          },
+          "encoding": {
+            "x": {
+              "field": "x",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "y",
+              "type": "quantitative"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "point",
+            "size": 70,
+            "filled": true,
+            "opacity": 0.7
+          },
+          "encoding": {
+            "x": {
+              "field": "share_A",
+              "type": "quantitative",
+              "title": "Twin A Genetic Share",
+              "scale": {
+                "domain": [
+                  0,
+                  1
+                ]
+              },
+              "axis": {
+                "format": ".0%"
+              }
+            },
+            "y": {
+              "field": "share_B",
+              "type": "quantitative",
+              "title": "Twin B Genetic Share",
+              "scale": {
+                "domain": [
+                  0,
+                  1
+                ]
+              },
+              "axis": {
+                "format": ".0%"
+              }
+            },
+            "color": {
+              "field": "pair_label",
+              "type": "nominal",
+              "title": "Twin Pair",
+              "scale": {
+                "scheme": "tableau10"
+              },
+              "legend": {
+                "orient": "right"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "pair_label",
+                "type": "nominal",
+                "title": "Pair"
+              },
+              {
+                "field": "region",
+                "type": "nominal"
+              },
+              {
+                "field": "share_A",
+                "type": "quantitative",
+                "title": "Twin A",
+                "format": ".1%"
+              },
+              {
+                "field": "share_B",
+                "type": "quantitative",
+                "title": "Twin B",
+                "format": ".1%"
+              }
+            ]
+          }
+        }
+      ],
+      "width": 200,
+      "height": 200
+    },
+    "resolve": {
+      "scale": {
+        "x": "shared",
+        "y": "shared"
+      }
+    }
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>I used a scatterplot because it is a natural way to compare Twin A and Twin B directly. Twin A is on the x-axis, Twin B is on the y-axis, and the dashed diagonal line shows where the results would match exactly. Any point away from that line means the kit gave the twins slightly different estimates for the same region. I faceted the chart by kit so each company has its own panel, which makes the figure much easier to read than putting everything into one graph. Most points fall close to the diagonal, which suggests that all three kits give broadly similar results for identical twins. At the same time, the points are not perfectly on the line, showing that small differences still appear across all three kits. This suggests that ancestry percentages should be treated as estimates rather than exact measurements.</p>
+<section id="exercise-2-customer-touchpoints-challenge" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-2-customer-touchpoints-challenge">Exercise 2: Customer Touchpoints Challenge</h2>
+</section>
+</section>
+<section id="issues-with-the-original-graphic" class="level1">
+<h1>Issues with the original graphic</h1>
+<p>The original chart uses a stacked bar to show phone, chat, and email touchpoints over time. The main problem is that only the bottom segment sits on a common baseline — the other two channels shift up and down depending on what’s below them, making it hard to track any individual trend. The y-axis has no units, the date labels are inconsistent, and the total annotations with connector lines add clutter without adding much insight. The 3.8% year-over-year growth could just go in the title instead of floating over the bars.</p>
+</section>
+<section id="improved-graphic" class="level1">
+<h1>Improved graphic</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>touchpoints <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"swd-lets-practice-ex-5-03.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">Phone Touchpoints</span><span class="st">`</span>, <span class="st">`</span><span class="at">Chat Touchpoints</span><span class="st">`</span>, <span class="st">`</span><span class="at">Email Touchpoints</span><span class="st">`</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"channel"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"touchpoints"</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">channel =</span> <span class="fu">gsub</span>(<span class="st">" Touchpoints"</span>, <span class="st">""</span>, channel),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">paste0</span>(Date, <span class="st">"-01"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"https://vega.github.io/schema/vega-lite/v5.json"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="fu">list</span>(</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="st">"Email Remains the Largest Channel, While Chat Shows Gradual Growth"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Monthly customer touchpoints by channel, Jan 2018 – Jan 2020"</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontSize =</span> <span class="dv">16</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">anchor =</span> <span class="st">"start"</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> touchpoints),</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">mark =</span> <span class="fu">list</span>(</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"line"</span>,</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">strokeWidth =</span> <span class="fl">2.5</span>,</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">point =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">30</span>)</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"date"</span>,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"temporal"</span>,</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="cn">NULL</span>,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis =</span> <span class="fu">list</span>(</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">format =</span> <span class="st">"%b %Y"</span>,</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">labelAngle =</span> <span class="sc">-</span><span class="dv">45</span>,</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">tickCount =</span> <span class="dv">9</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"touchpoints"</span>,</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Touchpoints (in millions)"</span>,</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>      <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">0</span>, <span class="fl">0.7</span>))</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="fu">list</span>(</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>      <span class="at">field =</span> <span class="st">"channel"</span>,</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>      <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Channel"</span>,</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>      <span class="at">scale =</span> <span class="fu">list</span>(</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">domain =</span> <span class="fu">list</span>(<span class="st">"Email"</span>, <span class="st">"Phone"</span>, <span class="st">"Chat"</span>),</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">range =</span> <span class="fu">list</span>(<span class="st">"#4e79a7"</span>, <span class="st">"#e15759"</span>, <span class="st">"#59a14f"</span>)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend =</span> <span class="fu">list</span>(<span class="at">orient =</span> <span class="st">"right"</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">tooltip =</span> <span class="fu">list</span>(</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"date"</span>, <span class="at">type =</span> <span class="st">"temporal"</span>, <span class="at">title =</span> <span class="st">"Month"</span>, <span class="at">format =</span> <span class="st">"%b %Y"</span>),</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"channel"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>),</span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>      <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"touchpoints"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">format =</span> <span class="st">".2f"</span>)</span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">600</span>,</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">350</span></span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="htmlwidget-7b3ece2f297e568978fa" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7b3ece2f297e568978fa">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Email Remains the Largest Channel, While Chat Shows Gradual Growth",
+      "subtitle": "Monthly customer touchpoints by channel, Jan 2018 – Jan 2020",
+      "fontSize": 16,
+      "anchor": "start"
+    },
+    "data": {
+      "values": [
+        {
+          "Date": "2018-01",
+          "channel": "Phone",
+          "touchpoints": 0.43,
+          "date": "2018-01-01"
+        },
+        {
+          "Date": "2018-01",
+          "channel": "Chat",
+          "touchpoints": 0.13,
+          "date": "2018-01-01"
+        },
+        {
+          "Date": "2018-01",
+          "channel": "Email",
+          "touchpoints": 0.55,
+          "date": "2018-01-01"
+        },
+        {
+          "Date": "2018-02",
+          "channel": "Phone",
+          "touchpoints": 0.35,
+          "date": "2018-02-01"
+        },
+        {
+          "Date": "2018-02",
+          "channel": "Chat",
+          "touchpoints": 0.11,
+          "date": "2018-02-01"
+        },
+        {
+          "Date": "2018-02",
+          "channel": "Email",
+          "touchpoints": 0.38,
+          "date": "2018-02-01"
+        },
+        {
+          "Date": "2018-03",
+          "channel": "Phone",
+          "touchpoints": 0.34,
+          "date": "2018-03-01"
+        },
+        {
+          "Date": "2018-03",
+          "channel": "Chat",
+          "touchpoints": 0.11,
+          "date": "2018-03-01"
+        },
+        {
+          "Date": "2018-03",
+          "channel": "Email",
+          "touchpoints": 0.38,
+          "date": "2018-03-01"
+        },
+        {
+          "Date": "2018-04",
+          "channel": "Phone",
+          "touchpoints": 0.24,
+          "date": "2018-04-01"
+        },
+        {
+          "Date": "2018-04",
+          "channel": "Chat",
+          "touchpoints": 0.18,
+          "date": "2018-04-01"
+        },
+        {
+          "Date": "2018-04",
+          "channel": "Email",
+          "touchpoints": 0.3,
+          "date": "2018-04-01"
+        },
+        {
+          "Date": "2018-05",
+          "channel": "Phone",
+          "touchpoints": 0.23,
+          "date": "2018-05-01"
+        },
+        {
+          "Date": "2018-05",
+          "channel": "Chat",
+          "touchpoints": 0.17,
+          "date": "2018-05-01"
+        },
+        {
+          "Date": "2018-05",
+          "channel": "Email",
+          "touchpoints": 0.28,
+          "date": "2018-05-01"
+        },
+        {
+          "Date": "2018-06",
+          "channel": "Phone",
+          "touchpoints": 0.29,
+          "date": "2018-06-01"
+        },
+        {
+          "Date": "2018-06",
+          "channel": "Chat",
+          "touchpoints": 0.17,
+          "date": "2018-06-01"
+        },
+        {
+          "Date": "2018-06",
+          "channel": "Email",
+          "touchpoints": 0.29,
+          "date": "2018-06-01"
+        },
+        {
+          "Date": "2018-07",
+          "channel": "Phone",
+          "touchpoints": 0.28,
+          "date": "2018-07-01"
+        },
+        {
+          "Date": "2018-07",
+          "channel": "Chat",
+          "touchpoints": 0.14,
+          "date": "2018-07-01"
+        },
+        {
+          "Date": "2018-07",
+          "channel": "Email",
+          "touchpoints": 0.3,
+          "date": "2018-07-01"
+        },
+        {
+          "Date": "2018-08",
+          "channel": "Phone",
+          "touchpoints": 0.3,
+          "date": "2018-08-01"
+        },
+        {
+          "Date": "2018-08",
+          "channel": "Chat",
+          "touchpoints": 0.14,
+          "date": "2018-08-01"
+        },
+        {
+          "Date": "2018-08",
+          "channel": "Email",
+          "touchpoints": 0.35,
+          "date": "2018-08-01"
+        },
+        {
+          "Date": "2018-09",
+          "channel": "Phone",
+          "touchpoints": 0.3,
+          "date": "2018-09-01"
+        },
+        {
+          "Date": "2018-09",
+          "channel": "Chat",
+          "touchpoints": 0.11,
+          "date": "2018-09-01"
+        },
+        {
+          "Date": "2018-09",
+          "channel": "Email",
+          "touchpoints": 0.32,
+          "date": "2018-09-01"
+        },
+        {
+          "Date": "2018-10",
+          "channel": "Phone",
+          "touchpoints": 0.29,
+          "date": "2018-10-01"
+        },
+        {
+          "Date": "2018-10",
+          "channel": "Chat",
+          "touchpoints": 0.12,
+          "date": "2018-10-01"
+        },
+        {
+          "Date": "2018-10",
+          "channel": "Email",
+          "touchpoints": 0.31,
+          "date": "2018-10-01"
+        },
+        {
+          "Date": "2018-11",
+          "channel": "Phone",
+          "touchpoints": 0.29,
+          "date": "2018-11-01"
+        },
+        {
+          "Date": "2018-11",
+          "channel": "Chat",
+          "touchpoints": 0.11,
+          "date": "2018-11-01"
+        },
+        {
+          "Date": "2018-11",
+          "channel": "Email",
+          "touchpoints": 0.41,
+          "date": "2018-11-01"
+        },
+        {
+          "Date": "2018-12",
+          "channel": "Phone",
+          "touchpoints": 0.38,
+          "date": "2018-12-01"
+        },
+        {
+          "Date": "2018-12",
+          "channel": "Chat",
+          "touchpoints": 0.15,
+          "date": "2018-12-01"
+        },
+        {
+          "Date": "2018-12",
+          "channel": "Email",
+          "touchpoints": 0.54,
+          "date": "2018-12-01"
+        },
+        {
+          "Date": "2019-01",
+          "channel": "Phone",
+          "touchpoints": 0.45,
+          "date": "2019-01-01"
+        },
+        {
+          "Date": "2019-01",
+          "channel": "Chat",
+          "touchpoints": 0.16,
+          "date": "2019-01-01"
+        },
+        {
+          "Date": "2019-01",
+          "channel": "Email",
+          "touchpoints": 0.58,
+          "date": "2019-01-01"
+        },
+        {
+          "Date": "2019-02",
+          "channel": "Phone",
+          "touchpoints": 0.32,
+          "date": "2019-02-01"
+        },
+        {
+          "Date": "2019-02",
+          "channel": "Chat",
+          "touchpoints": 0.13,
+          "date": "2019-02-01"
+        },
+        {
+          "Date": "2019-02",
+          "channel": "Email",
+          "touchpoints": 0.38,
+          "date": "2019-02-01"
+        },
+        {
+          "Date": "2019-03",
+          "channel": "Phone",
+          "touchpoints": 0.31,
+          "date": "2019-03-01"
+        },
+        {
+          "Date": "2019-03",
+          "channel": "Chat",
+          "touchpoints": 0.13,
+          "date": "2019-03-01"
+        },
+        {
+          "Date": "2019-03",
+          "channel": "Email",
+          "touchpoints": 0.38,
+          "date": "2019-03-01"
+        },
+        {
+          "Date": "2019-04",
+          "channel": "Phone",
+          "touchpoints": 0.25,
+          "date": "2019-04-01"
+        },
+        {
+          "Date": "2019-04",
+          "channel": "Chat",
+          "touchpoints": 0.15,
+          "date": "2019-04-01"
+        },
+        {
+          "Date": "2019-04",
+          "channel": "Email",
+          "touchpoints": 0.34,
+          "date": "2019-04-01"
+        },
+        {
+          "Date": "2019-05",
+          "channel": "Phone",
+          "touchpoints": 0.26,
+          "date": "2019-05-01"
+        },
+        {
+          "Date": "2019-05",
+          "channel": "Chat",
+          "touchpoints": 0.2,
+          "date": "2019-05-01"
+        },
+        {
+          "Date": "2019-05",
+          "channel": "Email",
+          "touchpoints": 0.34,
+          "date": "2019-05-01"
+        },
+        {
+          "Date": "2019-06",
+          "channel": "Phone",
+          "touchpoints": 0.26,
+          "date": "2019-06-01"
+        },
+        {
+          "Date": "2019-06",
+          "channel": "Chat",
+          "touchpoints": 0.2,
+          "date": "2019-06-01"
+        },
+        {
+          "Date": "2019-06",
+          "channel": "Email",
+          "touchpoints": 0.34,
+          "date": "2019-06-01"
+        },
+        {
+          "Date": "2019-07",
+          "channel": "Phone",
+          "touchpoints": 0.25,
+          "date": "2019-07-01"
+        },
+        {
+          "Date": "2019-07",
+          "channel": "Chat",
+          "touchpoints": 0.15,
+          "date": "2019-07-01"
+        },
+        {
+          "Date": "2019-07",
+          "channel": "Email",
+          "touchpoints": 0.34,
+          "date": "2019-07-01"
+        },
+        {
+          "Date": "2019-08",
+          "channel": "Phone",
+          "touchpoints": 0.28,
+          "date": "2019-08-01"
+        },
+        {
+          "Date": "2019-08",
+          "channel": "Chat",
+          "touchpoints": 0.16,
+          "date": "2019-08-01"
+        },
+        {
+          "Date": "2019-08",
+          "channel": "Email",
+          "touchpoints": 0.33,
+          "date": "2019-08-01"
+        },
+        {
+          "Date": "2019-09",
+          "channel": "Phone",
+          "touchpoints": 0.24,
+          "date": "2019-09-01"
+        },
+        {
+          "Date": "2019-09",
+          "channel": "Chat",
+          "touchpoints": 0.17,
+          "date": "2019-09-01"
+        },
+        {
+          "Date": "2019-09",
+          "channel": "Email",
+          "touchpoints": 0.32,
+          "date": "2019-09-01"
+        },
+        {
+          "Date": "2019-10",
+          "channel": "Phone",
+          "touchpoints": 0.24,
+          "date": "2019-10-01"
+        },
+        {
+          "Date": "2019-10",
+          "channel": "Chat",
+          "touchpoints": 0.17,
+          "date": "2019-10-01"
+        },
+        {
+          "Date": "2019-10",
+          "channel": "Email",
+          "touchpoints": 0.34,
+          "date": "2019-10-01"
+        },
+        {
+          "Date": "2019-11",
+          "channel": "Phone",
+          "touchpoints": 0.25,
+          "date": "2019-11-01"
+        },
+        {
+          "Date": "2019-11",
+          "channel": "Chat",
+          "touchpoints": 0.18,
+          "date": "2019-11-01"
+        },
+        {
+          "Date": "2019-11",
+          "channel": "Email",
+          "touchpoints": 0.36,
+          "date": "2019-11-01"
+        },
+        {
+          "Date": "2019-12",
+          "channel": "Phone",
+          "touchpoints": 0.33,
+          "date": "2019-12-01"
+        },
+        {
+          "Date": "2019-12",
+          "channel": "Chat",
+          "touchpoints": 0.18,
+          "date": "2019-12-01"
+        },
+        {
+          "Date": "2019-12",
+          "channel": "Email",
+          "touchpoints": 0.53,
+          "date": "2019-12-01"
+        },
+        {
+          "Date": "2020-01",
+          "channel": "Phone",
+          "touchpoints": 0.34,
+          "date": "2020-01-01"
+        },
+        {
+          "Date": "2020-01",
+          "channel": "Chat",
+          "touchpoints": 0.26,
+          "date": "2020-01-01"
+        },
+        {
+          "Date": "2020-01",
+          "channel": "Email",
+          "touchpoints": 0.5,
+          "date": "2020-01-01"
+        }
+      ]
+    },
+    "mark": {
+      "type": "line",
+      "strokeWidth": 2.5,
+      "point": {
+        "size": 30
+      }
+    },
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title": {},
+        "axis": {
+          "format": "%b %Y",
+          "labelAngle": -45,
+          "tickCount": 9
+        }
+      },
+      "y": {
+        "field": "touchpoints",
+        "type": "quantitative",
+        "title": "Touchpoints (in millions)",
+        "scale": {
+          "domain": [
+            0,
+            0.7
+          ]
+        }
+      },
+      "color": {
+        "field": "channel",
+        "type": "nominal",
+        "title": "Channel",
+        "scale": {
+          "domain": [
+            "Email",
+            "Phone",
+            "Chat"
+          ],
+          "range": [
+            "#4e79a7",
+            "#e15759",
+            "#59a14f"
+          ]
+        },
+        "legend": {
+          "orient": "right"
+        }
+      },
+      "tooltip": [
+        {
+          "field": "date",
+          "type": "temporal",
+          "title": "Month",
+          "format": "%b %Y"
+        },
+        {
+          "field": "channel",
+          "type": "nominal"
+        },
+        {
+          "field": "touchpoints",
+          "type": "quantitative",
+          "format": ".2f"
+        }
+      ]
+    },
+    "width": 600,
+    "height": 350
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>I replaced the stacked bar chart with a line chart because the main question is about trends over time, and lines handle that much better than bars. Each channel sits on the same baseline so you can compare them directly. The first thing that stands out is the seasonal pattern — all three channels spike around December and January, dip through spring and summer, and climb again at the end of the year. Email consistently has the highest volume, phone is second, and chat is the smallest. But chat shows the clearest upward trend, starting around 0.11 in early 2018 and reaching 0.26 by January 2020. Phone and email are mostly flat year over year, just cycling through the same seasonal rhythm. So the real story isn’t just that total touchpoints grew slightly — it’s that chat is becoming a more significant part of the overall volume.</p>
+<section id="exercise-3-tanzania-health-survey-data" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-3-tanzania-health-survey-data">Exercise 3: Tanzania Health Survey Data</h2>
+</section>
+</section>
+<section id="part-a-data" class="level1">
+<h1>Part a – Data</h1>
+<p>I used the last year of each survey period as the year value, since that’s when the survey was completed. For surveys that spanned two calendar years (like 1991-1992), I used 1992.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>tanzania <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">c</span>(<span class="dv">1992</span>, <span class="dv">1996</span>, <span class="dv">1999</span>, <span class="dv">2005</span>, <span class="dv">2010</span>, <span class="dv">2016</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">survey_label =</span> <span class="fu">c</span>(<span class="st">"1991-1992"</span>, <span class="st">"1996"</span>, <span class="st">"1999"</span>, <span class="st">"2004-2005"</span>, <span class="st">"2010"</span>, <span class="st">"2015-2016"</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fertility_rate =</span> <span class="fu">c</span>(<span class="fl">6.2</span>, <span class="fl">5.8</span>, <span class="fl">5.6</span>, <span class="fl">5.7</span>, <span class="fl">5.4</span>, <span class="fl">5.2</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">contraception_pct =</span> <span class="fu">c</span>(<span class="fl">5.9</span>, <span class="fl">11.7</span>, <span class="fl">15.6</span>, <span class="fl">17.6</span>, <span class="fl">23.6</span>, <span class="fl">38.4</span>),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">unmet_need_pct =</span> <span class="fu">c</span>(<span class="fl">27.8</span>, <span class="fl">26.0</span>, <span class="fl">22.3</span>, <span class="fl">24.3</span>, <span class="fl">22.3</span>, <span class="fl">22.1</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(tanzania, <span class="st">"tanzania-dhs.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><a href="tanzania-dhs.csv">Download the data</a></p>
+<section id="part-b-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-visualization">Part b – Visualization</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>tanzania_long <span class="ot">&lt;-</span> tanzania <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(contraception_pct, unmet_need_pct),</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"measure"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"percentage"</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">measure =</span> <span class="fu">case_when</span>(</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      measure <span class="sc">==</span> <span class="st">"contraception_pct"</span> <span class="sc">~</span> <span class="st">"Modern Contraception Use"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      measure <span class="sc">==</span> <span class="st">"unmet_need_pct"</span> <span class="sc">~</span> <span class="st">"Unmet Need for Family Planning"</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"https://vega.github.io/schema/vega-lite/v5.json"</span>,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="fu">list</span>(</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="st">"Contraception Use Is Rising in Tanzania, but Fertility Has Barely Budged"</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Demographic and Health Survey data, 1991–2016"</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontSize =</span> <span class="dv">15</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">anchor =</span> <span class="st">"start"</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">vconcat =</span> <span class="fu">list</span>(</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> tanzania_long),</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"line"</span>, <span class="at">strokeWidth =</span> <span class="fl">2.5</span>, <span class="at">point =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">60</span>, <span class="at">filled =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>          <span class="at">field =</span> <span class="st">"year"</span>,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">format =</span> <span class="st">"d"</span>, <span class="at">tickCount =</span> <span class="dv">6</span>),</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>          <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">1990</span>, <span class="dv">2018</span>))</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>          <span class="at">field =</span> <span class="st">"percentage"</span>,</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Percent (%)"</span>,</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>          <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">0</span>, <span class="dv">45</span>))</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">color =</span> <span class="fu">list</span>(</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>          <span class="at">field =</span> <span class="st">"measure"</span>,</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"nominal"</span>,</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>          <span class="at">scale =</span> <span class="fu">list</span>(</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>            <span class="at">domain =</span> <span class="fu">list</span>(<span class="st">"Modern Contraception Use"</span>, <span class="st">"Unmet Need for Family Planning"</span>),</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>            <span class="at">range =</span> <span class="fu">list</span>(<span class="st">"#4e79a7"</span>, <span class="st">"#e15759"</span>)</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>          ),</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend =</span> <span class="fu">list</span>(<span class="at">orient =</span> <span class="st">"top"</span>)</span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">tooltip =</span> <span class="fu">list</span>(</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"year"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Year"</span>),</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"measure"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>, <span class="at">title =</span> <span class="st">"Measure"</span>),</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"percentage"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Percent"</span>, <span class="at">format =</span> <span class="st">".1f"</span>)</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> <span class="dv">600</span>,</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> <span class="dv">200</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> tanzania),</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>      <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"line"</span>, <span class="at">strokeWidth =</span> <span class="fl">2.5</span>, <span class="at">point =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">60</span>, <span class="at">filled =</span> <span class="cn">TRUE</span>), <span class="at">color =</span> <span class="st">"#59a14f"</span>),</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>      <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">list</span>(</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>          <span class="at">field =</span> <span class="st">"year"</span>,</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Survey Year"</span>,</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>          <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">format =</span> <span class="st">"d"</span>, <span class="at">tickCount =</span> <span class="dv">6</span>),</span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>          <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">1990</span>, <span class="dv">2018</span>))</span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">list</span>(</span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>          <span class="at">field =</span> <span class="st">"fertility_rate"</span>,</span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Children per Woman"</span>,</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>          <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">4</span>, <span class="dv">7</span>))</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>        <span class="at">tooltip =</span> <span class="fu">list</span>(</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"year"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Year"</span>),</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"fertility_rate"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Fertility Rate"</span>, <span class="at">format =</span> <span class="st">".1f"</span>)</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> <span class="dv">600</span>,</span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> <span class="dv">200</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div id="htmlwidget-896419f973f6cb1250b0" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-896419f973f6cb1250b0">{"x":{
+  "chart_spec": {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Contraception Use Is Rising in Tanzania, but Fertility Has Barely Budged",
+      "subtitle": "Demographic and Health Survey data, 1991–2016",
+      "fontSize": 15,
+      "anchor": "start"
+    },
+    "vconcat": [
+      {
+        "data": {
+          "values": [
+            {
+              "year": 1992,
+              "survey_label": "1991-1992",
+              "fertility_rate": 6.2,
+              "measure": "Modern Contraception Use",
+              "percentage": 5.9
+            },
+            {
+              "year": 1992,
+              "survey_label": "1991-1992",
+              "fertility_rate": 6.2,
+              "measure": "Unmet Need for Family Planning",
+              "percentage": 27.8
+            },
+            {
+              "year": 1996,
+              "survey_label": "1996",
+              "fertility_rate": 5.8,
+              "measure": "Modern Contraception Use",
+              "percentage": 11.7
+            },
+            {
+              "year": 1996,
+              "survey_label": "1996",
+              "fertility_rate": 5.8,
+              "measure": "Unmet Need for Family Planning",
+              "percentage": 26
+            },
+            {
+              "year": 1999,
+              "survey_label": "1999",
+              "fertility_rate": 5.6,
+              "measure": "Modern Contraception Use",
+              "percentage": 15.6
+            },
+            {
+              "year": 1999,
+              "survey_label": "1999",
+              "fertility_rate": 5.6,
+              "measure": "Unmet Need for Family Planning",
+              "percentage": 22.3
+            },
+            {
+              "year": 2005,
+              "survey_label": "2004-2005",
+              "fertility_rate": 5.7,
+              "measure": "Modern Contraception Use",
+              "percentage": 17.6
+            },
+            {
+              "year": 2005,
+              "survey_label": "2004-2005",
+              "fertility_rate": 5.7,
+              "measure": "Unmet Need for Family Planning",
+              "percentage": 24.3
+            },
+            {
+              "year": 2010,
+              "survey_label": "2010",
+              "fertility_rate": 5.4,
+              "measure": "Modern Contraception Use",
+              "percentage": 23.6
+            },
+            {
+              "year": 2010,
+              "survey_label": "2010",
+              "fertility_rate": 5.4,
+              "measure": "Unmet Need for Family Planning",
+              "percentage": 22.3
+            },
+            {
+              "year": 2016,
+              "survey_label": "2015-2016",
+              "fertility_rate": 5.2,
+              "measure": "Modern Contraception Use",
+              "percentage": 38.4
+            },
+            {
+              "year": 2016,
+              "survey_label": "2015-2016",
+              "fertility_rate": 5.2,
+              "measure": "Unmet Need for Family Planning",
+              "percentage": 22.1
+            }
+          ]
+        },
+        "mark": {
+          "type": "line",
+          "strokeWidth": 2.5,
+          "point": {
+            "size": 60,
+            "filled": true
+          }
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "quantitative",
+            "title": {},
+            "axis": {
+              "format": "d",
+              "tickCount": 6
+            },
+            "scale": {
+              "domain": [
+                1990,
+                2018
+              ]
+            }
+          },
+          "y": {
+            "field": "percentage",
+            "type": "quantitative",
+            "title": "Percent (%)",
+            "scale": {
+              "domain": [
+                0,
+                45
+              ]
+            }
+          },
+          "color": {
+            "field": "measure",
+            "type": "nominal",
+            "title": {},
+            "scale": {
+              "domain": [
+                "Modern Contraception Use",
+                "Unmet Need for Family Planning"
+              ],
+              "range": [
+                "#4e79a7",
+                "#e15759"
+              ]
+            },
+            "legend": {
+              "orient": "top"
+            }
+          },
+          "tooltip": [
+            {
+              "field": "year",
+              "type": "quantitative",
+              "title": "Year"
+            },
+            {
+              "field": "measure",
+              "type": "nominal",
+              "title": "Measure"
+            },
+            {
+              "field": "percentage",
+              "type": "quantitative",
+              "title": "Percent",
+              "format": ".1f"
+            }
+          ]
+        },
+        "width": 600,
+        "height": 200
+      },
+      {
+        "data": {
+          "values": [
+            {
+              "year": 1992,
+              "survey_label": "1991-1992",
+              "fertility_rate": 6.2,
+              "contraception_pct": 5.9,
+              "unmet_need_pct": 27.8
+            },
+            {
+              "year": 1996,
+              "survey_label": "1996",
+              "fertility_rate": 5.8,
+              "contraception_pct": 11.7,
+              "unmet_need_pct": 26
+            },
+            {
+              "year": 1999,
+              "survey_label": "1999",
+              "fertility_rate": 5.6,
+              "contraception_pct": 15.6,
+              "unmet_need_pct": 22.3
+            },
+            {
+              "year": 2005,
+              "survey_label": "2004-2005",
+              "fertility_rate": 5.7,
+              "contraception_pct": 17.6,
+              "unmet_need_pct": 24.3
+            },
+            {
+              "year": 2010,
+              "survey_label": "2010",
+              "fertility_rate": 5.4,
+              "contraception_pct": 23.6,
+              "unmet_need_pct": 22.3
+            },
+            {
+              "year": 2016,
+              "survey_label": "2015-2016",
+              "fertility_rate": 5.2,
+              "contraception_pct": 38.4,
+              "unmet_need_pct": 22.1
+            }
+          ]
+        },
+        "mark": {
+          "type": "line",
+          "strokeWidth": 2.5,
+          "point": {
+            "size": 60,
+            "filled": true
+          },
+          "color": "#59a14f"
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Survey Year",
+            "axis": {
+              "format": "d",
+              "tickCount": 6
+            },
+            "scale": {
+              "domain": [
+                1990,
+                2018
+              ]
+            }
+          },
+          "y": {
+            "field": "fertility_rate",
+            "type": "quantitative",
+            "title": "Children per Woman",
+            "scale": {
+              "domain": [
+                4,
+                7
+              ]
+            }
+          },
+          "tooltip": [
+            {
+              "field": "year",
+              "type": "quantitative",
+              "title": "Year"
+            },
+            {
+              "field": "fertility_rate",
+              "type": "quantitative",
+              "title": "Fertility Rate",
+              "format": ".1f"
+            }
+          ]
+        },
+        "width": 600,
+        "height": 200
+      }
+    ]
+  },
+  "embed_options": {
+    "renderer": "canvas",
+    "defaultStyle": true
+  }
+},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="part-c-the-story" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-the-story">Part c – The story</h3>
+<p>The top panel shows contraception use and unmet need for family planning, while the bottom panel shows the total fertility rate. Over 25 years, modern contraception use in Tanzania went from about 6% to 38% — a massive increase. You’d expect fertility to drop by a similar amount, but it barely moved, going from 6.2 to 5.2 children per woman. That’s a decline, but a surprisingly small one given how much contraception access changed. Meanwhile, the percentage of women with unmet need for family planning stayed stubbornly flat around 22–28%, dipping slightly but never really dropping in a meaningful way. So even though more women are using contraception, there are still a lot of women who want to limit or space their pregnancies but aren’t able to. The gap between rising contraception use and relatively flat fertility suggests that other factors — like desired family size, access to healthcare, and cultural norms — are playing a big role in keeping fertility rates high.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

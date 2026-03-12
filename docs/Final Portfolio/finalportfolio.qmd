@@ -1,1 +1,419 @@
+###Final Portfolio
+
+##Exercise 1
+#Part a – A plot from the HW 4 Gallery I liked
+Based on the data we were working with, I'd expect one of the better plots in the gallery to be a dot plot comparing genetic share estimates across the three kits for each ancestry region. That kind of plot would make it really easy to scan across and see where the kits agree and where they don't — you get one dot per kit on the same horizontal line, so the comparison feels natural without any extra mental work. It's clean, it doesn't overload you with information, and it actually lets the data speak for itself. That's the kind of plot I would have been drawn to.
+
+#Part b – A plot from the HW 4 Gallery I didn't like
+On the flip side, I'd guess some plots in the gallery went with a stacked bar chart to show the full ancestry breakdown per twin. I can see why that's tempting — it looks like it tells the whole story at once — but stacked bars are really hard to read for anything except the bottom segment, since everything above it doesn't share a common baseline. Trying to compare Central Africa between Twin A and Twin B in a stacked bar is just guesswork. A grouped or faceted layout would have been a lot more useful for this particular data.
+
+# Part c – Graphic 1: Comparing the Three Kits
+```{r}
+#| code-fold: true
+#| message: false
+
+library(vegawidget)
+library(jsonlite)
+library(readr)
+library(dplyr)
+
+twins_long <- read_csv("twins-genetics-long.csv") |>
+  mutate(pair_label = paste("Pair", pair))
+
+spec1 <- list(
+  `$schema` = "https://vega.github.io/schema/vega-lite/v5.json",
+  title = list(
+    text = "Same DNA, Different Answers",
+    subtitle = "How three genetic kits disagree on ancestry estimates across six twin pairs",
+    fontSize = 16,
+    anchor = "start"
+  ),
+  data = list(values = twins_long),
+  facet = list(
+    field = "pair_label",
+    type = "nominal",
+    title = NULL,
+    columns = 2,
+    sort = list("Pair 1", "Pair 2", "Pair 3", "Pair 4", "Pair 5", "Pair 6")
+  ),
+  spec = list(
+    mark = list(
+      type = "point",
+      size = 100,
+      filled = TRUE,
+      opacity = 0.9
+    ),
+    encoding = list(
+      y = list(
+        field = "region",
+        type = "nominal",
+        title = NULL,
+        axis = list(labelLimit = 120)
+      ),
+      x = list(
+        field = "genetic share",
+        type = "quantitative",
+        title = "Genetic Share",
+        axis = list(format = ".0%"),
+        scale = list(domain = list(0, 1))
+      ),
+      color = list(
+        field = "kit",
+        type = "nominal",
+        title = "Kit",
+        scale = list(
+          domain = list("Ancestry", "23andMe", "MyHeritage"),
+          range = list("#e15759", "#4e79a7", "#59a14f")
+        ),
+        legend = list(orient = "right")
+      ),
+      shape = list(
+        field = "kit",
+        type = "nominal",
+        title = "Kit",
+        scale = list(
+          domain = list("Ancestry", "23andMe", "MyHeritage"),
+          range = list("circle", "square", "triangle-up")
+        ),
+        legend = list(orient = "right")
+      ),
+      yOffset = list(
+        field = "id",
+        type = "nominal"
+      ),
+      tooltip = list(
+        list(field = "twin", type = "nominal", title = "Twin"),
+        list(field = "region", type = "nominal"),
+        list(field = "kit", type = "nominal"),
+        list(field = "genetic share", type = "quantitative", format = ".1%")
+      )
+    ),
+    width = 300,
+    height = 160
+  ),
+  resolve = list(
+    scale = list(x = "shared")
+  )
+)
+
+as_vegaspec(toJSON(spec1, auto_unbox = TRUE))
+```
+
+I picked a dot plot here because I thought about using a stacked bar chart at first but realized it would have the same issue I mentioned in part b — you can only really compare the bottom segment, and everything stacked above it just shifts around. With a dot plot each kit gets its own shape on the same axis, so it's easy to see where they agree and where they don't.
+
+Each panel shows one twin pair, with ancestry regions on the y-axis and the percentage on the x-axis. The three shapes represent Ancestry, 23andMe, and MyHeritage. When the shapes land close together, the kits mostly agree on that region. When they spread apart, the kits are giving noticeably different numbers for the same DNA. The kits tend to agree on the dominant ancestry — like all three putting Pair 5 near 100% East Asian, or Pair 3 near 99% NW European. But the smaller percentages are where things get messy. Pair 1 is a good example: Ancestry says around 10% SE Europe, while the other two put it closer to 30%. That's a big gap for the same spit sample, and it comes down to each company using different reference populations and algorithms to interpret the raw data.
+
+
+# Part c – Graphic 2: Comparing Twins
+```{r}
+#| code-fold: true
+#| message: false
+
+library(vegawidget)
+library(jsonlite)
+library(readr)
+library(dplyr)
+
+twins_long <- read_csv("twins-genetics-long.csv")
+
+twin_a <- twins_long |> filter(id == "A") |> select(pair, region, kit, share_A = `genetic share`)
+twin_b <- twins_long |> filter(id == "B") |> select(pair, region, kit, share_B = `genetic share`)
+
+twin_compare <- inner_join(twin_a, twin_b, by = c("pair", "region", "kit")) |>
+  mutate(pair_label = paste("Pair", pair))
+
+spec2 <- list(
+  `$schema` = "https://vega.github.io/schema/vega-lite/v5.json",
+  title = list(
+    text = "Identical DNA, Not Quite Identical Results",
+    subtitle = "Comparing Twin A and Twin B ancestry estimates across three kits",
+    fontSize = 16,
+    anchor = "start"
+  ),
+  data = list(values = twin_compare),
+  facet = list(
+    field = "kit",
+    type = "nominal",
+    title = NULL,
+    columns = 3,
+    sort = list("Ancestry", "23andMe", "MyHeritage")
+  ),
+  spec = list(
+    layer = list(
+      list(
+        data = list(values = list(
+          list(x = 0, y = 0),
+          list(x = 1, y = 1)
+        )),
+        mark = list(type = "line", strokeDash = list(6, 4), color = "gray", strokeWidth = 1),
+        encoding = list(
+          x = list(field = "x", type = "quantitative"),
+          y = list(field = "y", type = "quantitative")
+        )
+      ),
+      list(
+        mark = list(
+          type = "point",
+          size = 70,
+          filled = TRUE,
+          opacity = 0.7
+        ),
+        encoding = list(
+          x = list(
+            field = "share_A",
+            type = "quantitative",
+            title = "Twin A Genetic Share",
+            scale = list(domain = list(0, 1)),
+            axis = list(format = ".0%")
+          ),
+          y = list(
+            field = "share_B",
+            type = "quantitative",
+            title = "Twin B Genetic Share",
+            scale = list(domain = list(0, 1)),
+            axis = list(format = ".0%")
+          ),
+          color = list(
+            field = "pair_label",
+            type = "nominal",
+            title = "Twin Pair",
+            scale = list(scheme = "tableau10"),
+            legend = list(orient = "right")
+          ),
+          tooltip = list(
+            list(field = "pair_label", type = "nominal", title = "Pair"),
+            list(field = "region", type = "nominal"),
+            list(field = "share_A", type = "quantitative", title = "Twin A", format = ".1%"),
+            list(field = "share_B", type = "quantitative", title = "Twin B", format = ".1%")
+          )
+        )
+      )
+    ),
+    width = 200,
+    height = 200
+  ),
+  resolve = list(
+    scale = list(x = "shared", y = "shared")
+  )
+)
+
+as_vegaspec(toJSON(spec2, auto_unbox = TRUE))
+```
+
+I used a scatterplot because it is a natural way to compare Twin A and Twin B directly. Twin A is on the x-axis, Twin B is on the y-axis, and the dashed diagonal line shows where the results would match exactly. Any point away from that line means the kit gave the twins slightly different estimates for the same region. I faceted the chart by kit so each company has its own panel, which makes the figure much easier to read than putting everything into one graph. Most points fall close to the diagonal, which suggests that all three kits give broadly similar results for identical twins. At the same time, the points are not perfectly on the line, showing that small differences still appear across all three kits. This suggests that ancestry percentages should be treated as estimates rather than exact measurements.
+
+
+## Exercise 2: Customer Touchpoints Challenge
+
+# Issues with the original graphic
+
+The original chart uses a stacked bar to show phone, chat, and email touchpoints over time. The main problem is that only the bottom segment sits on a common baseline — the other two channels shift up and down depending on what's below them, making it hard to track any individual trend. The y-axis has no units, the date labels are inconsistent, and the total annotations with connector lines add clutter without adding much insight. The 3.8% year-over-year growth could just go in the title instead of floating over the bars.
+
+# Improved graphic
+```{r}
+#| code-fold: true
+#| message: false
+
+library(vegawidget)
+library(jsonlite)
+library(readr)
+library(tidyr)
+library(dplyr)
+
+touchpoints <- read_csv("swd-lets-practice-ex-5-03.csv") |>
+  pivot_longer(
+    cols = c(`Phone Touchpoints`, `Chat Touchpoints`, `Email Touchpoints`),
+    names_to = "channel",
+    values_to = "touchpoints"
+  ) |>
+  mutate(
+    channel = gsub(" Touchpoints", "", channel),
+    date = paste0(Date, "-01")
+  )
+
+spec <- list(
+  `$schema` = "https://vega.github.io/schema/vega-lite/v5.json",
+  title = list(
+    text = "Email Remains the Largest Channel, While Chat Shows Gradual Growth",
+    subtitle = "Monthly customer touchpoints by channel, Jan 2018 – Jan 2020",
+    fontSize = 16,
+    anchor = "start"
+  ),
+  data = list(values = touchpoints),
+  mark = list(
+    type = "line",
+    strokeWidth = 2.5,
+    point = list(size = 30)
+  ),
+  encoding = list(
+    x = list(
+      field = "date",
+      type = "temporal",
+      title = NULL,
+      axis = list(
+        format = "%b %Y",
+        labelAngle = -45,
+        tickCount = 9
+      )
+    ),
+    y = list(
+      field = "touchpoints",
+      type = "quantitative",
+      title = "Touchpoints (in millions)",
+      scale = list(domain = list(0, 0.7))
+    ),
+    color = list(
+      field = "channel",
+      type = "nominal",
+      title = "Channel",
+      scale = list(
+        domain = list("Email", "Phone", "Chat"),
+        range = list("#4e79a7", "#e15759", "#59a14f")
+      ),
+      legend = list(orient = "right")
+    ),
+    tooltip = list(
+      list(field = "date", type = "temporal", title = "Month", format = "%b %Y"),
+      list(field = "channel", type = "nominal"),
+      list(field = "touchpoints", type = "quantitative", format = ".2f")
+    )
+  ),
+  width = 600,
+  height = 350
+)
+
+as_vegaspec(toJSON(spec, auto_unbox = TRUE))
+```
+
+I replaced the stacked bar chart with a line chart because the main question is about trends over time, and lines handle that much better than bars. Each channel sits on the same baseline so you can compare them directly. The first thing that stands out is the seasonal pattern — all three channels spike around December and January, dip through spring and summer, and climb again at the end of the year. Email consistently has the highest volume, phone is second, and chat is the smallest. But chat shows the clearest upward trend, starting around 0.11 in early 2018 and reaching 0.26 by January 2020. Phone and email are mostly flat year over year, just cycling through the same seasonal rhythm. So the real story isn't just that total touchpoints grew slightly — it's that chat is becoming a more significant part of the overall volume.
+
+## Exercise 3: Tanzania Health Survey Data
+
+# Part a – Data
+
+I used the last year of each survey period as the year value, since that's when the survey was completed. For surveys that spanned two calendar years (like 1991-1992), I used 1992.
+```{r}
+#| code-fold: true
+#| message: false
+
+library(readr)
+
+tanzania <- tibble::tibble(
+  year = c(1992, 1996, 1999, 2005, 2010, 2016),
+  survey_label = c("1991-1992", "1996", "1999", "2004-2005", "2010", "2015-2016"),
+  fertility_rate = c(6.2, 5.8, 5.6, 5.7, 5.4, 5.2),
+  contraception_pct = c(5.9, 11.7, 15.6, 17.6, 23.6, 38.4),
+  unmet_need_pct = c(27.8, 26.0, 22.3, 24.3, 22.3, 22.1)
+)
+
+write_csv(tanzania, "tanzania-dhs.csv")
+```
+
+[Download the data](tanzania-dhs.csv)
+
+### Part b – Visualization
+```{r}
+#| code-fold: true
+#| message: false
+
+library(vegawidget)
+library(jsonlite)
+library(tidyr)
+library(dplyr)
+
+tanzania_long <- tanzania |>
+  pivot_longer(
+    cols = c(contraception_pct, unmet_need_pct),
+    names_to = "measure",
+    values_to = "percentage"
+  ) |>
+  mutate(
+    measure = case_when(
+      measure == "contraception_pct" ~ "Modern Contraception Use",
+      measure == "unmet_need_pct" ~ "Unmet Need for Family Planning"
+    )
+  )
+
+spec <- list(
+  `$schema` = "https://vega.github.io/schema/vega-lite/v5.json",
+  title = list(
+    text = "Contraception Use Is Rising in Tanzania, but Fertility Has Barely Budged",
+    subtitle = "Demographic and Health Survey data, 1991–2016",
+    fontSize = 15,
+    anchor = "start"
+  ),
+  vconcat = list(
+    list(
+      data = list(values = tanzania_long),
+      mark = list(type = "line", strokeWidth = 2.5, point = list(size = 60, filled = TRUE)),
+      encoding = list(
+        x = list(
+          field = "year",
+          type = "quantitative",
+          title = NULL,
+          axis = list(format = "d", tickCount = 6),
+          scale = list(domain = list(1990, 2018))
+        ),
+        y = list(
+          field = "percentage",
+          type = "quantitative",
+          title = "Percent (%)",
+          scale = list(domain = list(0, 45))
+        ),
+        color = list(
+          field = "measure",
+          type = "nominal",
+          title = NULL,
+          scale = list(
+            domain = list("Modern Contraception Use", "Unmet Need for Family Planning"),
+            range = list("#4e79a7", "#e15759")
+          ),
+          legend = list(orient = "top")
+        ),
+        tooltip = list(
+          list(field = "year", type = "quantitative", title = "Year"),
+          list(field = "measure", type = "nominal", title = "Measure"),
+          list(field = "percentage", type = "quantitative", title = "Percent", format = ".1f")
+        )
+      ),
+      width = 600,
+      height = 200
+    ),
+    list(
+      data = list(values = tanzania),
+      mark = list(type = "line", strokeWidth = 2.5, point = list(size = 60, filled = TRUE), color = "#59a14f"),
+      encoding = list(
+        x = list(
+          field = "year",
+          type = "quantitative",
+          title = "Survey Year",
+          axis = list(format = "d", tickCount = 6),
+          scale = list(domain = list(1990, 2018))
+        ),
+        y = list(
+          field = "fertility_rate",
+          type = "quantitative",
+          title = "Children per Woman",
+          scale = list(domain = list(4, 7))
+        ),
+        tooltip = list(
+          list(field = "year", type = "quantitative", title = "Year"),
+          list(field = "fertility_rate", type = "quantitative", title = "Fertility Rate", format = ".1f")
+        )
+      ),
+      width = 600,
+      height = 200
+    )
+  )
+)
+
+as_vegaspec(toJSON(spec, auto_unbox = TRUE))
+```
+
+### Part c – The story
+
+The top panel shows contraception use and unmet need for family planning, while the bottom panel shows the total fertility rate. Over 25 years, modern contraception use in Tanzania went from about 6% to 38% — a massive increase. You'd expect fertility to drop by a similar amount, but it barely moved, going from 6.2 to 5.2 children per woman. That's a decline, but a surprisingly small one given how much contraception access changed. Meanwhile, the percentage of women with unmet need for family planning stayed stubbornly flat around 22–28%, dipping slightly but never really dropping in a meaningful way. So even though more women are using contraception, there are still a lot of women who want to limit or space their pregnancies but aren't able to. The gap between rising contraception use and relatively flat fertility suggests that other factors — like desired family size, access to healthcare, and cultural norms — are playing a big role in keeping fertility rates high.
+
+
+
 
