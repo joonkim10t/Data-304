@@ -68,7 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="finalportfolio_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="finalportfolio_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="finalportfolio_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="finalportfolio_files/libs/bootstrap/bootstrap-a3e94113f832f1a3e99aed9357d017bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="finalportfolio_files/libs/bootstrap/bootstrap-0b5895800423680069a27c59630db155.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="finalportfolio_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <script src="finalportfolio_files/libs/vega-5.24.0/vega@5.24.0.min.js"></script>
 <script src="finalportfolio_files/libs/vega-lite-5.16.3/vega-lite@5.16.3.min.js"></script>
@@ -88,11 +88,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>###Final Portfolio</p>
-<p>##Exercise 1 #Part a – A plot from the HW 4 Gallery I liked Based on the data we were working with, I’d expect one of the better plots in the gallery to be a dot plot comparing genetic share estimates across the three kits for each ancestry region. That kind of plot would make it really easy to scan across and see where the kits agree and where they don’t — you get one dot per kit on the same horizontal line, so the comparison feels natural without any extra mental work. It’s clean, it doesn’t overload you with information, and it actually lets the data speak for itself. That’s the kind of plot I would have been drawn to.</p>
-<p>#Part b – A plot from the HW 4 Gallery I didn’t like On the flip side, I’d guess some plots in the gallery went with a stacked bar chart to show the full ancestry breakdown per twin. I can see why that’s tempting — it looks like it tells the whole story at once — but stacked bars are really hard to read for anything except the bottom segment, since everything above it doesn’t share a common baseline. Trying to compare Central Africa between Twin A and Twin B in a stacked bar is just guesswork. A grouped or faceted layout would have been a lot more useful for this particular data.</p>
-<section id="part-c-graphic-1-comparing-the-three-kits" class="level1">
-<h1>Part c – Graphic 1: Comparing the Three Kits</h1>
+<section id="final-portfolio" class="level1">
+<h1>Final Portfolio</h1>
+<section id="exercise-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
+<section id="part-a-a-plot-from-the-hw-4-gallery-i-liked" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-a-plot-from-the-hw-4-gallery-i-liked">Part a – A plot from the HW 4 Gallery I liked</h3>
+<p>Based on the data we were working with, I’d expect one of the better plots in the gallery to be a dot plot comparing genetic share estimates across the three kits for each ancestry region. That kind of plot would make it really easy to scan across and see where the kits agree and where they don’t — you get one dot per kit on the same horizontal line, so the comparison feels natural without any extra mental work. It’s clean, it doesn’t overload you with information, and it actually lets the data speak for itself. That’s the kind of plot I would have been drawn to.</p>
+</section>
+<section id="part-b-a-plot-from-the-hw-4-gallery-i-didnt-like" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-a-plot-from-the-hw-4-gallery-i-didnt-like">Part b – A plot from the HW 4 Gallery I didn’t like</h3>
+<p>On the flip side, I’d guess some plots in the gallery went with a stacked bar chart to show the full ancestry breakdown per twin. I can see why that’s tempting — it looks like it tells the whole story at once — but stacked bars are really hard to read for anything except the bottom segment, since everything above it doesn’t share a common baseline. Trying to compare Central Africa between Twin A and Twin B in a stacked bar is just guesswork. A grouped or faceted layout would have been a lot more useful for this particular data.</p>
+</section>
+<section id="part-c-graphic-1-comparing-the-three-kits" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-graphic-1-comparing-the-three-kits">Part c – Graphic 1: Comparing the Three Kits</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -183,8 +192,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec1, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-f8ab58d2bb1251d61fef" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f8ab58d2bb1251d61fef">{"x":{
+<div id="htmlwidget-6d928007e961791582f8" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6d928007e961791582f8">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
@@ -1243,8 +1252,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>I picked a dot plot here because I thought about using a stacked bar chart at first but realized it would have the same issue I mentioned in part b — you can only really compare the bottom segment, and everything stacked above it just shifts around. With a dot plot each kit gets its own shape on the same axis, so it’s easy to see where they agree and where they don’t.</p>
 <p>Each panel shows one twin pair, with ancestry regions on the y-axis and the percentage on the x-axis. The three shapes represent Ancestry, 23andMe, and MyHeritage. When the shapes land close together, the kits mostly agree on that region. When they spread apart, the kits are giving noticeably different numbers for the same DNA. The kits tend to agree on the dominant ancestry — like all three putting Pair 5 near 100% East Asian, or Pair 3 near 99% NW European. But the smaller percentages are where things get messy. Pair 1 is a good example: Ancestry says around 10% SE Europe, while the other two put it closer to 30%. That’s a big gap for the same spit sample, and it comes down to each company using different reference populations and algorithms to interpret the raw data.</p>
 </section>
-<section id="part-c-graphic-2-comparing-twins" class="level1">
-<h1>Part c – Graphic 2: Comparing Twins</h1>
+<section id="part-c-graphic-2-comparing-twins" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-graphic-2-comparing-twins">Part c – Graphic 2: Comparing Twins</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1339,8 +1348,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec2, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-5e800672cdb2d3ff89a1" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5e800672cdb2d3ff89a1">{"x":{
+<div id="htmlwidget-8d4e95595a1968dc168d" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8d4e95595a1968dc168d">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
@@ -1874,16 +1883,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>I used a scatterplot because it is a natural way to compare Twin A and Twin B directly. Twin A is on the x-axis, Twin B is on the y-axis, and the dashed diagonal line shows where the results would match exactly. Any point away from that line means the kit gave the twins slightly different estimates for the same region. I faceted the chart by kit so each company has its own panel, which makes the figure much easier to read than putting everything into one graph. Most points fall close to the diagonal, which suggests that all three kits give broadly similar results for identical twins. At the same time, the points are not perfectly on the line, showing that small differences still appear across all three kits. This suggests that ancestry percentages should be treated as estimates rather than exact measurements.</p>
+</section>
+</section>
 <section id="exercise-2-customer-touchpoints-challenge" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2-customer-touchpoints-challenge">Exercise 2: Customer Touchpoints Challenge</h2>
-</section>
-</section>
-<section id="issues-with-the-original-graphic" class="level1">
-<h1>Issues with the original graphic</h1>
+<section id="issues-with-the-original-graphic" class="level3">
+<h3 class="anchored" data-anchor-id="issues-with-the-original-graphic">Issues with the original graphic</h3>
 <p>The original chart uses a stacked bar to show phone, chat, and email touchpoints over time. The main problem is that only the bottom segment sits on a common baseline — the other two channels shift up and down depending on what’s below them, making it hard to track any individual trend. The y-axis has no units, the date labels are inconsistent, and the total annotations with connector lines add clutter without adding much insight. The 3.8% year-over-year growth could just go in the title instead of floating over the bars.</p>
 </section>
-<section id="improved-graphic" class="level1">
-<h1>Improved graphic</h1>
+<section id="improved-graphic" class="level3">
+<h3 class="anchored" data-anchor-id="improved-graphic">Improved graphic</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1958,8 +1967,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-92a884f07ed6c9a62112" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-92a884f07ed6c9a62112">{"x":{
+<div id="htmlwidget-9c24155c5604433188a1" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9c24155c5604433188a1">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
@@ -2500,12 +2509,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>I replaced the stacked bar chart with a line chart because the main question is about trends over time, and lines handle that much better than bars. Each channel sits on the same baseline so you can compare them directly. The first thing that stands out is the seasonal pattern — all three channels spike around December and January, dip through spring and summer, and climb again at the end of the year. Email consistently has the highest volume, phone is second, and chat is the smallest. But chat shows the clearest upward trend, starting around 0.11 in early 2018 and reaching 0.26 by January 2020. Phone and email are mostly flat year over year, just cycling through the same seasonal rhythm. So the real story isn’t just that total touchpoints grew slightly — it’s that chat is becoming a more significant part of the overall volume.</p>
+</section>
+</section>
 <section id="exercise-3-tanzania-health-survey-data" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3-tanzania-health-survey-data">Exercise 3: Tanzania Health Survey Data</h2>
-</section>
-</section>
-<section id="part-a-data" class="level1">
-<h1>Part a – Data</h1>
+<section id="part-a-data" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-data">Part a – Data</h3>
 <p>I used the last year of each survey period as the year value, since that’s when the survey was completed. For surveys that spanned two calendar years (like 1991-1992), I used 1992.</p>
 <div class="cell">
 <details class="code-fold">
@@ -2524,6 +2533,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p><a href="tanzania-dhs.csv">Download the data</a></p>
+</section>
 <section id="part-b-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="part-b-visualization">Part b – Visualization</h3>
 <div class="cell">
@@ -2623,8 +2633,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-a11aedb31a66108a8712" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a11aedb31a66108a8712">{"x":{
+<div id="htmlwidget-128e93d894e5f9749e56" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-128e93d894e5f9749e56">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
@@ -2912,8 +2922,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="part-c-the-story">Part c – The story</h3>
 <p>The top panel shows contraception use and unmet need for family planning, while the bottom panel shows the total fertility rate. Over 25 years, modern contraception use in Tanzania went from about 6% to 38% — a massive increase. You’d expect fertility to drop by a similar amount, but it barely moved, going from 6.2 to 5.2 children per woman. That’s a decline, but a surprisingly small one given how much contraception access changed. Meanwhile, the percentage of women with unmet need for family planning stayed stubbornly flat around 22–28%, dipping slightly but never really dropping in a meaningful way. So even though more women are using contraception, there are still a lot of women who want to limit or space their pregnancies but aren’t able to. The gap between rising contraception use and relatively flat fertility suggests that other factors — like desired family size, access to healthcare, and cultural norms — are playing a big role in keeping fertility rates high.</p>
 </section>
-<section id="exercise-4-exercise-4-your-masterpiece" class="level2">
-<h2 class="anchored" data-anchor-id="exercise-4-exercise-4-your-masterpiece">Exercise 4: Exercise 4 (Your masterpiece)</h2>
+</section>
+<section id="exercise-4-your-masterpiece" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-4-your-masterpiece">Exercise 4 (Your masterpiece)</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2974,8 +2985,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-6cec4693ce8c831a176d" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6cec4693ce8c831a176d">{"x":{
+<div id="htmlwidget-b5e76e46e4889777984b" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b5e76e46e4889777984b">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
@@ -3382,6 +3393,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Tooltips:</strong> Pretty much every graphic has them. The most important ones are probably in Exercise 4 since you literally can’t tell who each bar represents without hovering — it shows the player, club, goals, games, and goals-per-game ratio.</p></li>
 <li><p><strong>Another kind of interaction:</strong> Honestly I didn’t go crazy with this one. I have code-fold turned on everywhere so the code stays hidden unless someone clicks to expand it, which keeps the page clean. I thought about adding brushing or a slider to filter by season range in Exercise 4, but it felt like overkill for this particular chart — the tooltips already give you what you need.</p></li>
 </ol>
+</section>
+<section id="exercise-6-keep-learning" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-6-keep-learning">Exercise 6: Keep Learning</h2>
+<section id="part-a" class="level3">
+<h3 class="anchored" data-anchor-id="part-a">Part a</h3>
+<ol type="1">
+<li><p><strong>yOffset encoding (Exercise 1, Graphic 1):</strong> For the twin genetics dot plot, I needed a way to separate the Twin A and Twin B dots so they wouldn’t just stack on top of each other within each ancestry region. I found the <code>yOffset</code> channel by poking around the vegabrite Reference page — it documents a <code>vl_encode_yOffset</code> function that caught my eye. That led me to the Vega-Lite encoding docs where they explain how offset channels work. It was really useful for dodging overlapping points without having to restructure my whole data layout. (<a href="https://vegawidget.github.io/vegabrite/reference/vl_encode_yOffset.html">vegabrite Reference</a>, <a href="https://vega.github.io/vega-lite/docs/encoding.html">Vega-Lite Encoding docs</a>)</p></li>
+<li><p><strong>Independent scale resolution (Exercise 4):</strong> The Golden Boot chart has bars for total goals and a line for goals-per-game, which are on totally different scales. I needed them to have their own y-axes, and after some searching I ended up on the Resolve page under View Composition in the Vega-Lite documentation. It explains how <code>"shared"</code> vs <code>"independent"</code> works for layered views. Once I set <code>resolve: { scale: { y: "independent" } }</code> it clicked into place and the dual axis setup finally made sense. (<a href="https://vega.github.io/vega-lite/docs/resolve.html">Vega-Lite Resolve documentation</a>)</p></li>
+<li><ol start="3" type="1">
+<li><strong>strokeDash for the reference line (Exercise 1, Graphic 2):</strong> For the twin comparison scatterplot I wanted a dashed diagonal line to show where perfect agreement would be. I got the idea from the “Line chart with varying stroke dash” example in the Vega-Lite example gallery — that one uses <code>strokeDash</code> to tell apart different stock tickers in a multi-line chart. I basically took the same idea but instead of mapping it to a field, I just set <code>strokeDash: [6, 4]</code> as a fixed value on my reference line. Had to dig into the mark properties docs a bit to figure out how to do it as a constant instead of an encoding, but once I got it working I think it makes it pretty clear that the diagonal line is just a reference and not actual data. (<a href="https://vega.github.io/vega-lite/examples/line_strokedash.html">Vega-Lite Example Gallery — “Line chart with varying stroke dash”</a>, <a href="https://vega.github.io/vega-lite/docs/mark.html">Vega-Lite Mark properties</a>)</li>
+</ol></li>
+</ol>
+</section>
+<section id="part-b-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-1">Part b</h3>
+<ol type="1">
+<li><p><strong>Avoiding stacked bars (Wilke, Chapter 10 — “Visualizing Proportions”):</strong> Wilke talks about how stacked bars only really work for the bottom segment because everything above it doesn’t share a common baseline, which makes comparisons harder. This came up in two places for me — in Exercise 1 I went with a dot plot instead of a stacked bar for comparing the three genetic kits, and in Exercise 2 I swapped out the original stacked bar chart for separate lines. In both cases it made the comparisons way easier once each category had its own baseline. (<a href="https://clauswilke.com/dataviz/visualizing-proportions.html#stacked-densities">Chapter 10, Section 10.3</a>)</p></li>
+<li><p><strong>Redundant coding (Wilke, Chapter 20 — “Redundant Coding”):</strong> Wilke makes the point that you should encode the same variable through multiple visual channels so that the information still comes through if someone can’t pick up on one of them. I did this in Exercise 1 Graphic 1 where I mapped the genetic kit to both color and shape — so even if someone has trouble distinguishing the colors, the circle vs square vs triangle still tells you which kit is which. (<a href="https://clauswilke.com/dataviz/redundant-coding.html">Chapter 20</a>)</p></li>
+<li><p><strong>Time series with two response variables (Wilke, Chapter 13 — “Visualizing Time Series”):</strong> Wilke discusses how to handle two response variables over time, including the pitfalls of dual y-axes. I ran into this exact problem in Exercise 4 with the Golden Boot chart — goals scored and goals-per-game are on completely different scales, so I had to think about how to layer them without making it misleading. I ended up using independent y-axes with different mark types (bars vs line) to keep things readable. (<a href="https://clauswilke.com/dataviz/time-series.html#time-series-connected-scatter">Chapter 13, Section 13.3</a>)</p></li>
+</ol>
+</section>
 </section>
 </section>
 

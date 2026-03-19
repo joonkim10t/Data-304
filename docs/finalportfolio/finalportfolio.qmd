@@ -1,13 +1,15 @@
-###Final Portfolio
 
-##Exercise 1
-#Part a – A plot from the HW 4 Gallery I liked
+# Final Portfolio
+
+## Exercise 1
+
+### Part a – A plot from the HW 4 Gallery I liked
 Based on the data we were working with, I'd expect one of the better plots in the gallery to be a dot plot comparing genetic share estimates across the three kits for each ancestry region. That kind of plot would make it really easy to scan across and see where the kits agree and where they don't — you get one dot per kit on the same horizontal line, so the comparison feels natural without any extra mental work. It's clean, it doesn't overload you with information, and it actually lets the data speak for itself. That's the kind of plot I would have been drawn to.
 
-#Part b – A plot from the HW 4 Gallery I didn't like
+### Part b – A plot from the HW 4 Gallery I didn't like
 On the flip side, I'd guess some plots in the gallery went with a stacked bar chart to show the full ancestry breakdown per twin. I can see why that's tempting — it looks like it tells the whole story at once — but stacked bars are really hard to read for anything except the bottom segment, since everything above it doesn't share a common baseline. Trying to compare Central Africa between Twin A and Twin B in a stacked bar is just guesswork. A grouped or faceted layout would have been a lot more useful for this particular data.
 
-# Part c – Graphic 1: Comparing the Three Kits
+### Part c – Graphic 1: Comparing the Three Kits
 ```{r}
 #| code-fold: true
 #| message: false
@@ -104,7 +106,7 @@ I picked a dot plot here because I thought about using a stacked bar chart at fi
 Each panel shows one twin pair, with ancestry regions on the y-axis and the percentage on the x-axis. The three shapes represent Ancestry, 23andMe, and MyHeritage. When the shapes land close together, the kits mostly agree on that region. When they spread apart, the kits are giving noticeably different numbers for the same DNA. The kits tend to agree on the dominant ancestry — like all three putting Pair 5 near 100% East Asian, or Pair 3 near 99% NW European. But the smaller percentages are where things get messy. Pair 1 is a good example: Ancestry says around 10% SE Europe, while the other two put it closer to 30%. That's a big gap for the same spit sample, and it comes down to each company using different reference populations and algorithms to interpret the raw data.
 
 
-# Part c – Graphic 2: Comparing Twins
+### Part c – Graphic 2: Comparing Twins
 ```{r}
 #| code-fold: true
 #| message: false
@@ -205,11 +207,11 @@ I used a scatterplot because it is a natural way to compare Twin A and Twin B di
 
 ## Exercise 2: Customer Touchpoints Challenge
 
-# Issues with the original graphic
+### Issues with the original graphic
 
 The original chart uses a stacked bar to show phone, chat, and email touchpoints over time. The main problem is that only the bottom segment sits on a common baseline — the other two channels shift up and down depending on what's below them, making it hard to track any individual trend. The y-axis has no units, the date labels are inconsistent, and the total annotations with connector lines add clutter without adding much insight. The 3.8% year-over-year growth could just go in the title instead of floating over the bars.
 
-# Improved graphic
+### Improved graphic
 ```{r}
 #| code-fold: true
 #| message: false
@@ -289,7 +291,7 @@ I replaced the stacked bar chart with a line chart because the main question is 
 
 ## Exercise 3: Tanzania Health Survey Data
 
-# Part a – Data
+### Part a – Data
 
 I used the last year of each survey period as the year value, since that's when the survey was completed. For surveys that spanned two calendar years (like 1991-1992), I used 1992.
 ```{r}
@@ -414,7 +416,7 @@ as_vegaspec(toJSON(spec, auto_unbox = TRUE))
 
 The top panel shows contraception use and unmet need for family planning, while the bottom panel shows the total fertility rate. Over 25 years, modern contraception use in Tanzania went from about 6% to 38% — a massive increase. You'd expect fertility to drop by a similar amount, but it barely moved, going from 6.2 to 5.2 children per woman. That's a decline, but a surprisingly small one given how much contraception access changed. Meanwhile, the percentage of women with unmet need for family planning stayed stubbornly flat around 22–28%, dipping slightly but never really dropping in a meaningful way. So even though more women are using contraception, there are still a lot of women who want to limit or space their pregnancies but aren't able to. The gap between rising contraception use and relatively flat fertility suggests that other factors — like desired family size, access to healthcare, and cultural norms — are playing a big role in keeping fertility rates high.
 
-## Exercise 4: Exercise 4 (Your masterpiece)
+## Exercise 4 (Your masterpiece)
 ```{r}
 #| code-fold: true
 #| message: false
