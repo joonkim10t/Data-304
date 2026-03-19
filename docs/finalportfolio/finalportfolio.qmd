@@ -492,6 +492,7 @@ One thing I had to deal with was seasons where multiple players tied. 2018-19 ha
 I thought about doing a scatter plot instead — games on the x-axis, goals on the y — which would show efficiency more directly since the best scorers would be up in the top left. But you lose the timeline that way and I wanted to show how scoring trends changed over the years. I also considered just doing a plain bar chart without the line, but the goals-per-game layer adds something extra without making it too busy.
 
 ### Part C 
+
 The data comes from the [Premier League's official Golden Boot page](https://www.premierleague.com/en/news/1206108), which tracks the top scorer for every Premier League season going back to 1992-93. For each winner I recorded the player's name, their club, total goals scored, and how many games they played that season. I also calculated a goals-per-game ratio from those numbers. Some seasons had ties — like 2018-19 when Aubameyang, Mane, and Salah all finished on 22 goals — and in those cases I kept the player with the best goals-per-game ratio to keep the chart clean and avoid overlapping bars.
 
 ## Exercise 5: Using Your Palette
