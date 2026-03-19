@@ -421,13 +421,40 @@ The top panel shows contraception use and unmet need for family planning, while 
 library(tidyverse)
 library(vegawidget)
 library(jsonlite)
+library(readxl)
 
-gas_ev <- read_csv("gas_ev_merged.csv")
+# Load and clean gas prices
+gas_raw <- read_excel("gas_prices.xlsx")
+gas_raw <- gas_raw |>
+  rename(date = 1, gas_price = 2) |>
+  slice(-1) |>
+  mutate(date = as.Date(as.numeric(date), origin = "1899-12-30"),
+         gas_price = as.numeric(gas_price),
+         year = year(date)) |>
+  drop_na(date, gas_price)
 
+gas_yearly <- gas_raw |>
+  group_by(year) |>
+  summarize(gas_price = round(mean(gas_price), 3))
+
+# Load and clean EV/hybrid sales
+ev_raw <- read_excel("ev_hybrid_sales.xlsx")
+total_row <- ev_raw |> filter(str_detect(.[[1]], "Total"))
+ev_total <- total_row |>
+  pivot_longer(-1, names_to = "year", values_to = "total_ev_sales") |>
+  mutate(year = as.integer(str_extract(year, "\\d{4}")),
+         total_ev_sales = as.numeric(total_ev_sales)) |>
+  drop_na(year, total_ev_sales) |>
+  select(year, total_ev_sales)
+
+# Merge
+gas_ev <- inner_join(gas_yearly, ev_total, by = "year")
+
+# Build vega-lite spec
 spec <- list(
   `$schema` = "https://vega.github.io/schema/vega-lite/v5.json",
   title = list(
-    text = "U.S. Gasoline Prices and EV/Hybrid Sales (2000–2024)",
+    text = "U.S. Gasoline Prices and EV/Hybrid Sales (2000-2024)",
     anchor = "start",
     fontSize = 16
   ),
@@ -517,6 +544,7 @@ spec <- list(
 
 as_vegaspec(toJSON(spec, auto_unbox = TRUE))
 ```
+
 
 
 
