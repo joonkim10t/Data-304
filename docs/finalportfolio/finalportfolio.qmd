@@ -476,6 +476,36 @@ spec <- list(
 
 as_vegaspec(toJSON(spec, auto_unbox = TRUE))
 ```
+### Part b 
+
+So the main idea behind this chart was to show that the Golden Boot isn't just about who scores the most — it's also about how efficient they were. That's why I went with bars for total goals and an orange line for goals per game. Like, Haaland scored 36 in 2022-23 which is insane, but Kane's 29 in 30 games back in 2016-17 was actually a better rate. I thought that was an interesting thing to highlight.
+
+I know dual y-axes can be sketchy in data viz — we talked about how they can be misleading. But here I figured it's okay because goals and goals-per-game come from the same underlying data, so it's not like I'm forcing a fake correlation between two random things. Plus the bar vs line distinction makes it pretty obvious which axis goes with which.
+
+Color-wise, I went with the Premier League's purple for the bars and orange for the line. I actually tried green first but it looked kind of hard to read against the dark purple, so I switched to orange which pops a lot better. The tooltips were a must because otherwise you'd have no idea who each bar is — you just see a height and a season. Hovering lets you see the player, club, goals, games, and the efficiency number.
+
+One thing I had to deal with was seasons where multiple players tied. 2018-19 had three guys all at 22 goals (Aubameyang, Mane, Salah). If I kept all of them it looked messy with bars stacking on top of each other, so I just picked the one with the best goals-per-game and mentioned the ties here.
+
+I thought about doing a scatter plot instead — games on the x-axis, goals on the y — which would show efficiency more directly since the best scorers would be up in the top left. But you lose the timeline that way and I wanted to show how scoring trends changed over the years. I also considered just doing a plain bar chart without the line, but the goals-per-game layer adds something extra without making it too busy.
+
+### Part C 
+I got a data from here (https://www.premierleague.com/en/news/1206108)
+
+## Exercise 5: Using Your Palette
+
+a. **Encoding channel other than x or y:** In my first graphic for Exercise 1, I used color and shape to represent the three genetic kits — each one gets a different color and a different point shape (circle, square, triangle) so you can tell them apart even without the legend. I also used yOffset to spread the twin dots apart within each ancestry region so they don't just sit on top of each other. And in Exercise 4, color separates the purple bars from the orange line.
+
+b. **Layers:** My Exercise 4 chart layers bars and a line on the same plot — bars for total goals, line for goals per game. The twin comparison scatter in Exercise 1 (Graphic 2) also has a layer thing going on, where I put a dashed diagonal reference line behind the actual data points so you can see where perfect agreement would be.
+
+c. **Facets:** Exercise 1 uses faceting in both graphics. Graphic 1 facets by twin pair into a 2-column layout, and Graphic 2 facets by kit so each company gets its own scatter panel. I think faceting was the right call for both since cramming everything into one chart would've been way too cluttered.
+
+d. **Concatenation:** Exercise 3 stacks two panels vertically with vconcat — contraception and unmet need on top, fertility on the bottom. They share the same x-axis so your eyes can just go straight down to compare the trends.
+
+e. **Non-default scale or guide settings:** A few places. In Exercise 4 I used independent y-axis resolution so the bars and line get their own scales, and I manually set the goals axis to go up to 45 so everything fits. Exercise 1 Graphic 1 has the x-axis domain locked to 0-1 with percentage formatting. Exercise 2 has manually assigned colors for each channel instead of just letting Vega-Lite pick defaults.
+
+f. **Tooltips:** Pretty much every graphic has them. The most important ones are probably in Exercise 4 since you literally can't tell who each bar represents without hovering — it shows the player, club, goals, games, and goals-per-game ratio.
+
+g. **Another kind of interaction:** Honestly I didn't go crazy with this one. I have code-fold turned on everywhere so the code stays hidden unless someone clicks to expand it, which keeps the page clean. I thought about adding brushing or a slider to filter by season range in Exercise 4, but it felt like overkill for this particular chart — the tooltips already give you what you need.
 
 
 
