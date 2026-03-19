@@ -414,6 +414,111 @@ as_vegaspec(toJSON(spec, auto_unbox = TRUE))
 
 The top panel shows contraception use and unmet need for family planning, while the bottom panel shows the total fertility rate. Over 25 years, modern contraception use in Tanzania went from about 6% to 38% — a massive increase. You'd expect fertility to drop by a similar amount, but it barely moved, going from 6.2 to 5.2 children per woman. That's a decline, but a surprisingly small one given how much contraception access changed. Meanwhile, the percentage of women with unmet need for family planning stayed stubbornly flat around 22–28%, dipping slightly but never really dropping in a meaningful way. So even though more women are using contraception, there are still a lot of women who want to limit or space their pregnancies but aren't able to. The gap between rising contraception use and relatively flat fertility suggests that other factors — like desired family size, access to healthcare, and cultural norms — are playing a big role in keeping fertility rates high.
 
+## Exercise 4: Exercise 4 (Your masterpiece)
+```{r}
+#| code-fold: true
+
+library(tidyverse)
+library(vegawidget)
+library(jsonlite)
+
+gas_ev <- read_csv("gas_ev_merged.csv")
+
+spec <- list(
+  `$schema` = "https://vega.github.io/schema/vega-lite/v5.json",
+  title = list(
+    text = "U.S. Gasoline Prices and EV/Hybrid Sales (2000–2024)",
+    anchor = "start",
+    fontSize = 16
+  ),
+  data = list(values = gas_ev),
+  vconcat = list(
+    list(
+      title = list(text = "Average Retail Gasoline Price", anchor = "start", fontSize = 13),
+      width = 600,
+      height = 180,
+      layer = list(
+        list(
+          mark = list(
+            type = "area",
+            line = list(color = "#e45756", strokeWidth = 2),
+            color = list(
+              x1 = 1, y1 = 1, x2 = 1, y2 = 0,
+              gradient = "linear",
+              stops = list(
+                list(offset = 0, color = "rgba(228,87,86,0)"),
+                list(offset = 1, color = "rgba(228,87,86,0.25)")
+              )
+            )
+          ),
+          encoding = list(
+            x = list(field = "year", type = "ordinal", title = NULL,
+                     axis = list(labelAngle = 0, labelFontSize = 10)),
+            y = list(field = "gas_price", type = "quantitative",
+                     title = "Price per Gallon ($)",
+                     scale = list(domain = list(0, 4.5)),
+                     axis = list(titleFontSize = 11, grid = TRUE))
+          )
+        ),
+        list(
+          mark = list(type = "point", filled = TRUE, size = 40, color = "#e45756"),
+          encoding = list(
+            x = list(field = "year", type = "ordinal"),
+            y = list(field = "gas_price", type = "quantitative"),
+            tooltip = list(
+              list(field = "year", type = "ordinal", title = "Year"),
+              list(field = "gas_price", type = "quantitative", title = "Gas Price ($)", format = ".2f")
+            )
+          )
+        )
+      )
+    ),
+    list(
+      title = list(text = "Total EV & Hybrid Vehicle Sales", anchor = "start", fontSize = 13),
+      width = 600,
+      height = 180,
+      layer = list(
+        list(
+          mark = list(
+            type = "area",
+            line = list(color = "#4c78a8", strokeWidth = 2),
+            color = list(
+              x1 = 1, y1 = 1, x2 = 1, y2 = 0,
+              gradient = "linear",
+              stops = list(
+                list(offset = 0, color = "rgba(76,120,168,0)"),
+                list(offset = 1, color = "rgba(76,120,168,0.25)")
+              )
+            )
+          ),
+          encoding = list(
+            x = list(field = "year", type = "ordinal", title = "Year",
+                     axis = list(labelAngle = 0, labelFontSize = 10)),
+            y = list(field = "total_ev_sales", type = "quantitative",
+                     title = "Vehicles Sold",
+                     axis = list(titleFontSize = 11, format = "~s", grid = TRUE))
+          )
+        ),
+        list(
+          mark = list(type = "point", filled = TRUE, size = 40, color = "#4c78a8"),
+          encoding = list(
+            x = list(field = "year", type = "ordinal"),
+            y = list(field = "total_ev_sales", type = "quantitative"),
+            tooltip = list(
+              list(field = "year", type = "ordinal", title = "Year"),
+              list(field = "total_ev_sales", type = "quantitative", title = "EV/Hybrid Sales", format = ",")
+            )
+          )
+        )
+      )
+    )
+  )
+)
+
+as_vegaspec(toJSON(spec, auto_unbox = TRUE))
+```
+
+
 
 
 
