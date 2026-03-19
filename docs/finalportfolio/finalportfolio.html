@@ -183,8 +183,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec1, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-c1709d5b13aa097a17f2" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c1709d5b13aa097a17f2">{"x":{
+<div id="htmlwidget-7f98c4c0e1fcc4cab75a" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7f98c4c0e1fcc4cab75a">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
@@ -1339,8 +1339,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec2, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-bfec5958f40ca8b53769" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bfec5958f40ca8b53769">{"x":{
+<div id="htmlwidget-a394e786f33b1c2e8c79" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a394e786f33b1c2e8c79">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
@@ -1958,8 +1958,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-539351f0e28495bbf705" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-539351f0e28495bbf705">{"x":{
+<div id="htmlwidget-0a0e982687e1f9c50a78" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0a0e982687e1f9c50a78">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
@@ -2623,8 +2623,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-0f90f7e50d7f20b99aab" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0f90f7e50d7f20b99aab">{"x":{
+<div id="htmlwidget-f545399448a777490ce0" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f545399448a777490ce0">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
@@ -2917,369 +2917,503 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ forcats   1.0.1     ✔ purrr     1.2.1
-✔ ggplot2   4.0.1     ✔ stringr   1.6.0
-✔ lubridate 1.9.4     ✔ tibble    3.3.1
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter()  masks stats::filter()
-✖ purrr::flatten() masks jsonlite::flatten()
-✖ dplyr::lag()     masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and clean gas prices</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>gas_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"gas_prices.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-• `` -&gt; `...2`</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gas_raw <span class="ot">&lt;-</span> gas_raw <span class="sc">|&gt;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">date =</span> <span class="dv">1</span>, <span class="at">gas_price =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">as.Date</span>(<span class="fu">as.numeric</span>(date), <span class="at">origin =</span> <span class="st">"1899-12-30"</span>),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">gas_price =</span> <span class="fu">as.numeric</span>(gas_price),</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> <span class="fu">year</span>(date)) <span class="sc">|&gt;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(date, gas_price)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: There was 1 warning in `mutate()`.
-ℹ In argument: `date = as.Date(as.numeric(date), origin = "1899-12-30")`.
-Caused by warning in `as.Date()`:
-! NAs introduced by coercion</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gas_yearly <span class="ot">&lt;-</span> gas_raw <span class="sc">|&gt;</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">gas_price =</span> <span class="fu">round</span>(<span class="fu">mean</span>(gas_price), <span class="dv">3</span>))</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and clean EV/hybrid sales</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>ev_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"ev_hybrid_sales.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-• `` -&gt; `...1`
-• `` -&gt; `...28`
-• `` -&gt; `...29`</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>first_col <span class="ot">&lt;-</span> <span class="fu">colnames</span>(ev_raw)[<span class="dv">1</span>]</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>total_row <span class="ot">&lt;-</span> ev_raw <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(.data[[first_col]], <span class="st">"Total"</span>))</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ev_total <span class="ot">&lt;-</span> total_row <span class="sc">|&gt;</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"total_ev_sales"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(<span class="fu">str_extract</span>(year, <span class="st">"</span><span class="sc">\\</span><span class="st">d{4}"</span>)),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">total_ev_sales =</span> <span class="fu">as.numeric</span>(total_ev_sales)) <span class="sc">|&gt;</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(year, total_ev_sales) <span class="sc">|&gt;</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, total_ev_sales)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>gas_ev <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(gas_yearly, ev_total, <span class="at">by =</span> <span class="st">"year"</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Build vega-lite spec</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"https://vega.github.io/schema/vega-lite/v5.json"</span>,</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="fu">list</span>(</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="st">"U.S. Gasoline Prices and EV/Hybrid Sales (2000-2024)"</span>,</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">anchor =</span> <span class="st">"start"</span>,</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontSize =</span> <span class="dv">16</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> gas_ev),</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">vconcat =</span> <span class="fu">list</span>(</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Average Retail Gasoline Price"</span>, <span class="at">anchor =</span> <span class="st">"start"</span>, <span class="at">fontSize =</span> <span class="dv">13</span>),</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> <span class="dv">600</span>,</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> <span class="dv">180</span>,</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">layer =</span> <span class="fu">list</span>(</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>          <span class="at">mark =</span> <span class="fu">list</span>(</span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">"area"</span>,</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>            <span class="at">line =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"#e45756"</span>, <span class="at">strokeWidth =</span> <span class="dv">2</span>),</span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="fu">list</span>(</span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>              <span class="at">x1 =</span> <span class="dv">1</span>, <span class="at">y1 =</span> <span class="dv">1</span>, <span class="at">x2 =</span> <span class="dv">1</span>, <span class="at">y2 =</span> <span class="dv">0</span>,</span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>              <span class="at">gradient =</span> <span class="st">"linear"</span>,</span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>              <span class="at">stops =</span> <span class="fu">list</span>(</span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>                <span class="fu">list</span>(<span class="at">offset =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"rgba(228,87,86,0)"</span>),</span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>                <span class="fu">list</span>(<span class="at">offset =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"rgba(228,87,86,0.25)"</span>)</span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>              )</span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>          ),</span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>          <span class="at">encoding =</span> <span class="fu">list</span>(</span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"year"</span>, <span class="at">type =</span> <span class="st">"ordinal"</span>, <span class="at">title =</span> <span class="cn">NULL</span>,</span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>                     <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">labelAngle =</span> <span class="dv">0</span>, <span class="at">labelFontSize =</span> <span class="dv">10</span>)),</span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"gas_price"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>                     <span class="at">title =</span> <span class="st">"Price per Gallon ($)"</span>,</span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>                     <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">0</span>, <span class="fl">4.5</span>)),</span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>                     <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">titleFontSize =</span> <span class="dv">11</span>, <span class="at">grid =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(</span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"point"</span>, <span class="at">filled =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">40</span>, <span class="at">color =</span> <span class="st">"#e45756"</span>),</span>
-<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>          <span class="at">encoding =</span> <span class="fu">list</span>(</span>
-<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"year"</span>, <span class="at">type =</span> <span class="st">"ordinal"</span>),</span>
-<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"gas_price"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>),</span>
-<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>            <span class="at">tooltip =</span> <span class="fu">list</span>(</span>
-<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>              <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"year"</span>, <span class="at">type =</span> <span class="st">"ordinal"</span>, <span class="at">title =</span> <span class="st">"Year"</span>),</span>
-<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>              <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"gas_price"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Gas Price ($)"</span>, <span class="at">format =</span> <span class="st">".2f"</span>)</span>
-<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
-<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="fu">list</span>(<span class="at">text =</span> <span class="st">"Total EV &amp; Hybrid Vehicle Sales"</span>, <span class="at">anchor =</span> <span class="st">"start"</span>, <span class="at">fontSize =</span> <span class="dv">13</span>),</span>
-<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> <span class="dv">600</span>,</span>
-<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>      <span class="at">height =</span> <span class="dv">180</span>,</span>
-<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>      <span class="at">layer =</span> <span class="fu">list</span>(</span>
-<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(</span>
-<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a>          <span class="at">mark =</span> <span class="fu">list</span>(</span>
-<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a>            <span class="at">type =</span> <span class="st">"area"</span>,</span>
-<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>            <span class="at">line =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"#4c78a8"</span>, <span class="at">strokeWidth =</span> <span class="dv">2</span>),</span>
-<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="fu">list</span>(</span>
-<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>              <span class="at">x1 =</span> <span class="dv">1</span>, <span class="at">y1 =</span> <span class="dv">1</span>, <span class="at">x2 =</span> <span class="dv">1</span>, <span class="at">y2 =</span> <span class="dv">0</span>,</span>
-<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>              <span class="at">gradient =</span> <span class="st">"linear"</span>,</span>
-<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>              <span class="at">stops =</span> <span class="fu">list</span>(</span>
-<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>                <span class="fu">list</span>(<span class="at">offset =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"rgba(76,120,168,0)"</span>),</span>
-<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>                <span class="fu">list</span>(<span class="at">offset =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"rgba(76,120,168,0.25)"</span>)</span>
-<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a>              )</span>
-<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>          ),</span>
-<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>          <span class="at">encoding =</span> <span class="fu">list</span>(</span>
-<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"year"</span>, <span class="at">type =</span> <span class="st">"ordinal"</span>, <span class="at">title =</span> <span class="st">"Year"</span>,</span>
-<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>                     <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">labelAngle =</span> <span class="dv">0</span>, <span class="at">labelFontSize =</span> <span class="dv">10</span>)),</span>
-<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"total_ev_sales"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
-<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>                     <span class="at">title =</span> <span class="st">"Vehicles Sold"</span>,</span>
-<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a>                     <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">titleFontSize =</span> <span class="dv">11</span>, <span class="at">format =</span> <span class="st">"~s"</span>, <span class="at">grid =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a>        ),</span>
-<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a>        <span class="fu">list</span>(</span>
-<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a>          <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"point"</span>, <span class="at">filled =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">40</span>, <span class="at">color =</span> <span class="st">"#4c78a8"</span>),</span>
-<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a>          <span class="at">encoding =</span> <span class="fu">list</span>(</span>
-<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a>            <span class="at">x =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"year"</span>, <span class="at">type =</span> <span class="st">"ordinal"</span>),</span>
-<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a>            <span class="at">y =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"total_ev_sales"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>),</span>
-<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a>            <span class="at">tooltip =</span> <span class="fu">list</span>(</span>
-<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a>              <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"year"</span>, <span class="at">type =</span> <span class="st">"ordinal"</span>, <span class="at">title =</span> <span class="st">"Year"</span>),</span>
-<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a>              <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"total_ev_sales"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"EV/Hybrid Sales"</span>, <span class="at">format =</span> <span class="st">","</span>)</span>
-<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a>            )</span>
-<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegawidget)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>gb <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"prem_golden_boot.csv"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate goals per game</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>gb <span class="ot">&lt;-</span> gb <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">goals_per_game =</span> <span class="fu">round</span>(goals <span class="sc">/</span> games, <span class="dv">2</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">$schema</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"https://vega.github.io/schema/vega-lite/v5.json"</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="fu">list</span>(</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="st">"Premier League Golden Boot Winners (1992-2025)"</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Comparing total goals scored with goals-per-game efficiency across 33 seasons"</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">anchor =</span> <span class="st">"start"</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">fontSize =</span> <span class="dv">16</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitleFontSize =</span> <span class="dv">12</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitleColor =</span> <span class="st">"gray"</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="fu">list</span>(<span class="at">values =</span> gb),</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">650</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">350</span>,</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">list</span>(</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"bar"</span>, <span class="at">color =</span> <span class="st">"#38003c"</span>, <span class="at">opacity =</span> <span class="fl">0.8</span>),</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"season"</span>, <span class="at">type =</span> <span class="st">"ordinal"</span>, <span class="at">title =</span> <span class="st">"Season"</span>,</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>                 <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">labelAngle =</span> <span class="sc">-</span><span class="dv">45</span>, <span class="at">labelFontSize =</span> <span class="dv">9</span>)),</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"goals"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Goals Scored"</span>,</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>                 <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">0</span>, <span class="dv">45</span>))),</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">tooltip =</span> <span class="fu">list</span>(</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"player"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>, <span class="at">title =</span> <span class="st">"Player"</span>),</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"club"</span>, <span class="at">type =</span> <span class="st">"nominal"</span>, <span class="at">title =</span> <span class="st">"Club"</span>),</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"goals"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Goals"</span>),</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"games"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Games"</span>),</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>          <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"goals_per_game"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>, <span class="at">title =</span> <span class="st">"Goals/Game"</span>)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">list</span>(</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>      <span class="at">mark =</span> <span class="fu">list</span>(<span class="at">type =</span> <span class="st">"line"</span>, <span class="at">color =</span> <span class="st">"#e6550d"</span>, <span class="at">strokeWidth =</span> <span class="dv">2</span>, <span class="at">point =</span> <span class="fu">list</span>(<span class="at">color =</span> <span class="st">"#e6550d"</span>, <span class="at">size =</span> <span class="dv">30</span>)),</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>      <span class="at">encoding =</span> <span class="fu">list</span>(</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"season"</span>, <span class="at">type =</span> <span class="st">"ordinal"</span>),</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="fu">list</span>(<span class="at">field =</span> <span class="st">"goals_per_game"</span>, <span class="at">type =</span> <span class="st">"quantitative"</span>,</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Goals per Game"</span>,</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>                 <span class="at">axis =</span> <span class="fu">list</span>(<span class="at">titleColor =</span> <span class="st">"#e6550d"</span>),</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>                 <span class="at">scale =</span> <span class="fu">list</span>(<span class="at">domain =</span> <span class="fu">list</span>(<span class="dv">0</span>, <span class="fl">1.1</span>)))</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolve =</span> <span class="fu">list</span>(<span class="at">scale =</span> <span class="fu">list</span>(<span class="at">y =</span> <span class="st">"independent"</span>))</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="fu">as_vegaspec</span>(<span class="fu">toJSON</span>(spec, <span class="at">auto_unbox =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div id="htmlwidget-da5df4289c6ad3a7728e" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
-<script type="application/json" data-for="htmlwidget-da5df4289c6ad3a7728e">{"x":{
+<div id="htmlwidget-04dbbd0596f6d8b85de1" style="width:auto;height:auto;" class="vegawidget-vl5 html-widget"></div>
+<script type="application/json" data-for="htmlwidget-04dbbd0596f6d8b85de1">{"x":{
   "chart_spec": {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-      "text": "U.S. Gasoline Prices and EV/Hybrid Sales (2000-2024)",
+      "text": "Premier League Golden Boot Winners (1992-2025)",
+      "subtitle": "Comparing total goals scored with goals-per-game efficiency across 33 seasons",
       "anchor": "start",
-      "fontSize": 16
+      "fontSize": 16,
+      "subtitleFontSize": 12,
+      "subtitleColor": "gray"
     },
     "data": {
-      "values": []
-    },
-    "vconcat": [
-      {
-        "title": {
-          "text": "Average Retail Gasoline Price",
-          "anchor": "start",
-          "fontSize": 13
+      "values": [
+        {
+          "season": "1992-93",
+          "player": "Teddy Sheringham",
+          "club": "Tottenham",
+          "goals": 22,
+          "games": 42,
+          "goals_per_game": 0.52
         },
-        "width": 600,
-        "height": 180,
-        "layer": [
-          {
-            "mark": {
-              "type": "area",
-              "line": {
-                "color": "#e45756",
-                "strokeWidth": 2
-              },
-              "color": {
-                "x1": 1,
-                "y1": 1,
-                "x2": 1,
-                "y2": 0,
-                "gradient": "linear",
-                "stops": [
-                  {
-                    "offset": 0,
-                    "color": "rgba(228,87,86,0)"
-                  },
-                  {
-                    "offset": 1,
-                    "color": "rgba(228,87,86,0.25)"
-                  }
-                ]
-              }
-            },
-            "encoding": {
-              "x": {
-                "field": "year",
-                "type": "ordinal",
-                "title": {},
-                "axis": {
-                  "labelAngle": 0,
-                  "labelFontSize": 10
-                }
-              },
-              "y": {
-                "field": "gas_price",
-                "type": "quantitative",
-                "title": "Price per Gallon ($)",
-                "scale": {
-                  "domain": [
-                    0,
-                    4.5
-                  ]
-                },
-                "axis": {
-                  "titleFontSize": 11,
-                  "grid": true
-                }
-              }
+        {
+          "season": "1993-94",
+          "player": "Andy Cole",
+          "club": "Newcastle United",
+          "goals": 34,
+          "games": 40,
+          "goals_per_game": 0.85
+        },
+        {
+          "season": "1994-95",
+          "player": "Alan Shearer",
+          "club": "Blackburn",
+          "goals": 34,
+          "games": 42,
+          "goals_per_game": 0.81
+        },
+        {
+          "season": "1995-96",
+          "player": "Alan Shearer",
+          "club": "Blackburn",
+          "goals": 31,
+          "games": 35,
+          "goals_per_game": 0.89
+        },
+        {
+          "season": "1996-97",
+          "player": "Alan Shearer",
+          "club": "Newcastle United",
+          "goals": 25,
+          "games": 31,
+          "goals_per_game": 0.81
+        },
+        {
+          "season": "1997-98",
+          "player": "Chris Sutton",
+          "club": "Blackburn",
+          "goals": 18,
+          "games": 35,
+          "goals_per_game": 0.51
+        },
+        {
+          "season": "1997-98",
+          "player": "Dion Dublin",
+          "club": "Coventry City",
+          "goals": 18,
+          "games": 36,
+          "goals_per_game": 0.5
+        },
+        {
+          "season": "1997-98",
+          "player": "Michael Owen",
+          "club": "Liverpool",
+          "goals": 18,
+          "games": 36,
+          "goals_per_game": 0.5
+        },
+        {
+          "season": "1998-99",
+          "player": "Dwight Yorke",
+          "club": "Manchester United",
+          "goals": 18,
+          "games": 32,
+          "goals_per_game": 0.56
+        },
+        {
+          "season": "1998-99",
+          "player": "Jimmy Floyd Hasselbaink",
+          "club": "Leeds United",
+          "goals": 18,
+          "games": 36,
+          "goals_per_game": 0.5
+        },
+        {
+          "season": "1998-99",
+          "player": "Michael Owen",
+          "club": "Liverpool",
+          "goals": 18,
+          "games": 30,
+          "goals_per_game": 0.6
+        },
+        {
+          "season": "1999-00",
+          "player": "Kevin Phillips",
+          "club": "Sunderland",
+          "goals": 30,
+          "games": 36,
+          "goals_per_game": 0.83
+        },
+        {
+          "season": "2000-01",
+          "player": "Jimmy Floyd Hasselbaink",
+          "club": "Chelsea",
+          "goals": 23,
+          "games": 35,
+          "goals_per_game": 0.66
+        },
+        {
+          "season": "2001-02",
+          "player": "Thierry Henry",
+          "club": "Arsenal",
+          "goals": 24,
+          "games": 33,
+          "goals_per_game": 0.73
+        },
+        {
+          "season": "2002-03",
+          "player": "Ruud van Nistelrooy",
+          "club": "Manchester United",
+          "goals": 25,
+          "games": 34,
+          "goals_per_game": 0.74
+        },
+        {
+          "season": "2003-04",
+          "player": "Thierry Henry",
+          "club": "Arsenal",
+          "goals": 30,
+          "games": 37,
+          "goals_per_game": 0.81
+        },
+        {
+          "season": "2004-05",
+          "player": "Thierry Henry",
+          "club": "Arsenal",
+          "goals": 25,
+          "games": 32,
+          "goals_per_game": 0.78
+        },
+        {
+          "season": "2005-06",
+          "player": "Thierry Henry",
+          "club": "Arsenal",
+          "goals": 27,
+          "games": 32,
+          "goals_per_game": 0.84
+        },
+        {
+          "season": "2006-07",
+          "player": "Didier Drogba",
+          "club": "Chelsea",
+          "goals": 20,
+          "games": 36,
+          "goals_per_game": 0.56
+        },
+        {
+          "season": "2007-08",
+          "player": "Cristiano Ronaldo",
+          "club": "Manchester United",
+          "goals": 31,
+          "games": 34,
+          "goals_per_game": 0.91
+        },
+        {
+          "season": "2008-09",
+          "player": "Nicolas Anelka",
+          "club": "Chelsea",
+          "goals": 19,
+          "games": 32,
+          "goals_per_game": 0.59
+        },
+        {
+          "season": "2009-10",
+          "player": "Didier Drogba",
+          "club": "Chelsea",
+          "goals": 29,
+          "games": 32,
+          "goals_per_game": 0.91
+        },
+        {
+          "season": "2010-11",
+          "player": "Dimitar Berbatov",
+          "club": "Manchester United",
+          "goals": 20,
+          "games": 32,
+          "goals_per_game": 0.62
+        },
+        {
+          "season": "2010-11",
+          "player": "Carlos Tevez",
+          "club": "Manchester City",
+          "goals": 20,
+          "games": 31,
+          "goals_per_game": 0.65
+        },
+        {
+          "season": "2011-12",
+          "player": "Robin van Persie",
+          "club": "Arsenal",
+          "goals": 30,
+          "games": 38,
+          "goals_per_game": 0.79
+        },
+        {
+          "season": "2012-13",
+          "player": "Robin van Persie",
+          "club": "Manchester United",
+          "goals": 26,
+          "games": 36,
+          "goals_per_game": 0.72
+        },
+        {
+          "season": "2013-14",
+          "player": "Luis Suarez",
+          "club": "Liverpool",
+          "goals": 31,
+          "games": 33,
+          "goals_per_game": 0.94
+        },
+        {
+          "season": "2014-15",
+          "player": "Sergio Aguero",
+          "club": "Manchester City",
+          "goals": 26,
+          "games": 33,
+          "goals_per_game": 0.79
+        },
+        {
+          "season": "2015-16",
+          "player": "Harry Kane",
+          "club": "Tottenham",
+          "goals": 25,
+          "games": 38,
+          "goals_per_game": 0.66
+        },
+        {
+          "season": "2016-17",
+          "player": "Harry Kane",
+          "club": "Tottenham",
+          "goals": 29,
+          "games": 30,
+          "goals_per_game": 0.97
+        },
+        {
+          "season": "2017-18",
+          "player": "Mohamed Salah",
+          "club": "Liverpool",
+          "goals": 32,
+          "games": 36,
+          "goals_per_game": 0.89
+        },
+        {
+          "season": "2018-19",
+          "player": "Pierre-Emerick Aubameyang",
+          "club": "Arsenal",
+          "goals": 22,
+          "games": 36,
+          "goals_per_game": 0.61
+        },
+        {
+          "season": "2018-19",
+          "player": "Sadio Mane",
+          "club": "Liverpool",
+          "goals": 22,
+          "games": 36,
+          "goals_per_game": 0.61
+        },
+        {
+          "season": "2018-19",
+          "player": "Mohamed Salah",
+          "club": "Liverpool",
+          "goals": 22,
+          "games": 38,
+          "goals_per_game": 0.58
+        },
+        {
+          "season": "2019-20",
+          "player": "Jamie Vardy",
+          "club": "Leicester City",
+          "goals": 23,
+          "games": 35,
+          "goals_per_game": 0.66
+        },
+        {
+          "season": "2020-21",
+          "player": "Harry Kane",
+          "club": "Tottenham",
+          "goals": 23,
+          "games": 35,
+          "goals_per_game": 0.66
+        },
+        {
+          "season": "2021-22",
+          "player": "Mohamed Salah",
+          "club": "Liverpool",
+          "goals": 23,
+          "games": 35,
+          "goals_per_game": 0.66
+        },
+        {
+          "season": "2021-22",
+          "player": "Son Heung-min",
+          "club": "Tottenham",
+          "goals": 23,
+          "games": 35,
+          "goals_per_game": 0.66
+        },
+        {
+          "season": "2022-23",
+          "player": "Erling Haaland",
+          "club": "Manchester City",
+          "goals": 36,
+          "games": 35,
+          "goals_per_game": 1.03
+        },
+        {
+          "season": "2023-24",
+          "player": "Erling Haaland",
+          "club": "Manchester City",
+          "goals": 27,
+          "games": 31,
+          "goals_per_game": 0.87
+        },
+        {
+          "season": "2024-25",
+          "player": "Mohamed Salah",
+          "club": "Liverpool",
+          "goals": 29,
+          "games": 33,
+          "goals_per_game": 0.88
+        }
+      ]
+    },
+    "width": 650,
+    "height": 350,
+    "layer": [
+      {
+        "mark": {
+          "type": "bar",
+          "color": "#38003c",
+          "opacity": 0.8
+        },
+        "encoding": {
+          "x": {
+            "field": "season",
+            "type": "ordinal",
+            "title": "Season",
+            "axis": {
+              "labelAngle": -45,
+              "labelFontSize": 9
             }
           },
-          {
-            "mark": {
-              "type": "point",
-              "filled": true,
-              "size": 40,
-              "color": "#e45756"
-            },
-            "encoding": {
-              "x": {
-                "field": "year",
-                "type": "ordinal"
-              },
-              "y": {
-                "field": "gas_price",
-                "type": "quantitative"
-              },
-              "tooltip": [
-                {
-                  "field": "year",
-                  "type": "ordinal",
-                  "title": "Year"
-                },
-                {
-                  "field": "gas_price",
-                  "type": "quantitative",
-                  "title": "Gas Price ($)",
-                  "format": ".2f"
-                }
+          "y": {
+            "field": "goals",
+            "type": "quantitative",
+            "title": "Goals Scored",
+            "scale": {
+              "domain": [
+                0,
+                45
               ]
             }
-          }
-        ]
+          },
+          "tooltip": [
+            {
+              "field": "player",
+              "type": "nominal",
+              "title": "Player"
+            },
+            {
+              "field": "club",
+              "type": "nominal",
+              "title": "Club"
+            },
+            {
+              "field": "goals",
+              "type": "quantitative",
+              "title": "Goals"
+            },
+            {
+              "field": "games",
+              "type": "quantitative",
+              "title": "Games"
+            },
+            {
+              "field": "goals_per_game",
+              "type": "quantitative",
+              "title": "Goals/Game"
+            }
+          ]
+        }
       },
       {
-        "title": {
-          "text": "Total EV & Hybrid Vehicle Sales",
-          "anchor": "start",
-          "fontSize": 13
+        "mark": {
+          "type": "line",
+          "color": "#e6550d",
+          "strokeWidth": 2,
+          "point": {
+            "color": "#e6550d",
+            "size": 30
+          }
         },
-        "width": 600,
-        "height": 180,
-        "layer": [
-          {
-            "mark": {
-              "type": "area",
-              "line": {
-                "color": "#4c78a8",
-                "strokeWidth": 2
-              },
-              "color": {
-                "x1": 1,
-                "y1": 1,
-                "x2": 1,
-                "y2": 0,
-                "gradient": "linear",
-                "stops": [
-                  {
-                    "offset": 0,
-                    "color": "rgba(76,120,168,0)"
-                  },
-                  {
-                    "offset": 1,
-                    "color": "rgba(76,120,168,0.25)"
-                  }
-                ]
-              }
-            },
-            "encoding": {
-              "x": {
-                "field": "year",
-                "type": "ordinal",
-                "title": "Year",
-                "axis": {
-                  "labelAngle": 0,
-                  "labelFontSize": 10
-                }
-              },
-              "y": {
-                "field": "total_ev_sales",
-                "type": "quantitative",
-                "title": "Vehicles Sold",
-                "axis": {
-                  "titleFontSize": 11,
-                  "format": "~s",
-                  "grid": true
-                }
-              }
-            }
+        "encoding": {
+          "x": {
+            "field": "season",
+            "type": "ordinal"
           },
-          {
-            "mark": {
-              "type": "point",
-              "filled": true,
-              "size": 40,
-              "color": "#4c78a8"
+          "y": {
+            "field": "goals_per_game",
+            "type": "quantitative",
+            "title": "Goals per Game",
+            "axis": {
+              "titleColor": "#e6550d"
             },
-            "encoding": {
-              "x": {
-                "field": "year",
-                "type": "ordinal"
-              },
-              "y": {
-                "field": "total_ev_sales",
-                "type": "quantitative"
-              },
-              "tooltip": [
-                {
-                  "field": "year",
-                  "type": "ordinal",
-                  "title": "Year"
-                },
-                {
-                  "field": "total_ev_sales",
-                  "type": "quantitative",
-                  "title": "EV/Hybrid Sales",
-                  "format": ","
-                }
+            "scale": {
+              "domain": [
+                0,
+                1.1
               ]
             }
           }
-        ]
+        }
       }
-    ]
+    ],
+    "resolve": {
+      "scale": {
+        "y": "independent"
+      }
+    }
   },
   "embed_options": {
     "renderer": "canvas",

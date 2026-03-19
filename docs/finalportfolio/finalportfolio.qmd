@@ -417,130 +417,61 @@ The top panel shows contraception use and unmet need for family planning, while 
 ## Exercise 4: Exercise 4 (Your masterpiece)
 ```{r}
 #| code-fold: true
+#| message: false
+#| warning: false
 
 library(tidyverse)
 library(vegawidget)
 library(jsonlite)
-library(readxl)
 
-# Load and clean gas prices
-gas_raw <- read_excel("gas_prices.xlsx")
-gas_raw <- gas_raw |>
-  rename(date = 1, gas_price = 2) |>
-  slice(-1) |>
-  mutate(date = as.Date(as.numeric(date), origin = "1899-12-30"),
-         gas_price = as.numeric(gas_price),
-         year = year(date)) |>
-  drop_na(date, gas_price)
+gb <- read_csv("prem_golden_boot.csv")
 
-gas_yearly <- gas_raw |>
-  group_by(year) |>
-  summarize(gas_price = round(mean(gas_price), 3))
+# calculate goals per game
+gb <- gb |> mutate(goals_per_game = round(goals / games, 2))
 
-# Load and clean EV/hybrid sales
-ev_raw <- read_excel("ev_hybrid_sales.xlsx")
-first_col <- colnames(ev_raw)[1]
-total_row <- ev_raw |> filter(str_detect(.data[[first_col]], "Total"))
-ev_total <- total_row |>
-  pivot_longer(-1, names_to = "year", values_to = "total_ev_sales") |>
-  mutate(year = as.integer(str_extract(year, "\\d{4}")),
-         total_ev_sales = as.numeric(total_ev_sales)) |>
-  drop_na(year, total_ev_sales) |>
-  select(year, total_ev_sales)
-
-# Merge
-gas_ev <- inner_join(gas_yearly, ev_total, by = "year")
-
-# Build vega-lite spec
 spec <- list(
   `$schema` = "https://vega.github.io/schema/vega-lite/v5.json",
   title = list(
-    text = "U.S. Gasoline Prices and EV/Hybrid Sales (2000-2024)",
+    text = "Premier League Golden Boot Winners (1992-2025)",
+    subtitle = "Comparing total goals scored with goals-per-game efficiency across 33 seasons",
     anchor = "start",
-    fontSize = 16
+    fontSize = 16,
+    subtitleFontSize = 12,
+    subtitleColor = "gray"
   ),
-  data = list(values = gas_ev),
-  vconcat = list(
+  data = list(values = gb),
+  width = 650,
+  height = 350,
+  layer = list(
     list(
-      title = list(text = "Average Retail Gasoline Price", anchor = "start", fontSize = 13),
-      width = 600,
-      height = 180,
-      layer = list(
-        list(
-          mark = list(
-            type = "area",
-            line = list(color = "#e45756", strokeWidth = 2),
-            color = list(
-              x1 = 1, y1 = 1, x2 = 1, y2 = 0,
-              gradient = "linear",
-              stops = list(
-                list(offset = 0, color = "rgba(228,87,86,0)"),
-                list(offset = 1, color = "rgba(228,87,86,0.25)")
-              )
-            )
-          ),
-          encoding = list(
-            x = list(field = "year", type = "ordinal", title = NULL,
-                     axis = list(labelAngle = 0, labelFontSize = 10)),
-            y = list(field = "gas_price", type = "quantitative",
-                     title = "Price per Gallon ($)",
-                     scale = list(domain = list(0, 4.5)),
-                     axis = list(titleFontSize = 11, grid = TRUE))
-          )
-        ),
-        list(
-          mark = list(type = "point", filled = TRUE, size = 40, color = "#e45756"),
-          encoding = list(
-            x = list(field = "year", type = "ordinal"),
-            y = list(field = "gas_price", type = "quantitative"),
-            tooltip = list(
-              list(field = "year", type = "ordinal", title = "Year"),
-              list(field = "gas_price", type = "quantitative", title = "Gas Price ($)", format = ".2f")
-            )
-          )
+      mark = list(type = "bar", color = "#38003c", opacity = 0.8),
+      encoding = list(
+        x = list(field = "season", type = "ordinal", title = "Season",
+                 axis = list(labelAngle = -45, labelFontSize = 9)),
+        y = list(field = "goals", type = "quantitative",
+                 title = "Goals Scored",
+                 scale = list(domain = list(0, 45))),
+        tooltip = list(
+          list(field = "player", type = "nominal", title = "Player"),
+          list(field = "club", type = "nominal", title = "Club"),
+          list(field = "goals", type = "quantitative", title = "Goals"),
+          list(field = "games", type = "quantitative", title = "Games"),
+          list(field = "goals_per_game", type = "quantitative", title = "Goals/Game")
         )
       )
     ),
     list(
-      title = list(text = "Total EV & Hybrid Vehicle Sales", anchor = "start", fontSize = 13),
-      width = 600,
-      height = 180,
-      layer = list(
-        list(
-          mark = list(
-            type = "area",
-            line = list(color = "#4c78a8", strokeWidth = 2),
-            color = list(
-              x1 = 1, y1 = 1, x2 = 1, y2 = 0,
-              gradient = "linear",
-              stops = list(
-                list(offset = 0, color = "rgba(76,120,168,0)"),
-                list(offset = 1, color = "rgba(76,120,168,0.25)")
-              )
-            )
-          ),
-          encoding = list(
-            x = list(field = "year", type = "ordinal", title = "Year",
-                     axis = list(labelAngle = 0, labelFontSize = 10)),
-            y = list(field = "total_ev_sales", type = "quantitative",
-                     title = "Vehicles Sold",
-                     axis = list(titleFontSize = 11, format = "~s", grid = TRUE))
-          )
-        ),
-        list(
-          mark = list(type = "point", filled = TRUE, size = 40, color = "#4c78a8"),
-          encoding = list(
-            x = list(field = "year", type = "ordinal"),
-            y = list(field = "total_ev_sales", type = "quantitative"),
-            tooltip = list(
-              list(field = "year", type = "ordinal", title = "Year"),
-              list(field = "total_ev_sales", type = "quantitative", title = "EV/Hybrid Sales", format = ",")
-            )
-          )
-        )
+      mark = list(type = "line", color = "#e6550d", strokeWidth = 2, point = list(color = "#e6550d", size = 30)),
+      encoding = list(
+        x = list(field = "season", type = "ordinal"),
+        y = list(field = "goals_per_game", type = "quantitative",
+                 title = "Goals per Game",
+                 axis = list(titleColor = "#e6550d"),
+                 scale = list(domain = list(0, 1.1)))
       )
     )
-  )
+  ),
+  resolve = list(scale = list(y = "independent"))
 )
 
 as_vegaspec(toJSON(spec, auto_unbox = TRUE))
