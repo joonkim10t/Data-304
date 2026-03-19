@@ -417,6 +417,7 @@ as_vegaspec(toJSON(spec, auto_unbox = TRUE))
 The top panel shows contraception use and unmet need for family planning, while the bottom panel shows the total fertility rate. Over 25 years, modern contraception use in Tanzania went from about 6% to 38% — a massive increase. You'd expect fertility to drop by a similar amount, but it barely moved, going from 6.2 to 5.2 children per woman. That's a decline, but a surprisingly small one given how much contraception access changed. Meanwhile, the percentage of women with unmet need for family planning stayed stubbornly flat around 22–28%, dipping slightly but never really dropping in a meaningful way. So even though more women are using contraception, there are still a lot of women who want to limit or space their pregnancies but aren't able to. The gap between rising contraception use and relatively flat fertility suggests that other factors — like desired family size, access to healthcare, and cultural norms — are playing a big role in keeping fertility rates high.
 
 ## Exercise 4 (Your masterpiece)
+### Part a
 ```{r}
 #| code-fold: true
 #| message: false
@@ -491,7 +492,7 @@ One thing I had to deal with was seasons where multiple players tied. 2018-19 ha
 I thought about doing a scatter plot instead — games on the x-axis, goals on the y — which would show efficiency more directly since the best scorers would be up in the top left. But you lose the timeline that way and I wanted to show how scoring trends changed over the years. I also considered just doing a plain bar chart without the line, but the goals-per-game layer adds something extra without making it too busy.
 
 ### Part C 
-I got a data from here (https://www.premierleague.com/en/news/1206108)
+The data comes from the [Premier League's official Golden Boot page](https://www.premierleague.com/en/news/1206108), which tracks the top scorer for every Premier League season going back to 1992-93. For each winner I recorded the player's name, their club, total goals scored, and how many games they played that season. I also calculated a goals-per-game ratio from those numbers. Some seasons had ties — like 2018-19 when Aubameyang, Mane, and Salah all finished on 22 goals — and in those cases I kept the player with the best goals-per-game ratio to keep the chart clean and avoid overlapping bars.
 
 ## Exercise 5: Using Your Palette
 
@@ -517,7 +518,7 @@ g. **Another kind of interaction:** Honestly I didn't go crazy with this one. I 
 
 2. **Independent scale resolution (Exercise 4):** The Golden Boot chart has bars for total goals and a line for goals-per-game, which are on totally different scales. I needed them to have their own y-axes, and after some searching I ended up on the Resolve page under View Composition in the Vega-Lite documentation. It explains how `"shared"` vs `"independent"` works for layered views. Once I set `resolve: { scale: { y: "independent" } }` it clicked into place and the dual axis setup finally made sense. ([Vega-Lite Resolve documentation](https://vega.github.io/vega-lite/docs/resolve.html))
 
-3. 3. **strokeDash for the reference line (Exercise 1, Graphic 2):** For the twin comparison scatterplot I wanted a dashed diagonal line to show where perfect agreement would be. I got the idea from the "Line chart with varying stroke dash" example in the Vega-Lite example gallery — that one uses `strokeDash` to tell apart different stock tickers in a multi-line chart. I basically took the same idea but instead of mapping it to a field, I just set `strokeDash: [6, 4]` as a fixed value on my reference line. Had to dig into the mark properties docs a bit to figure out how to do it as a constant instead of an encoding, but once I got it working I think it makes it pretty clear that the diagonal line is just a reference and not actual data. ([Vega-Lite Example Gallery — "Line chart with varying stroke dash"](https://vega.github.io/vega-lite/examples/line_strokedash.html), [Vega-Lite Mark properties](https://vega.github.io/vega-lite/docs/mark.html))
+3. **strokeDash for the reference line (Exercise 1, Graphic 2):** For the twin comparison scatterplot I wanted a dashed diagonal line to show where perfect agreement would be. I got the idea from the "Line chart with varying stroke dash" example in the Vega-Lite example gallery — that one uses `strokeDash` to tell apart different stock tickers in a multi-line chart. I basically took the same idea but instead of mapping it to a field, I just set `strokeDash: [6, 4]` as a fixed value on my reference line. Had to dig into the mark properties docs a bit to figure out how to do it as a constant instead of an encoding, but once I got it working I think it makes it pretty clear that the diagonal line is just a reference and not actual data. ([Vega-Lite Example Gallery — "Line chart with varying stroke dash"](https://vega.github.io/vega-lite/examples/line_strokedash.html), [Vega-Lite Mark properties](https://vega.github.io/vega-lite/docs/mark.html))
 
 ### Part b
 
