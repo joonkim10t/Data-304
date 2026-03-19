@@ -439,7 +439,8 @@ gas_yearly <- gas_raw |>
 
 # Load and clean EV/hybrid sales
 ev_raw <- read_excel("ev_hybrid_sales.xlsx")
-total_row <- ev_raw |> filter(str_detect(.[[1]], "Total"))
+first_col <- colnames(ev_raw)[1]
+total_row <- ev_raw |> filter(str_detect(.data[[first_col]], "Total"))
 ev_total <- total_row |>
   pivot_longer(-1, names_to = "year", values_to = "total_ev_sales") |>
   mutate(year = as.integer(str_extract(year, "\\d{4}")),
