@@ -507,7 +507,23 @@ f. **Tooltips:** Pretty much every graphic has them. The most important ones are
 
 g. **Another kind of interaction:** Honestly I didn't go crazy with this one. I have code-fold turned on everywhere so the code stays hidden unless someone clicks to expand it, which keeps the page clean. I thought about adding brushing or a slider to filter by season range in Exercise 4, but it felt like overkill for this particular chart — the tooltips already give you what you need.
 
+## Exercise 6: Keep Learning
 
+### Part a
+
+1. **yOffset encoding (Exercise 1, Graphic 1):** For the twin genetics dot plot, I needed a way to separate the Twin A and Twin B dots so they wouldn't just stack on top of each other within each ancestry region. I found the `yOffset` channel by poking around the vegabrite Reference page — it documents a `vl_encode_yOffset` function that caught my eye. That led me to the Vega-Lite encoding docs where they explain how offset channels work. It was really useful for dodging overlapping points without having to restructure my whole data layout. ([vegabrite Reference](https://vegawidget.github.io/vegabrite/reference/vl_encode_yOffset.html), [Vega-Lite Encoding docs](https://vega.github.io/vega-lite/docs/encoding.html))
+
+2. **Independent scale resolution (Exercise 4):** The Golden Boot chart has bars for total goals and a line for goals-per-game, which are on totally different scales. I needed them to have their own y-axes, and after some searching I ended up on the Resolve page under View Composition in the Vega-Lite documentation. It explains how `"shared"` vs `"independent"` works for layered views. Once I set `resolve: { scale: { y: "independent" } }` it clicked into place and the dual axis setup finally made sense. ([Vega-Lite Resolve documentation](https://vega.github.io/vega-lite/docs/resolve.html))
+
+3. 3. **strokeDash for the reference line (Exercise 1, Graphic 2):** For the twin comparison scatterplot I wanted a dashed diagonal line to show where perfect agreement would be. I got the idea from the "Line chart with varying stroke dash" example in the Vega-Lite example gallery — that one uses `strokeDash` to tell apart different stock tickers in a multi-line chart. I basically took the same idea but instead of mapping it to a field, I just set `strokeDash: [6, 4]` as a fixed value on my reference line. Had to dig into the mark properties docs a bit to figure out how to do it as a constant instead of an encoding, but once I got it working I think it makes it pretty clear that the diagonal line is just a reference and not actual data. ([Vega-Lite Example Gallery — "Line chart with varying stroke dash"](https://vega.github.io/vega-lite/examples/line_strokedash.html), [Vega-Lite Mark properties](https://vega.github.io/vega-lite/docs/mark.html))
+
+### Part b
+
+1. **Avoiding stacked bars (Wilke, Chapter 10 — "Visualizing Proportions"):** Wilke talks about how stacked bars only really work for the bottom segment because everything above it doesn't share a common baseline, which makes comparisons harder. This came up in two places for me — in Exercise 1 I went with a dot plot instead of a stacked bar for comparing the three genetic kits, and in Exercise 2 I swapped out the original stacked bar chart for separate lines. In both cases it made the comparisons way easier once each category had its own baseline. ([Chapter 10, Section 10.3](https://clauswilke.com/dataviz/visualizing-proportions.html#stacked-densities))
+
+2. **Redundant coding (Wilke, Chapter 20 — "Redundant Coding"):** Wilke makes the point that you should encode the same variable through multiple visual channels so that the information still comes through if someone can't pick up on one of them. I did this in Exercise 1 Graphic 1 where I mapped the genetic kit to both color and shape — so even if someone has trouble distinguishing the colors, the circle vs square vs triangle still tells you which kit is which. ([Chapter 20](https://clauswilke.com/dataviz/redundant-coding.html))
+
+3. **Time series with two response variables (Wilke, Chapter 13 — "Visualizing Time Series"):** Wilke discusses how to handle two response variables over time, including the pitfalls of dual y-axes. I ran into this exact problem in Exercise 4 with the Golden Boot chart — goals scored and goals-per-game are on completely different scales, so I had to think about how to layer them without making it misleading. I ended up using independent y-axes with different mark types (bars vs line) to keep things readable. ([Chapter 13, Section 13.3](https://clauswilke.com/dataviz/time-series.html#time-series-connected-scatter))
 
 
 
